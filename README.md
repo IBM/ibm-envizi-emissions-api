@@ -1,2 +1,1 @@
-# ibm-envizi-embedded-emissions
-IBM Envizi Embedded Emissions documentation
+# IBM Envizi - Emissions API
