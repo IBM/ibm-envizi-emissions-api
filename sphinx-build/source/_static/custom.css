@@ -1,0 +1,16 @@
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background: #f8f8f8;
+}
+
+div.nboutput.container div.output_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background: #fcfcfc;
+}
+
+/* Make code cells more readable */
+.highlight {
+    background: #f8f8f8;
+}
