@@ -5,3 +5,4 @@ This project relates to [IBM Envizi - Emissions API](https://www.ibm.com/product
 Repository Maintainers:
 - Steffan J. Taylor (taylorsteffanj)
 - Neha Anil (Neha-Anil)
+- Santhosh Ramalingam T (santhosh0703)
