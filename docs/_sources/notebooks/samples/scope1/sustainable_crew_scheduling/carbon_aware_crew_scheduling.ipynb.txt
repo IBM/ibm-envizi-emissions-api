@@ -1,0 +1,728 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Carbon-aware fleet vehicle selection for crews"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Table of contents**\n",
+    "\n",
+    "- Overview\n",
+    "- Setup\n",
+    "  - Get Token\n",
+    "- Utility Functions\n",
+    "    - Function to call API\n",
+    "    - Input format for API\n",
+    "    - Accepted input values\n",
+    "- Use Case Implementation\n",
+    "  - Fastest route\n",
+    "  - Shortest route\n",
+    "  - Comparison Between Routes\n",
+    "- Related Links"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Overview"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "APIs that are used in this sample: **IBM Envizi - Emissions API, Mobile Emissions API**\n",
+    "\n",
+    "You can calculate the emissions produced based on the type of vehicle and fuel type for a given route. This approach helps you to choose the most sustainable option for task completion, while balancing operational cost and environmental responsibility.\n",
+    "\n",
+    "The U.S. Environmental Protection Agency calculates that the transportation sector generates the largest share, approximately 29%, of Greenhouse Gas Emissions. As a result, carbon-responsible enterprises are focusing on reducing transportation-related emissions where possible. A carbon-aware approach to vehicle selection for crews has the potential to reduce the carbon footprint of an organization, while still fulfilling work orders.\n",
+    "\n",
+    "**Business value**\n",
+    "- Reduction of carbon footprint\n",
+    "- Sustainable work order fulfillment\n",
+    "\n",
+    "**Use Case**\n",
+    "\n",
+    "Consider a scenario where a utility company needs to dispatch a crew for maintenance. We can evaluate a vehicle's emissions based on the vehicle type and fuel type.\n",
+    "\n",
+    "For more information on the inputs and output data points for the Emissions API- Mobile endpoint, see the [Emissions API Developer Guide](https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Mobile) or take a look at the [Data Catalog](https://emissions.app.ibm.com/factor-catalog).\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "\n",
+    "![carbon_aware_crew_scheduling.png](carbon_aware_crew_scheduling.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Setup"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ensure that Python 3+ is installed on your system.\n",
+    "\n",
+    "\n",
+    "<b>Note:</b> To run this notebook, you must first add your credentials to `'../../../auth/secrets.ini'` in the following format:\n",
+    "\n",
+    "```\n",
+    "[EAPI]\n",
+    "api.api_key = <Your Emissions API Key>\n",
+    "api.tenant_id = <Your Emissions API Tenant Id>\n",
+    "api.org_id = <Your Emissions API Org Id>\n",
+    "\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Install the prerequisite Python packages\n",
+    "%pip install pandas configparser json IPython matplotlib"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import configparser\n",
+    "import requests\n",
+    "import json\n",
+    "from IPython.display import display as display_summary\n",
+    "import matplotlib.pyplot as plt"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Authorization Token"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Run the following code snippet to generate a Bearer Token by using your api_key configured in secrets.ini."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Authentication Success\n"
+     ]
+    }
+   ],
+   "source": [
+    "config = configparser.RawConfigParser()\n",
+    "config.read(['../../../auth/secrets.ini','../../../auth/config.ini'])\n",
+    "\n",
+    "EAPI_API_KEY        = config.get('EAPI', 'api.api_key')\n",
+    "EAPI_TENANT_ID      = config.get('EAPI', 'api.tenant_id')\n",
+    "EAPI_CLIENT_ID      = 'ghgemissions-' + EAPI_TENANT_ID\n",
+    "EAPI_ORG_ID         = config.get('EAPI', 'api.org_id')\n",
+    "\n",
+    "EAPI_AUTH_CLIENT_ID = 'saascore-' + EAPI_TENANT_ID\n",
+    "EAPI_AUTH_ENDPOINT  = config.get('EAPI', 'api.auth_endpoint')\n",
+    "\n",
+    "EAPI_BASE_URL       = config.get('EAPI', 'api.base_url')\n",
+    "EAPI_ENDPOINT       = f\"{EAPI_BASE_URL}/mobile\"\n",
+    "\n",
+    "auth_request_headers: dict = {}\n",
+    "auth_request_headers[\"X-IBM-Client-Id\"] = EAPI_AUTH_CLIENT_ID\n",
+    "auth_request_headers[\"X-API-Key\"] = EAPI_API_KEY\n",
+    "\n",
+    "verify = True\n",
+    "\n",
+    "auth_url = f\"{EAPI_AUTH_ENDPOINT}/api-key?orgId={EAPI_ORG_ID}\"\n",
+    "              \n",
+    "response = requests.get(url = auth_url,\n",
+    "                        headers = auth_request_headers,\n",
+    "                        verify  = verify\n",
+    "                       )\n",
+    "if response.status_code == 200:\n",
+    "    jwt_token = response.text\n",
+    "    print(\"Authentication Success\")\n",
+    "else:     \n",
+    "    print(\"Authentication Failed\")\n",
+    "    print(response.text)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Use Case Implementation"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Petrol"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now, using the Mobile Emissions API, calculate the emissions for a petrol vehicle. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "petrol_payload = {\n",
+    "  \"activity\": {\n",
+    "    \"type\": \"Passenger Vehicles - Medium Car - Petrol\",\n",
+    "    \"value\": 100,\n",
+    "    \"unit\": \"mi\"\n",
+    "  },\n",
+    "  \"location\": {\n",
+    "    \"country\": \"USA\",\n",
+    "    \"stateProvince\": \"New York\"\n",
+    "  },\n",
+    "  \"time\": {\n",
+    "    \"date\": \"2025-01-01\"\n",
+    "  }\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create the query headers\n",
+    "request_headers: dict = {}\n",
+    "request_headers[\"Content-Type\"] = \"application/json\"\n",
+    "request_headers[\"x-ibm-client-id\"] = EAPI_CLIENT_ID\n",
+    "request_headers[\"Authorization\"] = \"Bearer \" + jwt_token"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Submit the request\n",
+    "petrol_response = requests.post(EAPI_ENDPOINT, \n",
+    "                                headers = request_headers, \n",
+    "                                data = json.dumps(petrol_payload))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>transactionId</th>\n",
+       "      <th>totalCO2e</th>\n",
+       "      <th>CO2</th>\n",
+       "      <th>CH4</th>\n",
+       "      <th>N2O</th>\n",
+       "      <th>unit</th>\n",
+       "      <th>description</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>ad4f34c3-75b8-4515-8ec8-ee7bfe62e628</td>\n",
+       "      <td>28.527232</td>\n",
+       "      <td>28.417796</td>\n",
+       "      <td>0.057936</td>\n",
+       "      <td>0.051499</td>\n",
+       "      <td>kgCO2e</td>\n",
+       "      <td>The passenger vehicles - medium car - petrol emissions factor used to calculate this result was obtained from the 2024 Managed - DEFRA factor set</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                          transactionId  totalCO2e        CO2       CH4  \\\n",
+       "0  ad4f34c3-75b8-4515-8ec8-ee7bfe62e628  28.527232  28.417796  0.057936   \n",
+       "\n",
+       "        N2O    unit  \\\n",
+       "0  0.051499  kgCO2e   \n",
+       "\n",
+       "                                                                                                                                         description  \n",
+       "0  The passenger vehicles - medium car - petrol emissions factor used to calculate this result was obtained from the 2024 Managed - DEFRA factor set  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "if petrol_response.text != \"\":\n",
+    "    # Get the response as json\n",
+    "    response_json = petrol_response.json()\n",
+    "    \n",
+    "    # Get json and convert to dataframe\n",
+    "    json_str = json.dumps(response_json)\n",
+    "    dict = json.loads(json_str)\n",
+    "    dataframe = pd.json_normalize(dict) \n",
+    "    \n",
+    "    # display\n",
+    "    print(\"\\n\\n\")\n",
+    "    pd.set_option('display.max_colwidth', None)\n",
+    "    display( dataframe) \n",
+    "else:\n",
+    "    print(\"Empty Response\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Diesel"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Using the Emissions API- Mobile endpoint, calculate the emissions for a diesel vehicle."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "diesel_payload = {\n",
+    "  \"activity\": {\n",
+    "    \"type\": \"Passenger Vehicles - Medium Car - Diesel\",\n",
+    "    \"value\": 100,\n",
+    "    \"unit\": \"mi\"\n",
+    "  },\n",
+    "  \"location\": {\n",
+    "    \"country\": \"USA\",\n",
+    "    \"stateProvince\": \"New York\"\n",
+    "  },\n",
+    "  \"time\": {\n",
+    "    \"date\": \"2025-01-01\"\n",
+    "  }\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create the query headers\n",
+    "request_headers: dict = {}\n",
+    "request_headers[\"Content-Type\"] = \"application/json\"\n",
+    "request_headers[\"x-ibm-client-id\"] = EAPI_CLIENT_ID\n",
+    "request_headers[\"Authorization\"] = \"Bearer \" + jwt_token"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Submit the request\n",
+    "diesel_response = requests.post(EAPI_ENDPOINT, \n",
+    "                                headers = request_headers, \n",
+    "                                data = json.dumps(diesel_payload))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>transactionId</th>\n",
+       "      <th>totalCO2e</th>\n",
+       "      <th>CO2</th>\n",
+       "      <th>N2O</th>\n",
+       "      <th>unit</th>\n",
+       "      <th>description</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>d17e04f7-79bf-45b1-a9b2-8d47e6f9ef3c</td>\n",
+       "      <td>27.048245</td>\n",
+       "      <td>26.779484</td>\n",
+       "      <td>0.26876</td>\n",
+       "      <td>kgCO2e</td>\n",
+       "      <td>The passenger vehicles - medium car - diesel emissions factor used to calculate this result was obtained from the 2024 Managed - DEFRA factor set</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                          transactionId  totalCO2e        CO2      N2O  \\\n",
+       "0  d17e04f7-79bf-45b1-a9b2-8d47e6f9ef3c  27.048245  26.779484  0.26876   \n",
+       "\n",
+       "     unit  \\\n",
+       "0  kgCO2e   \n",
+       "\n",
+       "                                                                                                                                         description  \n",
+       "0  The passenger vehicles - medium car - diesel emissions factor used to calculate this result was obtained from the 2024 Managed - DEFRA factor set  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "if diesel_response.text != \"\":\n",
+    "    # Get the response as json\n",
+    "    response_json = diesel_response.json()\n",
+    "    \n",
+    "    # Get json and convert to dataframe\n",
+    "    json_str = json.dumps(response_json)\n",
+    "    dict = json.loads(json_str)\n",
+    "    dataframe = pd.json_normalize(dict) \n",
+    "    \n",
+    "    # display\n",
+    "    print(\"\\n\\n\")\n",
+    "    pd.set_option('display.max_colwidth', None)\n",
+    "    display( dataframe) \n",
+    "else:\n",
+    "    print(\"Empty Response\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Hybrid"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Using the Emissions API- Mobile endpoint, calculate the emissions for a hybrid vehicle."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "hybrid_payload = {\n",
+    "  \"activity\": {\n",
+    "    \"type\": \"Passenger Vehicles - Medium Car - Hybrid\",\n",
+    "    \"value\": 100,\n",
+    "    \"unit\": \"mi\"\n",
+    "  },\n",
+    "  \"location\": {\n",
+    "    \"country\": \"USA\",\n",
+    "    \"stateProvince\": \"New York\"\n",
+    "  },\n",
+    "  \"time\": {\n",
+    "    \"date\": \"2025-01-01\"\n",
+    "  }\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create the query headers\n",
+    "request_headers: dict = {}\n",
+    "request_headers[\"Content-Type\"] = \"application/json\"\n",
+    "request_headers[\"x-ibm-client-id\"] = EAPI_CLIENT_ID\n",
+    "request_headers[\"Authorization\"] = \"Bearer \" + jwt_token"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Submit the request\n",
+    "hybrid_response = requests.post(EAPI_ENDPOINT, \n",
+    "                                headers = request_headers, \n",
+    "                                data = json.dumps(hybrid_payload))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "\n",
+      "\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>transactionId</th>\n",
+       "      <th>totalCO2e</th>\n",
+       "      <th>CO2</th>\n",
+       "      <th>CH4</th>\n",
+       "      <th>N2O</th>\n",
+       "      <th>unit</th>\n",
+       "      <th>description</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>0cd3e0a6-3fe2-460c-a3e8-3005e8d19a7b</td>\n",
+       "      <td>18.491363</td>\n",
+       "      <td>18.296632</td>\n",
+       "      <td>0.027359</td>\n",
+       "      <td>0.167372</td>\n",
+       "      <td>kgCO2e</td>\n",
+       "      <td>The passenger vehicles - medium car - hybrid emissions factor used to calculate this result was obtained from the 2024 Managed - DEFRA factor set</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                          transactionId  totalCO2e        CO2       CH4  \\\n",
+       "0  0cd3e0a6-3fe2-460c-a3e8-3005e8d19a7b  18.491363  18.296632  0.027359   \n",
+       "\n",
+       "        N2O    unit  \\\n",
+       "0  0.167372  kgCO2e   \n",
+       "\n",
+       "                                                                                                                                         description  \n",
+       "0  The passenger vehicles - medium car - hybrid emissions factor used to calculate this result was obtained from the 2024 Managed - DEFRA factor set  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "if hybrid_response.text != \"\":\n",
+    "    # Get the response as json\n",
+    "    response_json = hybrid_response.json()\n",
+    "    \n",
+    "    # Get json and convert to dataframe\n",
+    "    json_str = json.dumps(response_json)\n",
+    "    dict = json.loads(json_str)\n",
+    "    dataframe = pd.json_normalize(dict) \n",
+    "    \n",
+    "    # display\n",
+    "    print(\"\\n\\n\")\n",
+    "    pd.set_option('display.max_colwidth', None)\n",
+    "    display( dataframe) \n",
+    "else:\n",
+    "    print(\"Empty Response\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "You can check the accepted values for the individual fields of the request payload. For more information, see [Emissions API Developer Guide](https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Mobile)."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Comparison Between Vehicles"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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IiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItlikCEiIiLZYpAhIiIi2WKQISIiItnS6CATHh4OhUKh9HB1dVV3WURERKQhdNRdwKs0aNAAP//8s/RcR0fjSyYiIqJKovGpQEdHB7a2tuoug4iIiDSQRh9aAoDk5GTY29ujVq1aCAwMxI0bN0rsn5OTg4yMDKUHERERvZk0Osi0bNkScXFxSEhIwPLly5GSkgIfHx88efKk2Hmio6Nhbm4uPRwdHSuxYiIiIqpMGh1kunTpgvfffx/u7u7w8/PD7t278fjxY3z//ffFzhMWFob09HTpcfPmzUqsmIiIiCqTxp8j8yILCwvUrVsXV69eLbaPvr4+9PX1K7EqIiIiUheNHpF5WWZmJq5duwY7Ozt1l0JEREQaQKODzKRJk3Dw4EGkpqbi2LFj6NWrF7S1tTFgwAB1l0ZEREQaQKMPLd26dQsDBgzAgwcPULVqVbzzzjs4ceIEqlatqu7SiIiISANodJDZsGGDuksgIiIiDabRh5aIiIiISsIgQ0RERLLFIENERESyxSBDREREssUgQ0RERLLFIENERESyxSBDREREssUgQ0RERLLFIENERESyxSBDREREssUgQ0RERLLFIENERESyxSBDREREssUgQ0RERLLFIENERESyxSBDREREssUgQ0RERLLFIENERESyxSBDREREssUgQ0RERLLFIENERESyxSBDREREssUgQ0RERLLFIENERESyxSBDREREssUgQ0RERLLFIENERESyxSBDREREssUgQ0RERLLFIENERESyxSBDREREssUgQ0RERLLFIENE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",
+      "text/plain": [
+       "<Figure size 640x480 with 1 Axes>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "import matplotlib.pyplot as plt\n",
+    "\n",
+    "fig, ax = plt.subplots()\n",
+    "\n",
+    "vehicles = ['Petrol', 'Diesel', 'Hybrid']\n",
+    "emissions = [round(petrol_response.json()['totalCO2e'], 3),\n",
+    "             round(diesel_response.json()['totalCO2e'], 3),\n",
+    "             round(hybrid_response.json()['totalCO2e'], 3)]\n",
+    "bar_labels = ['Petrol', 'Diesel', 'Hybrid']\n",
+    "bar_colors = ['tab:red', 'tab:blue', 'tab:green']\n",
+    "\n",
+    "ax.bar(vehicles, emissions, label=bar_labels, color=bar_colors)\n",
+    "\n",
+    "ax.set_ylabel('total CO2e')\n",
+    "ax.set_title('Vehicle type by total CO2e emissions')\n",
+    "ax.legend(title='Vehicle Type')\n",
+    "\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Related Links"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "[Emissions API Developer Guide](https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Introduction)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

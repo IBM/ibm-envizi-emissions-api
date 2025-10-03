@@ -1,7 +1,7 @@
 Scope 1
 =======
 
-This section contains tutorials for Scope 2 emissions calculations.
+This section contains tutorials for Scope 1 emissions calculations.
 
 .. toctree::
    :maxdepth: 1

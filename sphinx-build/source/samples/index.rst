@@ -1,11 +1,10 @@
 Samples
 =========
 
-This section contains samples of Emission APIs' usage.
+This section contains sample application notebooks.
 
 .. toctree::
-   :maxdepth: 3
-   :caption: Tutorial Categories:
+   :maxdepth: 2
+   :caption: Sample Applications:
 
-
-   scope1/environmental_impact_of_power_plant/index
+   scope1/index   

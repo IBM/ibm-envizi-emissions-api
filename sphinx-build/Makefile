@@ -37,6 +37,7 @@ notebooks:
 	@mkdir -p $(NOTEBOOKS_DEST)/tutorials/scope3
 	@mkdir -p $(NOTEBOOKS_DEST)/samples/scope1/environmental_impact_of_power_plant
 	@cp $(NOTEBOOKS_SRC)/introduction.ipynb $(NOTEBOOKS_DEST)
+	@cp $(NOTEBOOKS_SRC)/getting_started.ipynb $(NOTEBOOKS_DEST)
 	@cp $(NOTEBOOKS_SRC)/tutorials/general/*.ipynb $(NOTEBOOKS_DEST)/tutorials/general/
 	@cp $(NOTEBOOKS_SRC)/tutorials/scope1/*.ipynb $(NOTEBOOKS_DEST)/tutorials/scope1/
 	@cp $(NOTEBOOKS_SRC)/tutorials/scope2/*.ipynb $(NOTEBOOKS_DEST)/tutorials/scope2/
