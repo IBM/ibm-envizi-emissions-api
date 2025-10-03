@@ -6,9 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'IBM Envizi Emissions API'
+project = 'IBM Envizi - Emissions API'
 copyright = '2025, IBM Corporation'
-author = 'Neha A'
+author = 'Neha Anil, Steffan Taylor'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

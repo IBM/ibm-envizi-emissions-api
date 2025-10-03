@@ -108,7 +108,6 @@
     "|United Nations|Intergovernmental Panel on Climate Change|[IPCC Assessment Reports (AR4)](https://www.ipcc.ch/report/ar4/syr/)|AR4|- Scope 1: fossil fuels, biofuels, refrigerants|Earth|N/A|\n",
     "|United Nations|Intergovernmental Panel on Climate Change|[IPCC Assessment Reports (AR5)](https://www.ipcc.ch/report/ar5/syr/)|AR5|- Scope 1: fossil fuels, biofuels, refrigerants|Earth|N/A|\n",
     "|United Nations|Intergovernmental Panel on Climate Change|[IPCC Assessment Reports (AR6)](https://www.ipcc.ch/report/ar6/wg1/)|AR6|- Scope 1: fossil fuels, biofuels, refrigerants|Earth|N/A|\n",
-    "|Greenhouse Gas Protocol||[Emission Factors from Cross-Sector Tools](https://ghgprotocol.org/sites/default/files/2024-05/Emission_Factors_for_Cross_Sector_Tools_V2.0_0.xlsx)|GHG Protocol|- Scope 1: fossil fuels, biofuels, refrigerants, passenger and delivery vehicles (distance based) - Scope 2: UK electricity, UK electricity for electric vehicles, heat and steam - Scope 3: upstream and downstream emissions resulting from Scope 1 and 2 emission sources|Earth, United States of America, United Kingdom|N/A|\n",
     "|The Institute for Global Environmental Strategies (IGES)||[IGES List of Grid Emission Factors](https://www.iges.or.jp/en/pub/list-grid-emission-factor/en)|IGES|- Scope 2: electricity|Antigua and Barbuda, Argentina, Armenia, Bangladesh, Belize, Benin, Botswana, Brazil, Burkina Faso, Cambodia, Cape Verde, Chile, China, Colombia, Côte d’Ivoire, Democratic Republic of the Congo, Dominican Republic, Ecuador, Gambia, Georgia, Ghana, Guyana, Grenada, Honduras, India, Indonesia, Jamaica, Republic of Kenya, Lao PDR, Lesotho, Malaysia, Mali, Mexico, Mongolia, Mauritius, Mozambique, Namibia, Niger, Nigeria, Pakistan, Peru, Philippines, Rwanda, Saint Kitts and Nevis, Sao Tome and Principe, Senegal, Singapore, South Africa, Sri Lanka, Sudan, Swaziland, Thailand, Togo, Uganda, Vietnam, Zambia, Zimbabwe|Region dependent|"
    ]
   },
@@ -177,19 +176,7 @@
     "\n",
     "- Organizations can use mobile emissions API to reduce of carbon footprint in sustainable work order fulfillment\n",
     "\n",
-    "- [View Sustainable crew scheduling use case](../samples/scope1/sustainable_crew_scheduling/carbon_aware_crew_scheduling.ipynb)\n",
-    "\n",
-    "**Datacenter emission capture** \n",
-    "\n",
-    "- Data center operators can assess their environmental impact for reporting and identify opportunities for emission reduction on data center using Location and market based emissions API\n",
-    "\n",
-    "- [View Datacenter emission capture use case](../samples/scope2/datacenter_emission_capture/datacenter_emission_capture.ipynb)\n",
-    "\n",
-    "**Freight transport emission capture**\n",
-    "\n",
-    "- Organizations can make data-driven decisions about supply chain management and and their corresponding environmental impact\n",
-    "\n",
-    "- [View Freight transport emission capture use case](../samples/scope3/freight_transport_emission_capture/freight_transport_emission_capture.ipynb)"
+    "- [View Sustainable crew scheduling use case](../samples/scope1/sustainable_crew_scheduling/carbon_aware_crew_scheduling.ipynb)"
    ]
   },
   {
@@ -203,7 +190,15 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "[Emissions API Developer Guide]()\n",
+    "### Emissions API\n",
+    "\n",
+    "[OpenAPI Documentation](https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Introduction)\n",
+    "\n",
+    "[Excel Add-in](https://ibm.github.io/ibm-envizi-emissions-api-excel-addin/)\n",
+    "\n",
+    "[Node.js SDK](https://github.com/IBM/ibm-envizi-emissions-api-nodejs-sdk)\n",
+    "\n",
+    "### General\n",
     "\n",
     "[Understanding GHG Emissions](https://www.ibm.com/topics/greenhouse-gas-emissions)\n",
     "\n",

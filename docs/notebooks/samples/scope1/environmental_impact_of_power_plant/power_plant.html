@@ -3,14 +3,14 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="Tutorials" href="../../../../tutorials/index.html" /><link rel="prev" title="Scope 1" href="../../../../samples/scope1/environmental_impact_of_power_plant/index.html" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="Getting Insights About Refrigeration Leaks" href="../refrigeration_leaks_insights/refrigeration_leaks_insights.html" /><link rel="prev" title="Scope 1" href="../../../../samples/scope1/index.html" />
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2025.07.19 -->
-        <title>Calculating the Environmental Impact of Power Plants - IBM Envizi Emissions API documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=25af2a20" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
+        <title>Calculating the Environmental Impact of Power Plants - IBM Envizi - Emissions API documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=362ab14a" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=387cc868" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/nbsphinx-code-cells.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=36a5483c" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=8d04aa46" />
     
     
@@ -18,20 +18,20 @@
 
 <style>
   body {
-    --color-code-background: #f2f2f2;
-  --color-code-foreground: #1e1e1e;
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -90,6 +90,19 @@
       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
     </svg>
   </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
   <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
     <title>Auto light/dark, in light mode</title>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -130,7 +143,7 @@
       <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
       <path d="M13.5 6.5l4 4" />
       <path d="M20 21l2 -2l-2 -2" />
-      <path d="M17 17l-2 2l2 2" />
+      <path d="M17 17l-2 2l2 2" /
     </svg>
   </symbol>
   <symbol id="svg-eye" viewBox="0 0 24 24">
@@ -168,7 +181,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">IBM Envizi Emissions API  documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">IBM Envizi - Emissions API  documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -191,7 +204,8 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../index.html">
   
-  <span class="sidebar-brand-text">IBM Envizi Emissions API  documentation</span>
+  
+  <span class="sidebar-brand-text">IBM Envizi - Emissions API  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -201,11 +215,13 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../../../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introducing IBM Envizi - Emissions API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../../../samples/index.html">Samples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Samples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../../../../samples/scope1/environmental_impact_of_power_plant/index.html">Scope 1</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scope 1</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../../../../samples/scope1/index.html">Scope 1</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scope 1</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Calculating the Environmental Impact of Power Plants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../refrigeration_leaks_insights/refrigeration_leaks_insights.html">Getting Insights About Refrigeration Leaks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sustainable_crew_scheduling/carbon_aware_crew_scheduling.html">Carbon-aware fleet vehicle selection for crews</a></li>
 </ul>
 </li>
 </ul>
@@ -299,17 +315,12 @@
 <p>The <strong>IBM Envizi - Emissions API, Stationary Emissions API</strong> is used in this sample application.</p>
 <p>This notebook illustrates how to calculate greenhouse gas emissions for different types of power plants. In the energy sector, emissions can vary significantly depending on the type of fuel used and the energy content that is associated with that fuel. The API allows us to calculate emissions based on the fuel type and fuel consumption amount.</p>
 <p>The primary focus of this notebook is calculating emissions for different fuel types such as coal, oil, natural gas, and biomass, based on a given energy consumption using the <strong>Stationary Emissions API</strong>.</p>
-<p>Read this example to learn how to complete the following tasks:</p>
-<ul class="simple">
-<li><p>Input specific fuel data and energy content for various fuels.</p></li>
-<li><p>Retrieve and analyze emissions data based on the given energy content.</p></li>
-<li><p>Understand the impact of different fuels on overall GHG emissions in the power sector.</p></li>
-</ul>
+<p>Read this example to learn how to complete the following tasks: - Input specific fuel data and energy content for various fuels. - Retrieve and analyze emissions data based on the given energy content. - Understand the impact of different fuels on overall GHG emissions in the power sector.</p>
 <p><strong>Business value</strong></p>
 <p>By leveraging these calculations, organizations can make data-driven decisions about fuel choices and their corresponding environmental impact, contributing to more sustainable energy generation.</p>
 <p><strong>Use Case</strong></p>
 <p>In this notebook, an example of Calculating the environmental impact of power plants will be used to identify oppurtunities for carbon reduction through efficiency improvemnets or cleaner fuel alternatives.</p>
-<p>For more information on the Emissions API Stationary Endpoint inputs and the output data points, see <a href="#id1"><span class="problematic" id="id2">`Emissions API Developer Guide &lt;&gt;`__</span></a>.</p>
+<p>For more information on the Emissions API Stationary Endpoint inputs and the output data points, see <a class="reference external" href="https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Introduction">Emissions API Developer Guide</a>.</p>
 <p><img alt="Alt text" src="../../../../_images/power_plant.png" /></p>
 </section>
 <section id="Setup">
@@ -335,11 +346,11 @@ api.org_id = &lt;Your Emissions API Org Id&gt;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">configparser</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span> <span class="k">as</span> <span class="n">display_summary</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">configparser</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span> <span class="k">as</span> <span class="n">display_summary</span>
 </pre></div>
 </div>
 </div>
@@ -1004,8 +1015,8 @@ Requests payload is : {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Data</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Coal-Fired&#39;</span><span class="p">,</span> <span class="s1">&#39;Oil-Fired&#39;</span><span class="p">,</span> <span class="s1">&#39;Natural Gas-Fired&#39;</span><span class="p">,</span> <span class="s1">&#39;Biomass-Fired&#39;</span><span class="p">]</span>
@@ -1035,7 +1046,7 @@ Requests payload is : {
 </section>
 <section id="Related-Links">
 <h2>Related Links<a class="headerlink" href="#Related-Links" title="Link to this heading">¶</a></h2>
-<p><a href="#id1"><span class="problematic" id="id3">`Emissions API Developer Guide &lt;&gt;`__</span></a></p>
+<p><a class="reference external" href="https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Introduction">Emissions API Developer Guide</a></p>
 </section>
 </section>
 
@@ -1044,16 +1055,16 @@ Requests payload is : {
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../../../../tutorials/index.html">
+          <a class="next-page" href="../refrigeration_leaks_insights/refrigeration_leaks_insights.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Tutorials</div>
+                <div class="title">Getting Insights About Refrigeration Leaks</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../../../../samples/scope1/environmental_impact_of_power_plant/index.html">
+          <a class="prev-page" href="../../../../samples/scope1/index.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
@@ -1121,9 +1132,9 @@ Requests payload is : {
     </aside>
   </div>
 </div><script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../../../_static/scripts/furo.js?v=4e2eecee"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
