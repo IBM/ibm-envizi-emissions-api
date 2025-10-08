@@ -170,13 +170,13 @@
     "\n",
     "- Organizations can make data-driven decisions about refrigeration assets and their corresponding environmental impact.\n",
     "\n",
-    "- [View Refrigeration leaks insights use case](../samples/scope1/refrigeration_leaks_insights/refrigeration_leaks_insights.ipynb)\n",
+    "- [View Refrigeration leaks insights use case](samples/scope1/refrigeration_leaks_insights/refrigeration_leaks_insights.ipynb)\n",
     "\n",
     "**Sustainable crew scheduling** \n",
     "\n",
     "- Organizations can use mobile emissions API to reduce of carbon footprint in sustainable work order fulfillment\n",
     "\n",
-    "- [View Sustainable crew scheduling use case](../samples/scope1/sustainable_crew_scheduling/carbon_aware_crew_scheduling.ipynb)"
+    "- [View Sustainable crew scheduling use case](samples/scope1/sustainable_crew_scheduling/carbon_aware_crew_scheduling.ipynb)"
    ]
   },
   {
