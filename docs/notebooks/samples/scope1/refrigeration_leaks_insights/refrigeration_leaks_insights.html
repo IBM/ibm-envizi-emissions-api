@@ -306,7 +306,7 @@
 <section id="Setup">
 <h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading">¶</a></h2>
 <p>Ensure that Python 3+ is installed on your system.</p>
-<p>Note: To run this notebook, you must first add your credentials to <code class="docutils literal notranslate"><span class="pre">'../../../auth/secrets.ini'</span></code> in the following format:</p>
+<p>Note: To run this notebook, you must first add your credentials to <code class="docutils literal notranslate"><span class="pre">'../../../../auth/secrets.ini'</span></code> in the following format:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[EAPI]
 api.api_key = &lt;Your Emissions API Key&gt;
 api.tenant_id = &lt;Your Emissions API Tenant Id&gt;
@@ -323,7 +323,7 @@ api.org_id = &lt;Your Emissions API Org Id&gt;
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">configparser</span>
@@ -342,11 +342,11 @@ api.org_id = &lt;Your Emissions API Org Id&gt;
 <h3>Authorization Token<a class="headerlink" href="#Authorization-Token" title="Link to this heading">¶</a></h3>
 <p>Run the following code snippet to generate a Bearer Token by using your api_key configured in secrets.ini.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">RawConfigParser</span><span class="p">()</span>
-<span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="s1">&#39;../../../auth/secrets.ini&#39;</span><span class="p">,</span><span class="s1">&#39;../../../auth/config.ini&#39;</span><span class="p">])</span>
+<span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="s1">&#39;../../../../auth/secrets.ini&#39;</span><span class="p">,</span><span class="s1">&#39;../../../../auth/config.ini&#39;</span><span class="p">])</span>
 
 <span class="n">EAPI_API_KEY</span>        <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.api_key&#39;</span><span class="p">)</span>
 <span class="n">EAPI_TENANT_ID</span>      <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.tenant_id&#39;</span><span class="p">)</span>
@@ -365,7 +365,7 @@ api.org_id = &lt;Your Emissions API Org Id&gt;
 
 <span class="n">verify</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="n">auth_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_AUTH_ENDPOINT</span><span class="si">}</span><span class="s2">/api-key?orgId=</span><span class="si">{</span><span class="n">EAPI_ORG_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">auth_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_AUTH_ENDPOINT</span><span class="si">}</span><span class="s2">?orgId=</span><span class="si">{</span><span class="n">EAPI_ORG_ID</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="n">auth_url</span><span class="p">,</span>
                         <span class="n">headers</span> <span class="o">=</span> <span class="n">auth_request_headers</span><span class="p">,</span>

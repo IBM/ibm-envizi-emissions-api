@@ -24,7 +24,7 @@ The documentation is built using Sphinx with nbsphinx for integrating Jupyter no
 
 ### Prerequisites
 
-- Python 3.8+
+- Python ≥3.8 and ≤3.11
 - Sphinx
 - nbsphinx
 - Jupyter
@@ -92,11 +92,10 @@ open docs/index.html
 
 ## Development Workflow
 
-1. Make changes to the API code or documentation if any
-2. Update or create notebooks in the `notebooks` directory
-3. Build the documentation with `make all`
-4. Test the documentation locally
-5. When ready to publish, run `make pages`
-6. Commit and push changes
+1. Update the repository content, could be documentation and/or notebooks
+2. Build the documentation with `make all`
+3. Test the documentation locally
+4. When ready to publish, run `make pages`
+5. Commit and push changes
 
 Note: Don't commit the /notebooks that gets copied over within the /sphinx-build directory on running the `make all` target
