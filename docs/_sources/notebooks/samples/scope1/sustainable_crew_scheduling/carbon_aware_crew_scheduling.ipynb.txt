@@ -77,7 +77,7 @@
     "Ensure that Python 3+ is installed on your system.\n",
     "\n",
     "\n",
-    "<b>Note:</b> To run this notebook, you must first add your credentials to `'../../../auth/secrets.ini'` in the following format:\n",
+    "<b>Note:</b> To run this notebook, you must first add your credentials to `'../../../../auth/secrets.ini'` in the following format:\n",
     "\n",
     "```\n",
     "[EAPI]\n",
@@ -95,12 +95,12 @@
    "outputs": [],
    "source": [
     "# Install the prerequisite Python packages\n",
-    "%pip install pandas configparser json IPython matplotlib"
+    "%pip install pandas configparser IPython matplotlib"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 20,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -128,7 +128,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 21,
    "metadata": {},
    "outputs": [
     {
@@ -141,7 +141,7 @@
    ],
    "source": [
     "config = configparser.RawConfigParser()\n",
-    "config.read(['../../../auth/secrets.ini','../../../auth/config.ini'])\n",
+    "config.read(['../../../../auth/secrets.ini','../../../../auth/config.ini'])\n",
     "\n",
     "EAPI_API_KEY        = config.get('EAPI', 'api.api_key')\n",
     "EAPI_TENANT_ID      = config.get('EAPI', 'api.tenant_id')\n",
@@ -160,7 +160,7 @@
     "\n",
     "verify = True\n",
     "\n",
-    "auth_url = f\"{EAPI_AUTH_ENDPOINT}/api-key?orgId={EAPI_ORG_ID}\"\n",
+    "auth_url = f\"{EAPI_AUTH_ENDPOINT}?orgId={EAPI_ORG_ID}\"\n",
     "              \n",
     "response = requests.get(url = auth_url,\n",
     "                        headers = auth_request_headers,\n",

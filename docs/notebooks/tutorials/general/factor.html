@@ -324,7 +324,7 @@ api.org_id = &lt;Your GHG APIs Org Id&gt;
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -339,7 +339,7 @@ api.org_id = &lt;Your GHG APIs Org Id&gt;
 <h3>Authentication Token<a class="headerlink" href="#Authentication-Token" title="Link to this heading">¶</a></h3>
 <p>Run the following code snippet to generate the Auth Bearer Token by using your api_key configured in secrets.ini.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">RawConfigParser</span><span class="p">()</span>
@@ -391,7 +391,7 @@ Authentication Success
 <h2>Query<a class="headerlink" href="#Query" title="Link to this heading">¶</a></h2>
 <p>The example request payload queries IBM Envizi - Emissions API with location data (India), activity information (electricity consumption measured in kWh), and a specific date (January 1, 2022). By including the optional parameters factorSet: “Managed - NGERS” and factorVersion: “2023”, the request explicitly overrides the API’s default factor selection algorithm.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
@@ -404,15 +404,13 @@ Authentication Success
   <span class="p">},</span>
   <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-01-01&quot;</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;factorSet&quot;</span><span class="p">:</span> <span class="s2">&quot;Managed - NGERS&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;factorVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;2023&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the query headers</span>
@@ -430,7 +428,7 @@ Authentication Success
 </div>
 <p>For more information about allowable parameters for the payload, please see <a href="#id1"><span class="problematic" id="id2">`Emissions API Developer Guide &lt;&gt;`__</span></a>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
@@ -485,10 +483,8 @@ Authentication Success
       <th></th>
       <th>transactionId</th>
       <th>totalCO2e</th>
-      <th>indirectCO2e</th>
       <th>unit</th>
       <th>description</th>
-      <th>id</th>
       <th>factorSet</th>
       <th>source</th>
       <th>activityType</th>
@@ -499,27 +495,27 @@ Authentication Success
       <th>publishedFrom</th>
       <th>publishedTo</th>
       <th>region</th>
+      <th>factorId</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>c32c3bc8-2eb3-437c-99ea-bd00d4c9c687</td>
-      <td>0.54</td>
-      <td>0.07</td>
+      <td>844619ac-165d-47cb-9dbc-76ab420d5363</td>
+      <td>0.960459</td>
       <td>kgCO2e</td>
-      <td>NGER Schedule 1, Item 83</td>
-      <td>156198</td>
-      <td>Managed - NGERS</td>
-      <td>National Greenhouse and Energy Reporting (Measurement) Determination 2008 (compiled 1 July 2023). Sourced from the Federal Register of Legislation at October 2023 and ongoing. For the latest information on Australian Government law please go to https://www.legislation.gov.au. Indirect Factor - NGA workbook (where applicable), published Aug 2023.</td>
+      <td>Grid Emissions Factor- Operating Margin, ex-post incl. imports</td>
+      <td>GHG - IGES</td>
+      <td>2025 (v11.6) List of Grid Emissions Factors by Institute for Global Environmental Strategies (IGES). Source: https://www.iges.or.jp/en/publication_documents/pub/data/en/1215/IGES_GRID_EF_v11.6_20250226.xlsx.</td>
       <td>Electricity</td>
       <td>kWh</td>
-      <td>83 - Electricity - 23-24 - Northern Territory</td>
-      <td>01/07/2023</td>
-      <td>30/06/2024</td>
-      <td>01/07/2023</td>
-      <td>30/06/2024</td>
-      <td>Earth</td>
+      <td>Grid Emissions Factors (GEF) - 2022, ex-post incl. imports</td>
+      <td>01/01/2022</td>
+      <td>31/12/2022</td>
+      <td>01/01/2022</td>
+      <td>31/12/2022</td>
+      <td>India</td>
+      <td>500001950</td>
     </tr>
   </tbody>
 </table>
