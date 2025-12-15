@@ -43,6 +43,7 @@ notebooks:
 	@cp $(NOTEBOOKS_SRC)/tutorials/scope2/*.ipynb $(NOTEBOOKS_DEST)/tutorials/scope2/
 	@cp $(NOTEBOOKS_SRC)/tutorials/scope3/*.ipynb $(NOTEBOOKS_DEST)/tutorials/scope3/
 	@cp -r $(NOTEBOOKS_SRC)/samples/* $(NOTEBOOKS_DEST)/samples/
+	@cp ../troubleshooting.md $(SOURCEDIR)/
 	@echo "Done."
 
 # Build HTML documentation

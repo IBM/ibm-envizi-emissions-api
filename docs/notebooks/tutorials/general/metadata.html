@@ -1,0 +1,1736 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Scope 1" href="../../../tutorials/scope1/index.html" /><link rel="prev" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 8.1.3 and Furo 2025.07.19 -->
+        <title>Metadata - IBM Envizi - Emissions API documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=8d04aa46" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">IBM Envizi - Emissions API  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  
+  <span class="sidebar-brand-text">IBM Envizi - Emissions API  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Introducing IBM Envizi - Emissions API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../samples/index.html">Samples</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Samples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../samples/scope1/index.html">Scope 1</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scope 1</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../samples/scope1/environmental_impact_of_power_plant/power_plant.html">Calculating the Environmental Impact of Power Plants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../samples/scope1/refrigeration_leaks_insights/refrigeration_leaks_insights.html">Getting Insights About Refrigeration Leaks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../samples/scope1/sustainable_crew_scheduling/carbon_aware_crew_scheduling.html">Carbon-aware fleet vehicle selection for crews</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../tutorials/index.html">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../../../tutorials/general/index.html">General</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of General</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="calculation.html">Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="factor.html">Factor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="search.html">Search</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tutorials/scope1/index.html">Scope 1</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Scope 1</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../scope1/fugitive_emission.html">Fugitive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scope1/mobile_emission.html">Mobile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scope1/stationary_emission.html">Stationary</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tutorials/scope2/index.html">Scope 2</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Scope 2</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../scope2/location_based_emission.html">Location</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tutorials/scope3/index.html">Scope 3</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Scope 3</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../scope3/transportation_and_distribution_emission.html">Transportation and Distribution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting Guide</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../../../_sources/notebooks/tutorials/general/metadata.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="Metadata">
+<h1>Metadata<a class="headerlink" href="#Metadata" title="Link to this heading">¶</a></h1>
+<p><strong>Table of contents</strong></p>
+<ul class="simple">
+<li><p>Overview</p></li>
+<li><p>Setup</p>
+<ul>
+<li><p>Authentication Token</p></li>
+</ul>
+</li>
+<li><p>Example Metadata Queries</p>
+<ul>
+<li><p>Fugitive Emissions Metadata (Scope 1 Example)</p></li>
+<li><p>Calculation Metadata (General API Example)</p></li>
+<li><p>Search Metadata (Special Case)</p></li>
+</ul>
+</li>
+<li><p>Other Metadata Endpoints</p></li>
+<li><p>Related Links</p></li>
+</ul>
+<section id="Overview">
+<h2>Overview<a class="headerlink" href="#Overview" title="Link to this heading">¶</a></h2>
+<p>This notebook demonstrates how to query metadata endpoints across the IBM Envizi Emissions API. These endpoints help you discover available data types, units of measurement, and geographic locations for emissions calculations across all scopes.</p>
+<section id="What-are-Metadata-Endpoints?">
+<h3>What are Metadata Endpoints?<a class="headerlink" href="#What-are-Metadata-Endpoints?" title="Link to this heading">¶</a></h3>
+<p>Metadata endpoints provide essential information about:</p>
+<ol class="arabic simple">
+<li><p><strong>Available Data Types</strong>: All activity types, fuel types, refrigerants, energy types, and transportation modes supported by each API</p></li>
+<li><p><strong>Units of Measurement</strong>: Valid units for each data type (kg, km, kWh, BTU, etc.)</p></li>
+<li><p><strong>Geographic Locations</strong>: Countries and state/province subdivisions available for calculations</p></li>
+</ol>
+</section>
+<section id="APIs-Covered-in-This-Notebook">
+<h3>APIs Covered in This Notebook<a class="headerlink" href="#APIs-Covered-in-This-Notebook" title="Link to this heading">¶</a></h3>
+<p><strong>Scope 1 - Direct Emissions:</strong></p>
+<ul class="simple">
+<li><p><strong>Fugitive Emissions API</strong>: Refrigerant leaks, HFCs, PFCs, natural gas leaks, and other greenhouse gas releases</p></li>
+<li><p><strong>Mobile API</strong>: Fleet vehicles, cars, vans, trucks, and other mobile sources</p></li>
+<li><p><strong>Stationary API</strong>: Boilers, furnaces, generators, and stationary fuel combustion</p></li>
+</ul>
+<p><strong>Scope 2 - Indirect Energy Emissions:</strong></p>
+<ul class="simple">
+<li><p><strong>Location-Based API</strong>: Purchased electricity, steam, chilled water, and hot water</p></li>
+</ul>
+<p><strong>Scope 3 - Other Indirect Emissions:</strong></p>
+<ul class="simple">
+<li><p><strong>Transportation and Distribution API</strong>: Business travel, freight transport, and logistics</p></li>
+</ul>
+<p><strong>General APIs:</strong></p>
+<ul class="simple">
+<li><p><strong>Calculation API</strong>: Complete emissions calculations combining activity data with emission factors</p></li>
+<li><p><strong>Factor API</strong>: Access to emission factors for custom calculations and audit trails</p></li>
+<li><p><strong>Search API</strong>: Keyword-based search and discovery of emission factors</p></li>
+</ul>
+</section>
+<section id="Why-Use-Metadata-Endpoints?">
+<h3>Why Use Metadata Endpoints?<a class="headerlink" href="#Why-Use-Metadata-Endpoints?" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>Discovery</strong>: Find what data types, units, and locations are available before building your application</p></li>
+<li><p><strong>Validation</strong>: Ensure your input data uses valid types and units supported by the API</p></li>
+<li><p><strong>Planning</strong>: Understand geographic coverage and data availability for your use case</p></li>
+<li><p><strong>Integration</strong>: Build dynamic applications that adapt to available options</p></li>
+<li><p><strong>Documentation</strong>: Reference guide for building emissions calculation workflows</p></li>
+<li><p><strong>Compliance</strong>: Verify that required emission factors are available for your reporting needs</p></li>
+</ul>
+</section>
+<section id="How-to-Use-This-Notebook">
+<h3>How to Use This Notebook<a class="headerlink" href="#How-to-Use-This-Notebook" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Setup</strong>: Configure your authentication credentials (one-time setup)</p></li>
+<li><p><strong>Explore</strong>: Browse through the example metadata queries</p></li>
+<li><p><strong>Query</strong>: Run the code cells to see available types, units, and locations</p></li>
+<li><p><strong>Reference</strong>: Use the results to build your emissions calculation workflows</p></li>
+</ol>
+<p>Each metadata endpoint follows a consistent pattern:</p>
+<ul class="simple">
+<li><p>Get available types/data types</p></li>
+<li><p>Get units for specific types</p></li>
+<li><p>Get available geographic locations</p></li>
+</ul>
+</section>
+</section>
+<section id="Setup">
+<h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading">¶</a></h2>
+<p>Ensure that Python 3+ is installed on your system.</p>
+<p>Note: To run this notebook, you must first add your credentials to <code class="docutils literal notranslate"><span class="pre">'../../../auth/secrets.ini'</span></code> in the following format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[EAPI]
+api.api_key = &lt;Your Emissions API Key&gt;
+api.tenant_id = &lt;Your Emissions API Tenant Id&gt;
+api.org_id = &lt;Your Emissions API Org Id&gt;
+</pre></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the prerequisite Python packages</span>
+<span class="o">%</span><span class="k">pip</span> install pandas configparser IPython requests
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">configparser</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span> <span class="k">as</span> <span class="n">display_summary</span>
+</pre></div>
+</div>
+</div>
+<section id="Authentication-Token">
+<h3>Authentication Token<a class="headerlink" href="#Authentication-Token" title="Link to this heading">¶</a></h3>
+<p>Run the following code snippet to generate a Bearer Token by using your api_key configured in secrets.ini.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">RawConfigParser</span><span class="p">()</span>
+<span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="s1">&#39;../../../auth/secrets.ini&#39;</span><span class="p">,</span><span class="s1">&#39;../../../auth/config.ini&#39;</span><span class="p">])</span>
+
+<span class="n">EAPI_API_KEY</span>        <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.api_key&#39;</span><span class="p">)</span>
+<span class="n">EAPI_TENANT_ID</span>      <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.tenant_id&#39;</span><span class="p">)</span>
+<span class="n">EAPI_CLIENT_ID</span>      <span class="o">=</span> <span class="s1">&#39;ghgemissions-&#39;</span> <span class="o">+</span> <span class="n">EAPI_TENANT_ID</span>
+<span class="n">EAPI_ORG_ID</span>         <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.org_id&#39;</span><span class="p">)</span>
+
+<span class="n">EAPI_AUTH_CLIENT_ID</span> <span class="o">=</span> <span class="s1">&#39;saascore-&#39;</span> <span class="o">+</span> <span class="n">EAPI_TENANT_ID</span>
+<span class="n">EAPI_AUTH_ENDPOINT</span>  <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.auth_endpoint&#39;</span><span class="p">)</span>
+
+<span class="n">EAPI_BASE_URL</span>       <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.base_url&#39;</span><span class="p">)</span>
+<span class="n">EAPI_ENDPOINT</span>       <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_BASE_URL</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">auth_request_headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">auth_request_headers</span><span class="p">[</span><span class="s2">&quot;X-IBM-CLIENT-ID&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EAPI_AUTH_CLIENT_ID</span>
+<span class="n">auth_request_headers</span><span class="p">[</span><span class="s2">&quot;X-API-KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EAPI_API_KEY</span>
+
+<span class="n">verify</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="n">auth_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_AUTH_ENDPOINT</span><span class="si">}</span><span class="s2">?orgId=</span><span class="si">{</span><span class="n">EAPI_ORG_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="n">auth_url</span><span class="p">,</span>
+                        <span class="n">headers</span> <span class="o">=</span> <span class="n">auth_request_headers</span><span class="p">,</span>
+                        <span class="n">verify</span>  <span class="o">=</span> <span class="n">verify</span>
+                       <span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">jwt_token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Authentication Success&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Authentication Failed&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the query headers for all metadata requests</span>
+<span class="n">request_headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">request_headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
+<span class="n">request_headers</span><span class="p">[</span><span class="s2">&quot;x-ibm-client-id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EAPI_CLIENT_ID</span>
+<span class="n">request_headers</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer &quot;</span> <span class="o">+</span> <span class="n">jwt_token</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Example-Metadata-Queries">
+<h2>Example Metadata Queries<a class="headerlink" href="#Example-Metadata-Queries" title="Link to this heading">¶</a></h2>
+<p>The following sections demonstrate metadata queries for three representative APIs. All other metadata endpoints follow the same pattern.</p>
+</section>
+<section id="Fugitive-Metadata-(Scope-1)">
+<h2>Fugitive Metadata (Scope 1)<a class="headerlink" href="#Fugitive-Metadata-(Scope-1)" title="Link to this heading">¶</a></h2>
+<section id="Get-Types">
+<h3>Get Types<a class="headerlink" href="#Get-Types" title="Link to this heading">¶</a></h3>
+<p><strong>Endpoint</strong>: <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/fugitive/types</span></code></p>
+<p>This endpoint returns all available fugitive data types that can be used in fugitive emission calculations. Types include:</p>
+<ul class="simple">
+<li><p><strong>HFCs (Hydrofluorocarbons)</strong>: HFC-161, HFC-263fb, etc.</p></li>
+<li><p><strong>HFEs (Hydrofluoroethers)</strong>: HFE-569sf2, HFE-338mcf2, HFE-236ea2 (desflurane), etc.</p></li>
+<li><p><strong>HFOs (Hydrofluoroolefins)</strong>: HFO-1234ze(Z), etc.</p></li>
+<li><p><strong>PFCs (Perfluorocarbons)</strong>: PFC-71-18, etc.</p></li>
+<li><p><strong>Refrigerant blends</strong>: R422A, R434A, R-512A, R421B, R-426A, R-438A, R-513A, etc.</p></li>
+<li><p><strong>Natural Gas</strong>: Various natural gas types with different scopes</p></li>
+<li><p><strong>Other chemicals</strong>: Carbon Tetrachloride, chlorinated compounds, fluorinated compounds, etc.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query the types endpoint</span>
+<span class="n">types_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_ENDPOINT</span><span class="si">}</span><span class="s2">/fugitive/types&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">types_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">types_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">types_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">types_data</span><span class="p">[</span><span class="s1">&#39;types&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Fugitive Data Type&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total data types available: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">types_df</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All available fugitive data types for emissions:&quot;</span><span class="p">)</span>
+    <span class="n">display_summary</span><span class="p">(</span><span class="n">types_df</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Total data types available: 575
+
+All available fugitive data types for emissions:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fugitive Data Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>HFE-569sf2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1,1,2-trichloro-ethene</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>R422A</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2-chloropropane</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>R434A</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>570</th>
+      <td>HFE-7100</td>
+    </tr>
+    <tr>
+      <th>571</th>
+      <td>(e)-hex-2-en-1-ol</td>
+    </tr>
+    <tr>
+      <th>572</th>
+      <td>Fluoro(methoxy)methane</td>
+    </tr>
+    <tr>
+      <th>573</th>
+      <td>HFE-356mec3</td>
+    </tr>
+    <tr>
+      <th>574</th>
+      <td>HFC-245eb</td>
+    </tr>
+  </tbody>
+</table>
+<p>575 rows × 1 columns</p>
+</div></div>
+</div>
+</section>
+<section id="Get-Units-for-a-Type">
+<h3>Get Units for a Type<a class="headerlink" href="#Get-Units-for-a-Type" title="Link to this heading">¶</a></h3>
+<p><strong>Endpoint</strong>: <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/fugitive/units?type={type}</span></code></p>
+<p>This endpoint returns the available units of measurement for a specific fugitive data type. Common units include:</p>
+<ul class="simple">
+<li><p><strong>Mass units</strong>: g (grams), kg (kilograms), t (tonnes), lb (pounds), st (short tons)</p></li>
+<li><p><strong>Large mass units</strong>: thousand lb, million lb</p></li>
+</ul>
+<p>Fugitive emissions are typically calculated based on the mass of refrigerant leaked or released.</p>
+<p><strong>Example</strong>: Query units for “R134a:NGERs - Method 1”</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Get units for &quot;R134a:NGERs - Method 1&quot;</span>
+<span class="n">data_type</span> <span class="o">=</span> <span class="s2">&quot;R134a:NGERs - Method 1&quot;</span>
+<span class="n">units_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_ENDPOINT</span><span class="si">}</span><span class="s2">/fugitive/units?type=</span><span class="si">{</span><span class="n">data_type</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">units_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">units_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">units_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">units_data</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available units for &#39;</span><span class="si">{</span><span class="n">data_type</span><span class="si">}</span><span class="s2">&#39;:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">display_summary</span><span class="p">(</span><span class="n">units_df</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Available units for &#39;R134a:NGERs - Method 1&#39;:
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>g</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>kg</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>t</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>lb</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>thousand lb</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>million lb</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>st</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Get-Available-Locations">
+<h3>Get Available Locations<a class="headerlink" href="#Get-Available-Locations" title="Link to this heading">¶</a></h3>
+<p><strong>Endpoint</strong>: <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/fugitive/area</span></code></p>
+<p>This endpoint returns all available countries and their state/province subdivisions (where applicable) that can be used in emission calculations. The response includes:</p>
+<ul class="simple">
+<li><p><strong>alpha3</strong>: ISO 3166-1 alpha-3 country code</p></li>
+<li><p><strong>countryName</strong>: Full country name</p></li>
+<li><p><strong>stateProvinces</strong>: Array of state/province names (for countries with regional data)</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query the area endpoint</span>
+<span class="n">area_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_ENDPOINT</span><span class="si">}</span><span class="s2">/fugitive/area&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">area_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">area_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="c1"># Create a list to hold location data</span>
+    <span class="n">location_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">countries_with_states</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">area_data</span><span class="p">[</span><span class="s1">&#39;locations&#39;</span><span class="p">]:</span>
+        <span class="n">alpha3</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;alpha3&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">country_name</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;countryName&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">state_provinces</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;stateProvinces&#39;</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="k">if</span> <span class="n">state_provinces</span><span class="p">:</span>
+            <span class="n">countries_with_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">country_name</span><span class="p">)</span>
+            <span class="c1"># If there are state/provinces, create a row for each</span>
+            <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">state_provinces</span><span class="p">:</span>
+                <span class="n">location_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;Country Code (alpha3)&#39;</span><span class="p">:</span> <span class="n">alpha3</span><span class="p">,</span>
+                    <span class="s1">&#39;Country Name&#39;</span><span class="p">:</span> <span class="n">country_name</span><span class="p">,</span>
+                    <span class="s1">&#39;State/Province&#39;</span><span class="p">:</span> <span class="n">state</span>
+                <span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># If no state/provinces, just add the country</span>
+            <span class="n">location_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;Country Code (alpha3)&#39;</span><span class="p">:</span> <span class="n">alpha3</span><span class="p">,</span>
+                <span class="s1">&#39;Country Name&#39;</span><span class="p">:</span> <span class="n">country_name</span><span class="p">,</span>
+                <span class="s1">&#39;State/Province&#39;</span><span class="p">:</span> <span class="s1">&#39;N/A&#39;</span>
+            <span class="p">})</span>
+
+    <span class="n">locations_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">location_list</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total countries available: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">area_data</span><span class="p">[</span><span class="s1">&#39;locations&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Countries with state/province subdivisions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">countries_with_states</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample locations (first 20 rows):&quot;</span><span class="p">)</span>
+    <span class="n">display_summary</span><span class="p">(</span><span class="n">locations_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Total countries available: 244
+Countries with state/province subdivisions: 10
+
+Sample locations (first 20 rows):
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country Code (alpha3)</th>
+      <th>Country Name</th>
+      <th>State/Province</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ABW</td>
+      <td>Aruba</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AGO</td>
+      <td>Angola</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AIA</td>
+      <td>Anguilla</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ALA</td>
+      <td>Åland Islands</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ALB</td>
+      <td>Albania</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>AND</td>
+      <td>Andorra</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Abu Dhabi</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Ajman</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Dubai</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Fujairah</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Ras Al Khaimah</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Sharjah</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Umm Al Quwain</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>ARG</td>
+      <td>Argentina</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>ARM</td>
+      <td>Armenia</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>ATF</td>
+      <td>French Southern Territories</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>ATG</td>
+      <td>Antigua and Barbuda</td>
+      <td>Antigua</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>ATG</td>
+      <td>Antigua and Barbuda</td>
+      <td>Barbuda</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>AUS</td>
+      <td>Australia</td>
+      <td>Australian Capital Territory</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+<section id="Calculation-Metadata-(General-API-Example)">
+<h2>Calculation Metadata (General API Example)<a class="headerlink" href="#Calculation-Metadata-(General-API-Example)" title="Link to this heading">¶</a></h2>
+<section id="id1">
+<h3>Get Types<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p><strong>Endpoint</strong>: <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/carbon/calculation/types</span></code></p>
+<p>This endpoint returns all available calculation types. These types represent different categories of emissions calculations such as:</p>
+<ul class="simple">
+<li><p>Transportation types (vehicles, flights, etc.)</p></li>
+<li><p>Energy sources (natural gas, electricity, etc.)</p></li>
+<li><p>Materials and products</p></li>
+<li><p>Waste management</p></li>
+<li><p>Industry-specific categories</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query the types endpoint</span>
+<span class="n">types_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_ENDPOINT</span><span class="si">}</span><span class="s2">/calculation/types&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">types_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">types_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">types_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">types_data</span><span class="p">[</span><span class="s1">&#39;types&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Calculation Type&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total calculation types available: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">types_df</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;All available calculation types:&quot;</span><span class="p">)</span>
+    <span class="n">display_summary</span><span class="p">(</span><span class="n">types_df</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Total calculation types available: 5687
+
+All available calculation types:
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Calculation Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Timber and raw forest products</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Scope 3 - Spend-based USEEIO v1.2:Recreational...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Other transportation and support activities:Al...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Scope 3 - Spend-based USEEIO v1.2:Plastics Pac...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Natural Gas - Scope 3:AAA</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5682</th>
+      <td>Material Use - Paper and Board - Board</td>
+    </tr>
+    <tr>
+      <th>5683</th>
+      <td>Stainless Steel Sheet Products</td>
+    </tr>
+    <tr>
+      <th>5684</th>
+      <td>Company Vehicles:Engine size 1.4-2.0 litres - ...</td>
+    </tr>
+    <tr>
+      <th>5685</th>
+      <td>Fluoro(methoxy)methane</td>
+    </tr>
+    <tr>
+      <th>5686</th>
+      <td>HFE-356mec3</td>
+    </tr>
+  </tbody>
+</table>
+<p>5687 rows × 1 columns</p>
+</div></div>
+</div>
+</section>
+<section id="id2">
+<h3>Get Units for a Type<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p><strong>Endpoint</strong>: <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/carbon/calculation/units?type={type}</span></code></p>
+<p>This endpoint returns the available units of measurement for a specific calculation type. Units vary by activity type:</p>
+<ul class="simple">
+<li><p><strong>Spend-based activities</strong>: Typically use currency units (USD)</p></li>
+<li><p><strong>Material activities</strong>: May use mass, volume, or currency units</p></li>
+<li><p><strong>Transportation</strong>: Distance units (m, km, mi, etc.)</p></li>
+<li><p><strong>Waste</strong>: Mass units (kg, t, lb, etc.)</p></li>
+<li><p><strong>Refrigerants</strong>: Mass units (g, kg, t, lb, etc.)</p></li>
+</ul>
+<p><strong>Example</strong>: Query units for “Tobacco products”</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example: Get units for &quot;Tobacco products&quot;</span>
+<span class="n">calculation_type</span> <span class="o">=</span> <span class="s2">&quot;Tobacco products&quot;</span>
+<span class="n">units_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_ENDPOINT</span><span class="si">}</span><span class="s2">/calculation/units?type=</span><span class="si">{</span><span class="n">calculation_type</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">units_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">units_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">units_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">units_data</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available units for &#39;</span><span class="si">{</span><span class="n">calculation_type</span><span class="si">}</span><span class="s2">&#39;:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">display_summary</span><span class="p">(</span><span class="n">units_df</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Available units for &#39;Tobacco products&#39;:
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>usd</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="id3">
+<h3>Get Available Locations<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p><strong>Endpoint</strong>: <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/carbon/calculation/area</span></code></p>
+<p>This endpoint returns all available countries and their state/province subdivisions (where applicable) for which calculations are available. The response includes:</p>
+<ul class="simple">
+<li><p><strong>alpha3</strong>: ISO 3166-1 alpha-3 country code</p></li>
+<li><p><strong>countryName</strong>: Full country name</p></li>
+<li><p><strong>stateProvinces</strong>: Array of state/province names (for countries with regional factors)</p></li>
+</ul>
+<p>Location data is crucial as emission factors can vary significantly by region due to:</p>
+<ul class="simple">
+<li><p>Different energy grid compositions</p></li>
+<li><p>Regional regulations and methodologies</p></li>
+<li><p>Local fuel compositions</p></li>
+<li><p>Climate and environmental conditions</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query the area endpoint</span>
+<span class="n">area_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_ENDPOINT</span><span class="si">}</span><span class="s2">/calculation/area&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">area_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">area_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="c1"># Create a list to hold location data</span>
+    <span class="n">location_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">countries_with_states</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">area_data</span><span class="p">[</span><span class="s1">&#39;locations&#39;</span><span class="p">]:</span>
+        <span class="n">alpha3</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;alpha3&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">country_name</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;countryName&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">state_provinces</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;stateProvinces&#39;</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="k">if</span> <span class="n">state_provinces</span><span class="p">:</span>
+            <span class="n">countries_with_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">country_name</span><span class="p">)</span>
+            <span class="c1"># If there are state/provinces, create a row for each</span>
+            <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">state_provinces</span><span class="p">:</span>
+                <span class="n">location_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;Country Code (alpha3)&#39;</span><span class="p">:</span> <span class="n">alpha3</span><span class="p">,</span>
+                    <span class="s1">&#39;Country Name&#39;</span><span class="p">:</span> <span class="n">country_name</span><span class="p">,</span>
+                    <span class="s1">&#39;State/Province&#39;</span><span class="p">:</span> <span class="n">state</span>
+                <span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># If no state/provinces, just add the country</span>
+            <span class="n">location_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;Country Code (alpha3)&#39;</span><span class="p">:</span> <span class="n">alpha3</span><span class="p">,</span>
+                <span class="s1">&#39;Country Name&#39;</span><span class="p">:</span> <span class="n">country_name</span><span class="p">,</span>
+                <span class="s1">&#39;State/Province&#39;</span><span class="p">:</span> <span class="s1">&#39;N/A&#39;</span>
+            <span class="p">})</span>
+
+    <span class="n">locations_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">location_list</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total countries available: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">area_data</span><span class="p">[</span><span class="s1">&#39;locations&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Countries with state/province subdivisions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">countries_with_states</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample locations (first 20 rows):&quot;</span><span class="p">)</span>
+    <span class="n">display_summary</span><span class="p">(</span><span class="n">locations_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Total countries available: 244
+Countries with state/province subdivisions: 10
+
+Sample locations (first 20 rows):
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country Code (alpha3)</th>
+      <th>Country Name</th>
+      <th>State/Province</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ABW</td>
+      <td>Aruba</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AGO</td>
+      <td>Angola</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AIA</td>
+      <td>Anguilla</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ALA</td>
+      <td>Åland Islands</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ALB</td>
+      <td>Albania</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>AND</td>
+      <td>Andorra</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Abu Dhabi</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Ajman</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Dubai</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Fujairah</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Ras Al Khaimah</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Sharjah</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Umm Al Quwain</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>ARG</td>
+      <td>Argentina</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>ARM</td>
+      <td>Armenia</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>ATF</td>
+      <td>French Southern Territories</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>ATG</td>
+      <td>Antigua and Barbuda</td>
+      <td>Antigua</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>ATG</td>
+      <td>Antigua and Barbuda</td>
+      <td>Barbuda</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>AUS</td>
+      <td>Australia</td>
+      <td>Australian Capital Territory</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+<section id="Search-Metadata-(Special-Case)">
+<h2>Search Metadata (Special Case)<a class="headerlink" href="#Search-Metadata-(Special-Case)" title="Link to this heading">¶</a></h2>
+<section id="id4">
+<h3>Get Available Locations<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p><strong>Endpoint</strong>: <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/factor/search/area</span></code></p>
+<p>This endpoint returns all available countries and their state/province subdivisions (where applicable) for which emission factors can be searched. The response includes:</p>
+<ul class="simple">
+<li><p><strong>alpha3</strong>: ISO 3166-1 alpha-3 country code</p></li>
+<li><p><strong>countryName</strong>: Full country name</p></li>
+<li><p><strong>stateProvinces</strong>: Array of state/province names (for countries with regional factors)</p></li>
+</ul>
+<p>Understanding location availability is crucial because:</p>
+<ul class="simple">
+<li><p>Emission factors vary significantly by region</p></li>
+<li><p>Some countries have state/province-level granularity</p></li>
+<li><p>Regional factors reflect local energy grids, fuel compositions, and regulations</p></li>
+<li><p>You can plan your searches based on available geographic coverage</p></li>
+</ul>
+<p><strong>Note</strong>: The Search API only has an area endpoint. It does not have types or units endpoints since it searches across all factor types.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query the area endpoint</span>
+<span class="n">area_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_ENDPOINT</span><span class="si">}</span><span class="s2">/factor/search/area&quot;</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">area_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">area_data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="c1"># Create a list to hold location data</span>
+    <span class="n">location_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">countries_with_states</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">area_data</span><span class="p">[</span><span class="s1">&#39;locations&#39;</span><span class="p">]:</span>
+        <span class="n">alpha3</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;alpha3&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">country_name</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;countryName&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">state_provinces</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;stateProvinces&#39;</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="k">if</span> <span class="n">state_provinces</span><span class="p">:</span>
+            <span class="n">countries_with_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">country_name</span><span class="p">)</span>
+            <span class="c1"># If there are state/provinces, create a row for each</span>
+            <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">state_provinces</span><span class="p">:</span>
+                <span class="n">location_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                    <span class="s1">&#39;Country Code (alpha3)&#39;</span><span class="p">:</span> <span class="n">alpha3</span><span class="p">,</span>
+                    <span class="s1">&#39;Country Name&#39;</span><span class="p">:</span> <span class="n">country_name</span><span class="p">,</span>
+                    <span class="s1">&#39;State/Province&#39;</span><span class="p">:</span> <span class="n">state</span>
+                <span class="p">})</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># If no state/provinces, just add the country</span>
+            <span class="n">location_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s1">&#39;Country Code (alpha3)&#39;</span><span class="p">:</span> <span class="n">alpha3</span><span class="p">,</span>
+                <span class="s1">&#39;Country Name&#39;</span><span class="p">:</span> <span class="n">country_name</span><span class="p">,</span>
+                <span class="s1">&#39;State/Province&#39;</span><span class="p">:</span> <span class="s1">&#39;N/A&#39;</span>
+            <span class="p">})</span>
+
+    <span class="n">locations_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">location_list</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total countries available for factor search: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">area_data</span><span class="p">[</span><span class="s1">&#39;locations&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Countries with state/province subdivisions: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">countries_with_states</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample locations (first 20 rows):&quot;</span><span class="p">)</span>
+    <span class="n">display_summary</span><span class="p">(</span><span class="n">locations_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Total countries available for factor search: 244
+Countries with state/province subdivisions: 10
+
+Sample locations (first 20 rows):
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Country Code (alpha3)</th>
+      <th>Country Name</th>
+      <th>State/Province</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ABW</td>
+      <td>Aruba</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AFG</td>
+      <td>Afghanistan</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AGO</td>
+      <td>Angola</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AIA</td>
+      <td>Anguilla</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ALA</td>
+      <td>Åland Islands</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ALB</td>
+      <td>Albania</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>AND</td>
+      <td>Andorra</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Abu Dhabi</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Ajman</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Dubai</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Fujairah</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Ras Al Khaimah</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Sharjah</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>ARE</td>
+      <td>United Arab Emirates</td>
+      <td>Umm Al Quwain</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>ARG</td>
+      <td>Argentina</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>ARM</td>
+      <td>Armenia</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>ATF</td>
+      <td>French Southern Territories</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>ATG</td>
+      <td>Antigua and Barbuda</td>
+      <td>Antigua</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>ATG</td>
+      <td>Antigua and Barbuda</td>
+      <td>Barbuda</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>AUS</td>
+      <td>Australia</td>
+      <td>Australian Capital Territory</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+<section id="Other-Metadata-Endpoints">
+<h2>Other Metadata Endpoints<a class="headerlink" href="#Other-Metadata-Endpoints" title="Link to this heading">¶</a></h2>
+<p>The following APIs work the same way as the examples above. Simply replace the endpoint name in the URL:</p>
+<section id="Scope-1-APIs-(Direct-Emissions)">
+<h3>Scope 1 APIs (Direct Emissions)<a class="headerlink" href="#Scope-1-APIs-(Direct-Emissions)" title="Link to this heading">¶</a></h3>
+<p><strong>Mobile Combustion API:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/mobile/types</span></code> - Get all mobile vehicle types</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/mobile/units?type={type}</span></code> - Get units for a specific vehicle type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/mobile/area</span></code> - Get available countries and regions</p></li>
+</ul>
+<p><strong>Stationary Combustion API:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/stationary/types</span></code> - Get all fuel types</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/stationary/units?type={type}</span></code> - Get units for a specific fuel type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/stationary/area</span></code> - Get available countries and regions</p></li>
+</ul>
+</section>
+<section id="Scope-2-APIs-(Indirect-Energy-Emissions)">
+<h3>Scope 2 APIs (Indirect Energy Emissions)<a class="headerlink" href="#Scope-2-APIs-(Indirect-Energy-Emissions)" title="Link to this heading">¶</a></h3>
+<p><strong>Location-Based Emissions API:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/location/types</span></code> - Get all energy types (electricity, steam, etc.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/location/units?type={type}</span></code> - Get units for a specific energy type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/location/area</span></code> - Get available countries and regions</p></li>
+</ul>
+</section>
+<section id="Scope-3-APIs-(Other-Indirect-Emissions)">
+<h3>Scope 3 APIs (Other Indirect Emissions)<a class="headerlink" href="#Scope-3-APIs-(Other-Indirect-Emissions)" title="Link to this heading">¶</a></h3>
+<p><strong>Transportation and Distribution API:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/transportation-and-distribution/types</span></code> - Get all transportation types</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/transportation-and-distribution/units?type={type}</span></code> - Get units for a specific transportation type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/transportation-and-distribution/area</span></code> - Get available countries and regions</p></li>
+</ul>
+</section>
+<section id="General-APIs">
+<h3>General APIs<a class="headerlink" href="#General-APIs" title="Link to this heading">¶</a></h3>
+<p><strong>Factor API:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/factor/types</span></code> - Get all activity types with emission factors</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/factor/units?type={type}</span></code> - Get units for a specific activity type</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/factor/area</span></code> - Get available countries and regions</p></li>
+</ul>
+</section>
+<section id="Usage-Pattern">
+<h3>Usage Pattern<a class="headerlink" href="#Usage-Pattern" title="Link to this heading">¶</a></h3>
+<p>All endpoints follow the same request/response pattern shown in the examples above:</p>
+<ol class="arabic simple">
+<li><p><strong>Types endpoint</strong>: Returns a list of available types/categories</p></li>
+<li><p><strong>Units endpoint</strong>: Returns valid units for a specific type (requires <code class="docutils literal notranslate"><span class="pre">type</span></code> query parameter)</p></li>
+<li><p><strong>Area endpoint</strong>: Returns available countries and state/province subdivisions</p></li>
+</ol>
+<p>Simply copy the code from the examples above and replace:</p>
+<ul class="simple">
+<li><p>The endpoint path (e.g., <code class="docutils literal notranslate"><span class="pre">/fugitive/</span></code> → <code class="docutils literal notranslate"><span class="pre">/mobile/</span></code>)</p></li>
+<li><p>The column names in DataFrames for clarity</p></li>
+<li><p>The example type values when querying units</p></li>
+</ul>
+<p>All responses use the same JSON structure, so the parsing code remains identical.</p>
+</section>
+</section>
+<section id="Related-Links">
+<h2>Related Links<a class="headerlink" href="#Related-Links" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Introduction">Emissions API Developer Guide</a></p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../../tutorials/scope1/index.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Scope 1</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="search.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Search</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, IBM Corporation
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Metadata</a><ul>
+<li><a class="reference internal" href="#Overview">Overview</a><ul>
+<li><a class="reference internal" href="#What-are-Metadata-Endpoints?">What are Metadata Endpoints?</a></li>
+<li><a class="reference internal" href="#APIs-Covered-in-This-Notebook">APIs Covered in This Notebook</a></li>
+<li><a class="reference internal" href="#Why-Use-Metadata-Endpoints?">Why Use Metadata Endpoints?</a></li>
+<li><a class="reference internal" href="#How-to-Use-This-Notebook">How to Use This Notebook</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Setup">Setup</a><ul>
+<li><a class="reference internal" href="#Authentication-Token">Authentication Token</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Example-Metadata-Queries">Example Metadata Queries</a></li>
+<li><a class="reference internal" href="#Fugitive-Metadata-(Scope-1)">Fugitive Metadata (Scope 1)</a><ul>
+<li><a class="reference internal" href="#Get-Types">Get Types</a></li>
+<li><a class="reference internal" href="#Get-Units-for-a-Type">Get Units for a Type</a></li>
+<li><a class="reference internal" href="#Get-Available-Locations">Get Available Locations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Calculation-Metadata-(General-API-Example)">Calculation Metadata (General API Example)</a><ul>
+<li><a class="reference internal" href="#id1">Get Types</a></li>
+<li><a class="reference internal" href="#id2">Get Units for a Type</a></li>
+<li><a class="reference internal" href="#id3">Get Available Locations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Search-Metadata-(Special-Case)">Search Metadata (Special Case)</a><ul>
+<li><a class="reference internal" href="#id4">Get Available Locations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Other-Metadata-Endpoints">Other Metadata Endpoints</a><ul>
+<li><a class="reference internal" href="#Scope-1-APIs-(Direct-Emissions)">Scope 1 APIs (Direct Emissions)</a></li>
+<li><a class="reference internal" href="#Scope-2-APIs-(Indirect-Energy-Emissions)">Scope 2 APIs (Indirect Energy Emissions)</a></li>
+<li><a class="reference internal" href="#Scope-3-APIs-(Other-Indirect-Emissions)">Scope 3 APIs (Other Indirect Emissions)</a></li>
+<li><a class="reference internal" href="#General-APIs">General APIs</a></li>
+<li><a class="reference internal" href="#Usage-Pattern">Usage Pattern</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Related-Links">Related Links</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

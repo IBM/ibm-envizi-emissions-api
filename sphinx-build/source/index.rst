@@ -26,3 +26,4 @@ following locations:
    notebooks/getting_started
    samples/index
    tutorials/index
+   troubleshooting

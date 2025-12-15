@@ -21,8 +21,15 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.autodoc',
     'sphinxcontrib.httpdomain',
-    'nbsphinx'
+    'nbsphinx',
+    'myst_parser'
 ]
+
+# -- MyST Parser configuration -----------------------------------------------
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']
