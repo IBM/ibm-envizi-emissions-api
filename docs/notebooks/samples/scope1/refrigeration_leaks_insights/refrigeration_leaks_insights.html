@@ -1,14 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="../../../../">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="Carbon-aware fleet vehicle selection for crews" href="../sustainable_crew_scheduling/carbon_aware_crew_scheduling.html" /><link rel="prev" title="Calculating the Environmental Impact of Power Plants" href="../environmental_impact_of_power_plant/power_plant.html" />
+<link rel="index" title="Index" href="../../../../genindex.html"><link rel="search" title="Search" href="../../../../search.html"><link rel="next" title="Carbon-aware fleet vehicle selection for crews" href="../sustainable_crew_scheduling/carbon_aware_crew_scheduling.html"><link rel="prev" title="Calculating the Environmental Impact of Power Plants" href="../environmental_impact_of_power_plant/power_plant.html">
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Getting Insights About Refrigeration Leaks - IBM Envizi - Emissions API documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=8d04aa46" />
@@ -24,14 +24,14 @@
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -146,14 +146,10 @@
   </symbol>
 </svg>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
 
 <a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
@@ -163,8 +159,7 @@
   <header class="mobile-header">
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
       </label>
     </div>
     <div class="header-center">
@@ -172,8 +167,7 @@
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
           <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
           <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -181,8 +175,7 @@
         </button>
       </div>
       <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
   </header>
@@ -203,8 +196,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">Introducing IBM Envizi - Emissions API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../../samples/index.html">Samples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Samples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current has-children"><a class="reference internal" href="../../../../samples/scope1/index.html">Scope 1</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scope 1</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../../samples/index.html">Samples</a><input aria-label="Toggle navigation of Samples" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="../../../../samples/scope1/index.html">Scope 1</a><input aria-label="Toggle navigation of Scope 1" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../environmental_impact_of_power_plant/power_plant.html">Calculating the Environmental Impact of Power Plants</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Getting Insights About Refrigeration Leaks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../sustainable_crew_scheduling/carbon_aware_crew_scheduling.html">Carbon-aware fleet vehicle selection for crews</a></li>
@@ -212,25 +205,25 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../tutorials/general/index.html">General</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of General</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../tutorials/index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../tutorials/general/index.html">General</a><input aria-label="Toggle navigation of General" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/general/calculation.html">Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/general/factor.html">Factor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/general/search.html">Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/general/metadata.html">Metadata</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../tutorials/scope1/index.html">Scope 1</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Scope 1</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../tutorials/scope1/index.html">Scope 1</a><input aria-label="Toggle navigation of Scope 1" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/scope1/fugitive_emission.html">Fugitive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/scope1/mobile_emission.html">Mobile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/scope1/stationary_emission.html">Stationary</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../tutorials/scope2/index.html">Scope 2</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Scope 2</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../tutorials/scope2/index.html">Scope 2</a><input aria-label="Toggle navigation of Scope 2" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/scope2/location_based_emission.html">Location</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../tutorials/scope3/index.html">Scope 3</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Scope 3</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../../tutorials/scope3/index.html">Scope 3</a><input aria-label="Toggle navigation of Scope 3" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../tutorials/scope3/transportation_and_distribution_emission.html">Transportation and Distribution</a></li>
 </ul>
 </li>
@@ -263,8 +256,7 @@
   </a>
 </div>
 <div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
               <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -272,8 +264,7 @@
             </button>
           </div>
           <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
@@ -319,8 +310,8 @@ api.org_id = &lt;Your Emissions API Org Id&gt;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the prerequisite Python packages</span>
-<span class="o">%</span><span class="k">pip</span> install pandas configparser IPython geopy tqdm openpyxl matplotlib pycountry jinja2 seaborn
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Install the prerequisite Python packages
+%pip install pandas configparser IPython geopy tqdm openpyxl matplotlib pycountry jinja2 seaborn
 </pre></div>
 </div>
 </div>
@@ -328,15 +319,15 @@ api.org_id = &lt;Your Emissions API Org Id&gt;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">configparser</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">geopy.geocoders</span><span class="w"> </span><span class="kn">import</span> <span class="n">Nominatim</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pycountry</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import configparser
+import pandas as pd
+import numpy as np
+import requests
+import json
+import time
+from tqdm import tqdm
+from geopy.geocoders import Nominatim
+import pycountry
 </pre></div>
 </div>
 </div>
@@ -347,38 +338,38 @@ api.org_id = &lt;Your Emissions API Org Id&gt;
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">config</span> <span class="o">=</span> <span class="n">configparser</span><span class="o">.</span><span class="n">RawConfigParser</span><span class="p">()</span>
-<span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">([</span><span class="s1">&#39;../../../../auth/secrets.ini&#39;</span><span class="p">,</span><span class="s1">&#39;../../../../auth/config.ini&#39;</span><span class="p">])</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>config = configparser.RawConfigParser()
+config.read([&#39;../../../../auth/secrets.ini&#39;,&#39;../../../../auth/config.ini&#39;])
 
-<span class="n">EAPI_API_KEY</span>        <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.api_key&#39;</span><span class="p">)</span>
-<span class="n">EAPI_TENANT_ID</span>      <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.tenant_id&#39;</span><span class="p">)</span>
-<span class="n">EAPI_CLIENT_ID</span>      <span class="o">=</span> <span class="s1">&#39;ghgemissions-&#39;</span> <span class="o">+</span> <span class="n">EAPI_TENANT_ID</span>
-<span class="n">EAPI_ORG_ID</span>         <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.org_id&#39;</span><span class="p">)</span>
+EAPI_API_KEY        = config.get(&#39;EAPI&#39;, &#39;api.api_key&#39;)
+EAPI_TENANT_ID      = config.get(&#39;EAPI&#39;, &#39;api.tenant_id&#39;)
+EAPI_CLIENT_ID      = &#39;ghgemissions-&#39; + EAPI_TENANT_ID
+EAPI_ORG_ID         = config.get(&#39;EAPI&#39;, &#39;api.org_id&#39;)
 
-<span class="n">EAPI_AUTH_CLIENT_ID</span> <span class="o">=</span> <span class="s1">&#39;saascore-&#39;</span> <span class="o">+</span> <span class="n">EAPI_TENANT_ID</span>
-<span class="n">EAPI_AUTH_ENDPOINT</span>  <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.auth_endpoint&#39;</span><span class="p">)</span>
+EAPI_AUTH_CLIENT_ID = &#39;saascore-&#39; + EAPI_TENANT_ID
+EAPI_AUTH_ENDPOINT  = config.get(&#39;EAPI&#39;, &#39;api.auth_endpoint&#39;)
 
-<span class="n">EAPI_BASE_URL</span>       <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;EAPI&#39;</span><span class="p">,</span> <span class="s1">&#39;api.base_url&#39;</span><span class="p">)</span>
-<span class="n">EAPI_ENDPOINT</span>       <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_BASE_URL</span><span class="si">}</span><span class="s2">/fugitive&quot;</span>
+EAPI_BASE_URL       = config.get(&#39;EAPI&#39;, &#39;api.base_url&#39;)
+EAPI_ENDPOINT       = f&quot;{EAPI_BASE_URL}/fugitive&quot;
 
-<span class="n">auth_request_headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">auth_request_headers</span><span class="p">[</span><span class="s2">&quot;X-IBM-Client-Id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EAPI_AUTH_CLIENT_ID</span>
-<span class="n">auth_request_headers</span><span class="p">[</span><span class="s2">&quot;X-API-Key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EAPI_API_KEY</span>
+auth_request_headers: dict = {}
+auth_request_headers[&quot;X-IBM-Client-Id&quot;] = EAPI_AUTH_CLIENT_ID
+auth_request_headers[&quot;X-API-Key&quot;] = EAPI_API_KEY
 
-<span class="n">verify</span> <span class="o">=</span> <span class="kc">True</span>
+verify = True
 
-<span class="n">auth_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_AUTH_ENDPOINT</span><span class="si">}</span><span class="s2">?orgId=</span><span class="si">{</span><span class="n">EAPI_ORG_ID</span><span class="si">}</span><span class="s2">&quot;</span>
+auth_url = f&quot;{EAPI_AUTH_ENDPOINT}?orgId={EAPI_ORG_ID}&quot;
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="n">auth_url</span><span class="p">,</span>
-                        <span class="n">headers</span> <span class="o">=</span> <span class="n">auth_request_headers</span><span class="p">,</span>
-                        <span class="n">verify</span>  <span class="o">=</span> <span class="n">verify</span>
-                       <span class="p">)</span>
-<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-    <span class="n">jwt_token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Authentication Success&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Authentication Failed&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+response = requests.get(url = auth_url,
+                        headers = auth_request_headers,
+                        verify  = verify
+                       )
+if response.status_code == 200:
+    jwt_token = response.text
+    print(&quot;Authentication Success&quot;)
+else:
+    print(&quot;Authentication Failed&quot;)
+    print(response.text)
 </pre></div>
 </div>
 </div>
@@ -405,53 +396,53 @@ Authentication Success
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_excel_file</span><span class="p">(</span><span class="n">excel_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Reads the input excel file and performs data formatting</span>
-<span class="sd">    args:</span>
-<span class="sd">        excel_path: Path to the input spreadsheet file or a file like object</span>
-<span class="sd">        sheet_name: Sheet name to be read if there are multiple sheets</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def read_excel_file(excel_path, sheet_name):
+    &quot;&quot;&quot;
+    Reads the input excel file and performs data formatting
+    args:
+        excel_path: Path to the input spreadsheet file or a file like object
+        sheet_name: Sheet name to be read if there are multiple sheets
+    &quot;&quot;&quot;
 
-    <span class="c1">## Read the excel file</span>
-    <span class="k">if</span> <span class="n">sheet_name</span><span class="p">:</span>
-        <span class="n">data_orig_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">excel_path</span><span class="p">,</span> <span class="n">sheet_name</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">data_orig_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">excel_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">engine</span><span class="o">=</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">)</span>
+    ## Read the excel file
+    if sheet_name:
+        data_orig_df = pd.read_excel(excel_path, sheet_name, header=[0,1],engine=&#39;openpyxl&#39;)
+    else:
+        data_orig_df = pd.read_excel(excel_path, header=[0,1],engine=&#39;openpyxl&#39;)
 
 
-    <span class="n">data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    data_df = pd.DataFrame()
 
-    <span class="c1">## process columns which require flatenning</span>
-    <span class="n">column_dict</span> <span class="o">=</span> <span class="p">{}</span>
-    <span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;organisation&#39;</span>          <span class="p">]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Organisation&#39;</span>          <span class="p">]</span><span class="o">.</span><span class="n">columns</span>
-    <span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;geo_coordinates&#39;</span>       <span class="p">]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Geo-coordinates&#39;</span>       <span class="p">]</span><span class="o">.</span><span class="n">columns</span>
-    <span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;static_parameters&#39;</span>     <span class="p">]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Static parameters&#39;</span>     <span class="p">]</span><span class="o">.</span><span class="n">columns</span>
-    <span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;operational_parameters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Operational parameters&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span>
-    <span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span>             <span class="p">]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Timestamp&#39;</span>             <span class="p">]</span><span class="o">.</span><span class="n">columns</span>
+    ## process columns which require flatenning
+    column_dict = {}
+    column_dict[&#39;organisation&#39;          ] = data_orig_df[&#39;Organisation&#39;          ].columns
+    column_dict[&#39;geo_coordinates&#39;       ] = data_orig_df[&#39;Geo-coordinates&#39;       ].columns
+    column_dict[&#39;static_parameters&#39;     ] = data_orig_df[&#39;Static parameters&#39;     ].columns
+    column_dict[&#39;operational_parameters&#39;] = data_orig_df[&#39;Operational parameters&#39;].columns
+    column_dict[&#39;timestamp&#39;             ] = data_orig_df[&#39;Timestamp&#39;             ].columns
 
-    <span class="n">data_df</span><span class="p">[</span><span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;organisation&#39;</span>          <span class="p">]]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Organisation&#39;</span>          <span class="p">][</span><span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;organisation&#39;</span>          <span class="p">]]</span>
-    <span class="n">data_df</span><span class="p">[</span><span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;geo_coordinates&#39;</span>       <span class="p">]]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Geo-coordinates&#39;</span>       <span class="p">][</span><span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;geo_coordinates&#39;</span>       <span class="p">]]</span>
-    <span class="n">data_df</span><span class="p">[</span><span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;static_parameters&#39;</span>     <span class="p">]]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Static parameters&#39;</span>     <span class="p">][</span><span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;static_parameters&#39;</span>     <span class="p">]]</span>
-    <span class="n">data_df</span><span class="p">[</span><span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;operational_parameters&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Operational parameters&#39;</span><span class="p">][</span><span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;operational_parameters&#39;</span><span class="p">]]</span>
-    <span class="n">data_df</span><span class="p">[</span><span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span>             <span class="p">]]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Timestamp&#39;</span>             <span class="p">][</span><span class="n">column_dict</span><span class="p">[</span><span class="s1">&#39;timestamp&#39;</span>             <span class="p">]]</span>
+    data_df[column_dict[&#39;organisation&#39;          ]] = data_orig_df[&#39;Organisation&#39;          ][column_dict[&#39;organisation&#39;          ]]
+    data_df[column_dict[&#39;geo_coordinates&#39;       ]] = data_orig_df[&#39;Geo-coordinates&#39;       ][column_dict[&#39;geo_coordinates&#39;       ]]
+    data_df[column_dict[&#39;static_parameters&#39;     ]] = data_orig_df[&#39;Static parameters&#39;     ][column_dict[&#39;static_parameters&#39;     ]]
+    data_df[column_dict[&#39;operational_parameters&#39;]] = data_orig_df[&#39;Operational parameters&#39;][column_dict[&#39;operational_parameters&#39;]]
+    data_df[column_dict[&#39;timestamp&#39;             ]] = data_orig_df[&#39;Timestamp&#39;             ][column_dict[&#39;timestamp&#39;             ]]
 
-    <span class="c1">## Process/copy remaining columns that do not require flattening</span>
-    <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Asset id&#39;</span>            <span class="p">]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Asset id&#39;</span>            <span class="p">]</span> <span class="c1">## Keeping the asset id column name same</span>
-    <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;asset_type&#39;</span>          <span class="p">]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Asset type&#39;</span>          <span class="p">]</span>
-    <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span>                <span class="p">]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Commodity type&#39;</span>      <span class="p">]</span>
-<span class="c1">#     data_df[&#39;commodity_usage&#39;     ] = data_orig_df[&#39;Commodity Usage&#39;     ]</span>
-    <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Consumption Quantity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Consumption Quantity&#39;</span><span class="p">]</span>
-    <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span>                <span class="p">]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[</span><span class="s1">&#39;Consumption unit&#39;</span>    <span class="p">]</span>
+    ## Process/copy remaining columns that do not require flattening
+    data_df[&#39;Asset id&#39;            ] = data_orig_df[&#39;Asset id&#39;            ] ## Keeping the asset id column name same
+    data_df[&#39;asset_type&#39;          ] = data_orig_df[&#39;Asset type&#39;          ]
+    data_df[&#39;Type&#39;                ] = data_orig_df[&#39;Commodity type&#39;      ]
+#     data_df[&#39;commodity_usage&#39;     ] = data_orig_df[&#39;Commodity Usage&#39;     ]
+    data_df[&#39;Consumption Quantity&#39;] = data_orig_df[&#39;Consumption Quantity&#39;]
+    data_df[&#39;Unit&#39;                ] = data_orig_df[&#39;Consumption unit&#39;    ]
 
-    <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Asset id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_df</span><span class="p">[</span><span class="s1">&#39;Asset id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-    <span class="k">if</span> <span class="s1">&#39;Emission&#39;</span> <span class="ow">in</span> <span class="n">data_orig_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-        <span class="n">data_df</span><span class="p">[[</span><span class="s1">&#39;emission&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">data_orig_df</span><span class="p">[[</span><span class="s1">&#39;Emission&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+    data_df[&#39;Asset id&#39;] = data_df[&#39;Asset id&#39;].apply(str)
+    if &#39;Emission&#39; in data_orig_df.columns:
+        data_df[[&#39;emission&#39;]] = data_orig_df[[&#39;Emission&#39;]].values
 
-    <span class="k">return</span> <span class="n">data_df</span>
+    return data_df
 
-<span class="c1">#reading refrigeration data(location,type etc)</span>
-<span class="n">read_excel_file</span><span class="p">(</span><span class="s1">&#39;./refrigeration_leaks_insights.xlsx&#39;</span><span class="p">,</span> <span class="s1">&#39;Sheet1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+#reading refrigeration data(location,type etc)
+read_excel_file(&#39;./refrigeration_leaks_insights.xlsx&#39;, &#39;Sheet1&#39;).head(3)
 </pre></div>
 </div>
 </div>
@@ -562,36 +553,36 @@ Authentication Success
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">geo_coder</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span> <span class="n">long</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Converts geolocation to address</span>
-<span class="sd">    args:</span>
-<span class="sd">        lat: lattitue of the location</span>
-<span class="sd">        long: longitute og the location</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def geo_coder(lat, long):
+    &quot;&quot;&quot;
+    Converts geolocation to address
+    args:
+        lat: lattitue of the location
+        long: longitute og the location
 
-<span class="sd">    returns:</span>
-<span class="sd">        country, state, city, zipcode</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">geolocator</span> <span class="o">=</span> <span class="n">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s2">&quot;geolocation_identifier_function&quot;</span><span class="p">)</span>
-    <span class="n">location</span>   <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;,&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">long</span><span class="p">),</span><span class="n">language</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">)</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">address</span>    <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">raw</span><span class="p">[</span><span class="s2">&quot;address&quot;</span><span class="p">]</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="n">address</span><span class="o">=</span><span class="p">{}</span>
-        <span class="nb">print</span><span class="p">((</span><span class="n">lat</span><span class="p">,</span> <span class="n">long</span><span class="p">))</span>
+    returns:
+        country, state, city, zipcode
+    &quot;&quot;&quot;
+    geolocator = Nominatim(user_agent=&quot;geolocation_identifier_function&quot;)
+    location   = geolocator.reverse(str(lat)+&quot;,&quot;+str(long),language=&#39;en&#39;)
+    try:
+        address    = location.raw[&quot;address&quot;]
+    except:
+        address={}
+        print((lat, long))
 
-    <span class="n">country</span>  <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="s1">&#39;country&#39;</span> <span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;country&#39;</span>  <span class="ow">in</span> <span class="n">address</span> <span class="k">else</span> <span class="kc">None</span>
-    <span class="n">country</span>  <span class="o">=</span> <span class="n">pycountry</span><span class="o">.</span><span class="n">countries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">country</span><span class="p">)</span><span class="o">.</span><span class="n">alpha_3</span>
-    <span class="n">state</span>    <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="s1">&#39;state&#39;</span>   <span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;state&#39;</span>    <span class="ow">in</span> <span class="n">address</span> <span class="k">else</span> <span class="kc">None</span>
-    <span class="n">city</span>     <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="s1">&#39;city&#39;</span>    <span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;city&#39;</span>     <span class="ow">in</span> <span class="n">address</span> <span class="k">else</span> <span class="kc">None</span>
+    country  = address[&#39;country&#39; ] if &#39;country&#39;  in address else None
+    country  = pycountry.countries.get(name=country).alpha_3
+    state    = address[&#39;state&#39;   ] if &#39;state&#39;    in address else None
+    city     = address[&#39;city&#39;    ] if &#39;city&#39;     in address else None
 
-    <span class="k">if</span> <span class="s1">&#39;postcode&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">address</span><span class="p">:</span> <span class="n">zipcode</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">zipcode</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="s2">&quot;postcode&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># use only first part of zipcode</span>
-        <span class="k">if</span> <span class="s1">&#39; &#39;</span> <span class="ow">in</span> <span class="n">zipcode</span><span class="p">:</span> <span class="n">zipcode</span> <span class="o">=</span> <span class="n">zipcode</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># ignore the state code and use the last part of zipcode</span>
-        <span class="k">if</span> <span class="s1">&#39;-&#39;</span> <span class="ow">in</span> <span class="n">zipcode</span><span class="p">:</span> <span class="n">zipcode</span> <span class="o">=</span> <span class="n">zipcode</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># use only first part of zipcode</span>
+    if &#39;postcode&#39; not in address: zipcode = None
+    else:
+        zipcode = address[&quot;postcode&quot;].split(&#39;:&#39;)[0] # use only first part of zipcode
+        if &#39; &#39; in zipcode: zipcode = zipcode.split(&#39; &#39;)[-1] # ignore the state code and use the last part of zipcode
+        if &#39;-&#39; in zipcode: zipcode = zipcode.split(&#39;-&#39;)[0]  # use only first part of zipcode
 
-    <span class="k">return</span> <span class="p">(</span><span class="n">country</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">zipcode</span><span class="p">)</span>
+    return (country, state, city, zipcode)
 <br/></pre></div>
 </div>
 </div>
@@ -599,31 +590,31 @@ Authentication Success
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_payload</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Converts dict or a row of dataframe to json format accepted by the API</span>
-<span class="sd">    args:</span>
-<span class="sd">        data: python dict or dataframe row</span>
-<span class="sd">    returns:</span>
-<span class="sd">        payload: json format accepted by the API</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def create_payload(data):
+    &quot;&quot;&quot;
+    Converts dict or a row of dataframe to json format accepted by the API
+    args:
+        data: python dict or dataframe row
+    returns:
+        payload: json format accepted by the API
+    &quot;&quot;&quot;
 
-    <span class="c1">## Convert lat-long to address for payload[&quot;location&quot;]</span>
-    <span class="n">country</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">zipcode</span> <span class="o">=</span> <span class="n">geo_coder</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Lat&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Long&quot;</span><span class="p">])</span>
+    ## Convert lat-long to address for payload[&quot;location&quot;]
+    country, state, city, zipcode = geo_coder(data[&quot;Lat&quot;], data[&quot;Long&quot;])
 
-    <span class="c1">## create the JSON</span>
-    <span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span>
+    ## create the JSON
+    payload = {}
 
-    <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;activity&quot;</span>    <span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span>  <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">],</span>
-                               <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Cap&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Consumption Quantity&quot;</span><span class="p">],</span>
-                               <span class="s2">&quot;unit&quot;</span><span class="p">:</span>  <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Unit&quot;</span><span class="p">]</span>
-                              <span class="p">}</span>
-    <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;location&quot;</span>        <span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="n">country</span><span class="p">,</span> <span class="s2">&quot;stateProvince&quot;</span><span class="p">:</span> <span class="n">state</span><span class="p">}</span>
-    <span class="n">payload</span><span class="p">[</span><span class="s2">&quot;time&quot;</span>            <span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Start Date (YYYY-MM-DD)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">())}</span>
+    payload[&quot;activity&quot;    ] = {&quot;type&quot;:  data[&quot;Type&quot;],
+                               &quot;value&quot;: data[&quot;Cap&quot;] - data[&quot;Consumption Quantity&quot;],
+                               &quot;unit&quot;:  data[&quot;Unit&quot;]
+                              }
+    payload[&quot;location&quot;        ] = {&quot;country&quot;: country, &quot;stateProvince&quot;: state}
+    payload[&quot;time&quot;            ] = {&quot;date&quot;: str(data[&quot;Start Date (YYYY-MM-DD)&quot;].date())}
 
-    <span class="k">return</span> <span class="n">payload</span>
+    return payload
 
-<span class="c1">#display(create_payload(read_excel_file(&#39;./refrigeration_leaks_insights.xlsx&#39;, &#39;Sheet1&#39;).head(100).iloc[99]))</span>
+#display(create_payload(read_excel_file(&#39;./refrigeration_leaks_insights.xlsx&#39;, &#39;Sheet1&#39;).head(100).iloc[99]))
 <br/></pre></div>
 </div>
 </div>
@@ -631,31 +622,31 @@ Authentication Success
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_fugitive_emission_from_api</span><span class="p">(</span><span class="n">payload</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Queries the fugitive emission APIs and returns the CO2e emissions</span>
-<span class="sd">    args:</span>
-<span class="sd">        payload: Payload for which CO2 is required</span>
-<span class="sd">    returns:</span>
-<span class="sd">        CO2 emissions for the payload</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def get_fugitive_emission_from_api(payload):
+    &quot;&quot;&quot;
+    Queries the fugitive emission APIs and returns the CO2e emissions
+    args:
+        payload: Payload for which CO2 is required
+    returns:
+        CO2 emissions for the payload
+    &quot;&quot;&quot;
 
-    <span class="c1"># Create the query headers</span>
-    <span class="n">request_headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+    # Create the query headers
+    request_headers: dict = {}
 
-    <span class="n">request_headers</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
-    <span class="n">request_headers</span><span class="p">[</span><span class="s2">&quot;x-ibm-client-id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EAPI_CLIENT_ID</span>
-    <span class="n">request_headers</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer &quot;</span> <span class="o">+</span> <span class="n">jwt_token</span>
+    request_headers[&quot;Content-Type&quot;] = &quot;application/json&quot;
+    request_headers[&quot;x-ibm-client-id&quot;] = EAPI_CLIENT_ID
+    request_headers[&quot;Authorization&quot;] = &quot;Bearer &quot; + jwt_token
 
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">EAPI_ENDPOINT</span><span class="p">,</span>
-                                 <span class="n">headers</span> <span class="o">=</span> <span class="n">request_headers</span><span class="p">,</span>
-                                 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
-        <span class="n">emissions</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">emissions</span><span class="p">[</span><span class="s1">&#39;totalCO2e&#39;</span><span class="p">]</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;API call failed with &#39;</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="c1">## Return NaN if call fails</span>
+    try:
+        response = requests.post(EAPI_ENDPOINT,
+                                 headers = request_headers,
+                                 data = json.dumps(payload))
+        emissions = json.loads(response.text)
+        return emissions[&#39;totalCO2e&#39;]
+    except:
+        print(&#39;API call failed with &#39;, response.status_code)
+        return np.nan ## Return NaN if call fails
 <br/></pre></div>
 </div>
 </div>
@@ -676,17 +667,17 @@ Authentication Success
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">read_excel_file</span><span class="p">(</span><span class="s1">&#39;./refrigeration_leaks_insights.xlsx&#39;</span><span class="p">,</span> <span class="s1">&#39;Sheet1&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>data = read_excel_file(&#39;./refrigeration_leaks_insights.xlsx&#39;, &#39;Sheet1&#39;)
 
-<span class="n">CO2e</span> <span class="o">=</span> <span class="p">[]</span>
+CO2e = []
 
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))):</span>
-    <span class="n">payload</span> <span class="o">=</span> <span class="n">create_payload</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">CO2e</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_fugitive_emission_from_api</span><span class="p">(</span><span class="n">payload</span><span class="p">))</span>
+for i in tqdm(range(len(data))):
+    payload = create_payload(data.iloc[i])
+    CO2e.append(get_fugitive_emission_from_api(payload))
 
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;CO2e&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">CO2e</span>
+data[&#39;CO2e&#39;] = CO2e
 
-<span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_properties</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CO2e&#39;</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;background-color&#39;</span><span class="p">:</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+display(data.head(3).style.set_properties(subset=[&#39;CO2e&#39;], **{&#39;background-color&#39;: &#39;lightgreen&#39;}).format(precision=2))
 </pre></div>
 </div>
 </div>
@@ -802,16 +793,16 @@ Authentication Success
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
 
-<span class="c1">## Emissions vs Age</span>
-<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;CO2e&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Emissions vs Age&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+## Emissions vs Age
+data.plot(&quot;Age&quot;, &quot;CO2e&quot;, kind=&quot;scatter&quot;, figsize=(12,3), title=&quot;Emissions vs Age&quot;, ax=plt.subplot(131), color=&#39;tab:blue&#39;)
 
-<span class="c1">## Emissions vs Leak %</span>
-<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;leak%&quot;</span><span class="p">,</span> <span class="s2">&quot;CO2e&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Emissions vs Leak %&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:orange&#39;</span><span class="p">)</span>
+## Emissions vs Leak %
+data.plot(&quot;leak%&quot;, &quot;CO2e&quot;, kind=&quot;scatter&quot;, figsize=(12,3), title=&quot;Emissions vs Leak %&quot;, ax=plt.subplot(132), color=&#39;tab:orange&#39;)
 
-<span class="c1">## Emissions vs Consumption Quantity</span>
-<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Consumption Quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;CO2e&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Emissions vs Consumption&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#28b463&#39;</span><span class="p">)</span>
+## Emissions vs Consumption Quantity
+data.plot(&quot;Consumption Quantity&quot;, &quot;CO2e&quot;, kind=&quot;scatter&quot;, figsize=(12,3), title=&quot;Emissions vs Consumption&quot;, ax=plt.subplot(133), color=&#39;#28b463&#39;)
 <br/></pre></div>
 </div>
 </div>
@@ -842,13 +833,13 @@ Authentication Success
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import seaborn as sns
 
-<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;leak%&quot;</span><span class="p">,</span> <span class="s2">&quot;Consumption Quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;CO2e&quot;</span><span class="p">]],</span>
-             <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span>
-             <span class="n">height</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
-             <span class="n">plot_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;line_kws&#39;</span><span class="p">:{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;tab:orange&#39;</span><span class="p">},</span> <span class="s1">&#39;marker&#39;</span><span class="p">:</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;#3498db&#39;</span><span class="p">},</span>
-             <span class="n">diag_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span><span class="s1">&#39;#28b463&#39;</span><span class="p">,</span> <span class="s1">&#39;edgecolor&#39;</span><span class="p">:</span><span class="s1">&#39;#28b463&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.7</span><span class="p">})</span>
+sns.pairplot(data[[&quot;Age&quot;, &quot;leak%&quot;, &quot;Consumption Quantity&quot;, &quot;CO2e&quot;]],
+             kind=&#39;reg&#39;,
+             height=1.5,
+             plot_kws={&#39;line_kws&#39;:{&#39;color&#39;:&#39;tab:orange&#39;}, &#39;marker&#39;:&#39;.&#39;, &#39;color&#39;:&#39;#3498db&#39;},
+             diag_kws={&#39;color&#39;:&#39;#28b463&#39;, &#39;edgecolor&#39;:&#39;#28b463&#39;, &#39;alpha&#39;:0.7})
 </pre></div>
 </div>
 </div>
@@ -882,13 +873,13 @@ Authentication Success
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## segregate the data by the refrigerant(commodity_type)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>## segregate the data by the refrigerant(commodity_type)
 
-<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;leak%&quot;</span><span class="p">,</span> <span class="s2">&quot;Consumption Quantity&quot;</span><span class="p">,</span> <span class="s2">&quot;Type&quot;</span><span class="p">,</span> <span class="s2">&quot;CO2e&quot;</span><span class="p">]],</span>
-             <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span>
-             <span class="n">height</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-             <span class="n">diag_kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">,</span>
-             <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Type&quot;</span><span class="p">)</span>
+sns.pairplot(data[[&quot;Age&quot;, &quot;leak%&quot;, &quot;Consumption Quantity&quot;, &quot;Type&quot;, &quot;CO2e&quot;]],
+             kind=&#39;reg&#39;,
+             height=2,
+             diag_kind=&quot;hist&quot;,
+             hue=&quot;Type&quot;)
 <br/></pre></div>
 </div>
 </div>
@@ -1001,11 +992,11 @@ Authentication Success
     </aside>
   </div>
 </div><script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     </body>
 </html>
