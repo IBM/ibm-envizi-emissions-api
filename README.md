@@ -2,7 +2,15 @@
 
 ## Overview
 
-The IBM Envizi Emissions API is a comprehensive solution for organizations to calculate, track, and report greenhouse gas (GHG) emissions across their operations and value chains. This API provides standardized methodologies for emissions calculations aligned with the Greenhouse Gas Protocol, enabling businesses to meet regulatory requirements and sustainability goals.
+The [IBM Envizi- Emissions API](https://www.ibm.com/products/envizi/emissions-api) is a comprehensive solution for organizations to calculate, track, and report greenhouse gas (GHG) emissions across their operations and value chains. This API provides standardized methodologies for emissions calculations aligned with the Greenhouse Gas Protocol, enabling businesses to meet regulatory requirements and sustainability goals.
+
+## Sign up
+
+To get started with the Emissions API follow these steps:
+
+- Sign up at the [IBMid sign up](https://www.ibm.com/account/reg/us-en/signup?formid=urx-54311) page.
+- You will be sent an invite email to join to create an account.
+- Login, explore, calculate!
 
 ## Repository Structure
 

@@ -1,0 +1,288 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Economic Activity\n",
+    "**Table of contents**\n",
+    "\n",
+    "- Overview\n",
+    "\n",
+    "- Setup\n",
+    "\n",
+    "  - Authentication Token\n",
+    "\n",
+    "- Query\n",
+    "\n",
+    "  - Output Description\n",
+    "\n",
+    "- Related Links"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Overview\n",
+    "\n",
+    "Use the Economic Activity API to calculate emissions associated with investment activities using sector-based economic data. The endpoint supports emissions accounting aligned with Scope 3 Category 15 (Investments) under the GHG Protocol, enabling organizations to estimate financed emissions from investment portfolios based on the economic sectors of invested activities.\n",
+    "\n",
+    "In the API request, you provide the economic activity type, spending amount, and currency unit. The API response provides a breakdown of emissions by gas and an aggregate CO2e value."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Setup\n",
+    "Ensure that Python 3+ is installed on your system.\n",
+    "\n",
+    "<b>Note:</b> To run this notebook, you must first add your credentials to `'../../../auth/secrets.ini'` in the following format:\n",
+    "\n",
+    "```\n",
+    "[EAPI]\n",
+    "api.api_key = <Your Emissions API Key>\n",
+    "api.tenant_id = <Your Emissions API Tenant Id>\n",
+    "api.org_id = <Your Emissions API Org Id>\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Install the prerequisite Python packages.\n",
+    "%pip install pandas configparser IPython requests"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "import configparser\n",
+    "import requests\n",
+    "import json\n",
+    "from IPython.display import display as display_summary"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Authentication Token\n",
+    "Run the following code snippet to generate a Bearer Token by using your api_key configured in secrets.ini."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "config = configparser.RawConfigParser()\n",
+    "config.read(['../../../auth/secrets.ini','../../../auth/config.ini'])\n",
+    "\n",
+    "EAPI_API_KEY        = config.get('EAPI', 'api.api_key')\n",
+    "EAPI_TENANT_ID      = config.get('EAPI', 'api.tenant_id')\n",
+    "EAPI_CLIENT_ID      = 'ghgemissions-' + EAPI_TENANT_ID\n",
+    "EAPI_ORG_ID         = config.get('EAPI', 'api.org_id')\n",
+    "\n",
+    "EAPI_AUTH_CLIENT_ID = 'saascore-' + EAPI_TENANT_ID\n",
+    "EAPI_AUTH_ENDPOINT  = config.get('EAPI', 'api.auth_endpoint')\n",
+    "\n",
+    "EAPI_BASE_URL       = config.get('EAPI', 'api.base_url')\n",
+    "EAPI_ENDPOINT       = f\"{EAPI_BASE_URL}/economic-activity\"\n",
+    "\n",
+    "auth_request_headers: dict = {}\n",
+    "auth_request_headers[\"X-IBM-CLIENT-ID\"] = EAPI_AUTH_CLIENT_ID\n",
+    "auth_request_headers[\"X-API-KEY\"] = EAPI_API_KEY\n",
+    "\n",
+    "verify = True\n",
+    "\n",
+    "auth_url = f\"{EAPI_AUTH_ENDPOINT}?orgId={EAPI_ORG_ID}\"\n",
+    "\n",
+    "response = requests.get(url = auth_url,\n",
+    "                        headers = auth_request_headers,\n",
+    "                        verify  = verify\n",
+    "                       )\n",
+    "if response.status_code == 200:\n",
+    "    jwt_token = response.text\n",
+    "    print(\"Authentication Success\")\n",
+    "else:     \n",
+    "    print(\"Authentication Failed\")\n",
+    "    print(response.text)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Query\n",
+    "The example request payload (below) queries IBM Envizi - Emissions API for the emissions generated from $12,345 USD spent on Accommodation services in New York, USA:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "payload = {\n",
+    "  \"activity\": {\n",
+    "    \"type\": \"Accommodation\",\n",
+    "    \"value\": 12345,\n",
+    "    \"unit\": \"usd\"\n",
+    "  },\n",
+    "  \"location\": {\n",
+    "    \"country\": \"USA\",\n",
+    "    \"stateProvince\": \"New York\"\n",
+    "  },\n",
+    "  \"time\": {\n",
+    "    \"date\": \"2022-01-01\"\n",
+    "  }\n",
+    "}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Create the query headers\n",
+    "request_headers: dict = {}\n",
+    "request_headers[\"Content-Type\"] = \"application/json\"\n",
+    "request_headers[\"x-ibm-client-id\"] = EAPI_CLIENT_ID\n",
+    "request_headers[\"Authorization\"] = \"Bearer \" + jwt_token\n",
+    "\n",
+    "# Submit the request\n",
+    "response = requests.post(EAPI_ENDPOINT, \n",
+    "                         headers = request_headers,\n",
+    "                         data = json.dumps(payload))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "For more information about allowable parameters for the payload, please see [Emissions API Developer Guide]()."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "if response.text != \"\":\n",
+    "    # Get the response as json\n",
+    "    response_json = response.json()\n",
+    "    \n",
+    "    # Get json and convert to dataframe\n",
+    "    json_str = json.dumps(response_json)\n",
+    "    dict = json.loads(json_str)\n",
+    "    dataframe = pd.json_normalize(dict) \n",
+    "    \n",
+    "    # display\n",
+    "    print(\"\\n\\n\")\n",
+    "    pd.set_option('display.max_colwidth', None)\n",
+    "    display( dataframe) \n",
+    "else:\n",
+    "    print(\"Empty Response\") "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Output Explanation\n",
+    "<b>transactionId</b> - An Emissions API transaction id.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>totalCO2e</b>     - The total emissions as CO<sub>2</sub> equivalent (CO<sub>2</sub>e)\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>co2</b>           - The amount of CO<sub>2</sub> (Carbon Dioxide) in the CO<sub>2</sub>e value.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>ch4</b>           - The amount of CH<sub>4</sub> (Methane) in the CO<sub>2</sub>e value.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>n2O</b>           - The amount of N<sub>2</sub>O (Nitrous Oxide) in the CO<sub>2</sub>e value.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>hfc</b>           - The amount of HFCs (Hydrofluorocarbons) in the CO<sub>2</sub>e value.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>pfc</b>           - The amount of PFCs (Perfluorocarbons) in the CO<sub>2</sub>e value.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>sf6</b>           - The amount of SF<sub>6</sub> (Sulphur Hexafluoride) in the CO<sub>2</sub>e value.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>nf3</b>           - The amount of NF<sub>3</sub> (Nitrogen Trifluoride) in the CO<sub>2</sub>e value.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>bioCo2</b>        - The amount of bio CO<sub>2</sub> in the CO<sub>2</sub> value.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>indirectCo2e</b>  - The amount of CO<sub>2</sub>e that is indirect in the CO<sub>2</sub>e value.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>unit</b>          - The unit of measure of the values.\n",
+    "\n",
+    "\n",
+    "\n",
+    "<b>description</b>   - A description of the source factor set of the factor used in the calculation."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Related Links\n",
+    "\n",
+    "\n",
+    "[Emissions API Developer Guide](https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Introduction)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
