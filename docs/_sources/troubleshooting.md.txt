@@ -11,16 +11,47 @@ This document provides a comprehensive guide to all error types that can be thro
 1. [HTTP Status Codes Summary](#http-status-codes-summary)
 2. [Error Response Format](#error-response-format)
 3. [Bad Request Errors (400)](#bad-request-errors-400)
+   - 3.1. [Invalid JSON Format](#31-invalid-json-format)
+   - 3.2. [Unrecognized Field in Request](#32-unrecognized-field-in-request)
+   - 3.3. [Missing Required Parameters](#33-missing-required-parameters)
+   - 3.4. [Invalid Date Format](#34-invalid-date-format)
+   - 3.5. [Invalid Location Data](#35-invalid-location-data)
+   - 3.6. [Invalid Unit of Measurement (UOM)](#36-invalid-unit-of-measurement-uom)
+   - 3.7. [Incompatible Unit for Data Type](#37-incompatible-unit-for-data-type)
+   - 3.8. [Invalid Data Type](#38-invalid-data-type)
+   - 3.9. [Invalid Factor ID](#39-invalid-factor-id)
+   - 3.10. [Conflicting Input Parameters](#310-conflicting-input-parameters)
+   - 3.11. [Invalid Value/List](#311-invalid-valuelist)
+   - 3.12. [Pagination Errors](#312-pagination-errors)
+   - 3.13. [Validation Constraint Violations](#313-validation-constraint-violations)
 4. [Forbidden Errors (403)](#forbidden-errors-403)
+   - 4.1. [Access Denied to Factor](#41-access-denied-to-factor)
+   - 4.2. [Access Denied to Licensed Content](#42-access-denied-to-licensed-content)
 5. [Not Found Errors (404)](#not-found-errors-404)
+   - 5.1. [Resource Not Found](#51-resource-not-found)
+   - 5.2. [Data Not Available](#52-data-not-available)
 6. [Method Not Allowed Errors (405)](#method-not-allowed-errors-405)
 7. [Internal Server Errors (500)](#internal-server-errors-500)
+   - 7.1. [General Internal Error](#71-general-internal-error)
 8. [Common Error Scenarios by API](#common-error-scenarios-by-api)
+   - 8.1. [Location API (`/carbon/location`)](#81-location-api-carbonlocation)
+   - 8.2. [Stationary API (`/carbon/stationary`)](#82-stationary-api-carbonstationary)
+   - 8.3. [Mobile API (`/carbon/mobile`)](#83-mobile-api-carbonmobile)
+   - 8.4. [Fugitive API (`/carbon/fugitive`)](#84-fugitive-api-carbonfugitive)
+   - 8.5. [Factor API (`/carbon/factor`)](#85-factor-api-carbonfactor)
+   - 8.6. [Search API (`/carbon/factor/search`)](#86-search-api-carbonfactorsearch)
+   - 8.7. [Calculation API (`/carbon/calculation`)](#87-calculation-api-carboncalculation)
 9. [Best Practices](#best-practices)
+   - 9.1. [Input Validation](#91-input-validation)
+   - 9.2. [Error Handling](#92-error-handling)
+   - 9.3. [API Discovery](#93-api-discovery)
+   - 9.4. [Testing](#94-testing)
+   - 9.5. [Performance](#95-performance)
+   - 9.6. [Security](#96-security)
 
 ---
 
-## HTTP Status Codes Summary
+## 1. HTTP Status Codes Summary
 
 | Status Code | Error Type | Description |
 |-------------|------------|-------------|
@@ -32,7 +63,7 @@ This document provides a comprehensive guide to all error types that can be thro
 
 ---
 
-## Error Response Format
+## 2. Error Response Format
 
 All errors follow a consistent JSON format:
 
@@ -45,9 +76,9 @@ All errors follow a consistent JSON format:
 
 ---
 
-## Bad Request Errors (400)
+## 3. Bad Request Errors (400)
 
-### 1. Invalid JSON Format
+### 3.1 Invalid JSON Format
 
 **Error Message:**
 
@@ -93,7 +124,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 2. Unrecognized Field in Request
+### 3.2 Unrecognized Field in Request
 
 **Error Message:**
 
@@ -135,7 +166,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 3. Missing Required Parameters
+### 3.3 Missing Required Parameters
 
 **Error Message:**
 
@@ -164,7 +195,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 4. Invalid Date Format
+### 3.4 Invalid Date Format
 
 **Error Message:**
 
@@ -206,7 +237,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 5. Invalid Location Data
+### 3.5 Invalid Location Data
 
 **Error Messages:**
 
@@ -265,7 +296,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 6. Invalid Unit of Measurement (UOM)
+### 3.6 Invalid Unit of Measurement (UOM)
 
 **Error Messages:**
 
@@ -312,7 +343,71 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 7. Invalid Data Type
+### 3.7 Incompatible Unit for Data Type
+
+**Error Message:**
+
+```
+"Unit '<unit>' is not supported for type '<type>'. Please use a valid unit for this type."
+```
+
+**Causes:**
+
+- Using a valid unit that is incompatible with the specified data type
+- Wrong combination of unit and type (e.g., using 'l' (liter) for electricity, or 'km' for petrol)
+
+**Troubleshooting Steps:**
+
+1. Query the `/carbon/<api>/units` endpoint to get valid units for each type
+2. Ensure the unit is appropriate for the activity type:
+   - **Electricity**: Use units like 'kwh', 'usd' (not 'l', 'gal', 'km')
+   - **Petrol/Fuel**: Use units like 'l', 'gal', 'usd' (not 'kwh', 'km')
+   - **Distance**: Use units like 'km', 'mi' (not 'l', 'kwh')
+3. Check the API documentation for valid unit-type combinations
+
+**Example Fix:**
+
+```json
+// ❌ Wrong - Using liter for electricity
+{
+  "activity": {
+    "value": 100,
+    "unit": "l",  // Liter is not valid for electricity
+    "type": "electricity"
+  }
+}
+
+// ❌ Wrong - Using km for petrol
+{
+  "activity": {
+    "value": 100,
+    "unit": "km",  // Kilometer is not valid for petrol
+    "type": "petrol"
+  }
+}
+
+// ✅ Correct - Using kwh for electricity
+{
+  "activity": {
+    "value": 100,
+    "unit": "kwh",
+    "type": "electricity"
+  }
+}
+
+// ✅ Correct - Using liter for petrol
+{
+  "activity": {
+    "value": 100,
+    "unit": "l",
+    "type": "petrol"
+  }
+}
+```
+
+---
+
+### 3.8 Invalid Data Type
 
 **Error Messages:**
 
@@ -357,7 +452,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 8. Invalid Factor ID
+### 3.9 Invalid Factor ID
 
 **Error Messages:**
 
@@ -392,7 +487,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 9. Conflicting Input Parameters
+### 3.10 Conflicting Input Parameters
 
 **Error Messages:**
 
@@ -458,7 +553,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 10. Invalid Value/List
+### 3.11 Invalid Value/List
 
 **Error Messages:**
 
@@ -511,7 +606,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 11. Pagination Errors
+### 3.12 Pagination Errors
 
 **Error Messages:**
 
@@ -552,7 +647,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### 12. Validation Constraint Violations
+### 3.13 Validation Constraint Violations
 
 **Error Message:**
 
@@ -574,9 +669,9 @@ All errors follow a consistent JSON format:
 
 ---
 
-## Forbidden Errors (403)
+## 4. Forbidden Errors (403)
 
-### Access Denied to Factor
+### 4.1. Access Denied to Factor
 
 **Error Message:**
 
@@ -596,9 +691,31 @@ All errors follow a consistent JSON format:
 
 ---
 
-## Not Found Errors (404)
+### 4.2. Access Denied to Licensed Content
 
-### 1. Resource Not Found
+**Error Message:**
+
+```
+"Access denied. Type \"<type>\" contains Licensed content. A valid license is required to access this data. Please contact your administrator to purchase the appropriate license."
+```
+
+**Causes:**
+
+- The requested data type contains licensed content
+- User or organization doesn't have a valid license to access this content
+- License has expired or is not active
+
+**Troubleshooting Steps:**
+
+1. Verify the data type you're trying to access needs a valid license
+2. Check with your administrator about available licenses
+3. Contact your administrator to purchase the appropriate license
+
+---
+
+## 5. Not Found Errors (404)
+
+### 5.1. Resource Not Found
 
 **Error Messages:**
 
@@ -642,7 +759,32 @@ All errors follow a consistent JSON format:
 
 ---
 
-## Method Not Allowed Errors (405)
+### 5.2. Data Not Available
+
+**Error Messages:**
+
+```
+"Data not available for given type: <type>"
+"Data not available for given type: <type> and subtype: <subtype>"
+```
+
+**Causes:**
+
+- No emission factor data exists for the specified data type
+- The data type is valid but has no associated factors in the database
+- The combination of data type with other parameters (location, date, factor set) yields no results
+
+**Troubleshooting Steps:**
+
+1. Verify the data type spelling and format
+2. Use the `/carbon/<api>/types` endpoint to confirm the data type is valid and available
+3. Check if the data type has factors available using the `/carbon/factor/search` API
+4. Try different combinations of location, date, or factor set
+5. Contact your administrator if you believe data should be available for this type
+
+---
+
+## 6. Method Not Allowed Errors (405)
 
 **Error Message:**
 
@@ -671,9 +813,9 @@ All errors follow a consistent JSON format:
 
 ---
 
-## Internal Server Errors (500)
+## 7. Internal Server Errors (500)
 
-### General Internal Error
+### 7.1. General Internal Error
 
 **Error Message:**
 
@@ -709,9 +851,9 @@ All errors follow a consistent JSON format:
 
 ---
 
-## Common Error Scenarios by API
+## 8. Common Error Scenarios by API
 
-### Location API (`/carbon/location`)
+### 8.1. Location API (`/carbon/location`)
 
 **Common Errors:**
 
@@ -730,7 +872,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### Stationary API (`/carbon/stationary`)
+### 8.2. Stationary API (`/carbon/stationary`)
 
 **Common Errors:**
 
@@ -740,7 +882,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### Mobile API (`/carbon/mobile`)
+### 8.3. Mobile API (`/carbon/mobile`)
 
 **Common Errors:**
 
@@ -750,7 +892,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### Fugitive API (`/carbon/fugitive`)
+### 8.4. Fugitive API (`/carbon/fugitive`)
 
 **Common Errors:**
 
@@ -760,7 +902,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### Factor API (`/carbon/factor`)
+### 8.5. Factor API (`/carbon/factor`)
 
 **Common Errors:**
 
@@ -769,7 +911,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### Search API (`/carbon/factor/search`)
+### 8.6. Search API (`/carbon/factor/search`)
 
 **Common Errors:**
 
@@ -779,7 +921,7 @@ All errors follow a consistent JSON format:
 
 ---
 
-### Calculation API (`/carbon/calculation`)
+### 8.7. Calculation API (`/carbon/calculation`)
 
 **Common Errors:**
 
@@ -789,39 +931,39 @@ All errors follow a consistent JSON format:
 
 ---
 
-## Best Practices
+## 9. Best Practices
 
-### 1. Input Validation
+### 9.1. Input Validation
 - Always validate your JSON before sending requests
 - Use the correct data types for each field
 - Ensure dates are in yyyy-MM-dd format
 - Use 3-letter ISO alpha-3 country codes
 
-### 2. Error Handling
+### 9.2. Error Handling
 - Implement proper error handling in your client code
 - Log error responses for debugging
 - Parse the error message for specific guidance
 - Don't retry on 400-level errors without fixing the input
 
-### 3. API Discovery
+### 9.3. API Discovery
 - Use metadata endpoints to discover valid values:
   - `/carbon/<api>/types` - Get valid data types
   - `/carbon/<api>/units` - Get valid units
   - `/carbon/<api>/area` - Get valid locations
   - `/carbon/factorset` - Get available factor sets
 
-### 4. Testing
+### 9.4. Testing
 - Test with known good data first
 - Validate one field at a time when debugging
 - Use the examples in API documentation
 - Check response status codes and messages
 
-### 5. Performance
+### 9.5. Performance
 - Use pagination for large result sets
 - Cache metadata (types, units, locations) in your application
 - Batch requests when possible
 - Set appropriate page sizes (≤30)
 
-### 6. Security
+### 9.6. Security
 - Ensure you have proper permissions for factors
 - Validate user access before making requests

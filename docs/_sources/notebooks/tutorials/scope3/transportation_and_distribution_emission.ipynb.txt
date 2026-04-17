@@ -74,7 +74,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -101,17 +101,9 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Authentication Success\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "config = configparser.RawConfigParser()\n",
     "config.read(['../../../auth/secrets.ini','../../../auth/config.ini'])\n",
@@ -163,7 +155,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -184,7 +176,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -209,78 +201,9 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "\n",
-      "\n",
-      "\n"
-     ]
-    },
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>transactionId</th>\n",
-       "      <th>totalCO2e</th>\n",
-       "      <th>CO2</th>\n",
-       "      <th>CH4</th>\n",
-       "      <th>N2O</th>\n",
-       "      <th>unit</th>\n",
-       "      <th>description</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>fed4e869-b31a-4ebc-9ee0-b7dd1cc9a905</td>\n",
-       "      <td>208.85354</td>\n",
-       "      <td>206.92926</td>\n",
-       "      <td>0.18006</td>\n",
-       "      <td>1.74421</td>\n",
-       "      <td>kgCO2e</td>\n",
-       "      <td>The Business flights emissions factor used to calculate this result was obtained from the Managed - eGRID &amp; US Climate Leaders factor set for the area Earth year 2024.</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "                          transactionId  totalCO2e        CO2      CH4  \\\n",
-       "0  fed4e869-b31a-4ebc-9ee0-b7dd1cc9a905  208.85354  206.92926  0.18006   \n",
-       "\n",
-       "       N2O    unit  \\\n",
-       "0  1.74421  kgCO2e   \n",
-       "\n",
-       "                                                                                                                                                               description  \n",
-       "0  The Business flights emissions factor used to calculate this result was obtained from the Managed - eGRID & US Climate Leaders factor set for the area Earth year 2024.  "
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
     "if response.text != \"\":\n",
     "    # Get the response as json\n",
@@ -355,7 +278,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": ".venv",
+   "display_name": "Python 3",
    "language": "python",
    "name": "python3"
   },
@@ -369,7 +292,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.12.1"
+   "version": "3.9.6"
   }
  },
  "nbformat": 4,

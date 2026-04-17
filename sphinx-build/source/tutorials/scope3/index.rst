@@ -8,3 +8,5 @@ This section contains tutorials for Scope 3 emissions calculations.
    :caption: Tutorials:
 
    ../../notebooks/tutorials/scope3/transportation_and_distribution_emission
+   ../../notebooks/tutorials/scope3/economic_activity_emissions
+   ../../notebooks/tutorials/scope3/real_estate_emissions

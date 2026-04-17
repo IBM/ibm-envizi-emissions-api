@@ -10,4 +10,5 @@ This section contains general tutorials for the IBM Envizi Emissions API.
    ../../notebooks/tutorials/general/calculation
    ../../notebooks/tutorials/general/factor
    ../../notebooks/tutorials/general/search
+   ../../notebooks/tutorials/general/type_search
    ../../notebooks/tutorials/general/metadata

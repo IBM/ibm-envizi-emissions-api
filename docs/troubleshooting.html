@@ -1,14 +1,14 @@
 <!doctype html>
 <html class="no-js" lang="en" data-content_root="./">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Transportation and Distribution" href="notebooks/tutorials/scope3/transportation_and_distribution_emission.html" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html"><link rel="prev" title="Real Estate" href="notebooks/tutorials/scope3/real_estate_emissions.html">
 
-    <!-- Generated with Sphinx 8.1.3 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Troubleshooting Guide - IBM Envizi - Emissions API documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=25af2a20" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=8d04aa46" />
     
@@ -23,14 +23,14 @@
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #2b2b2b;
-  --color-code-foreground: #f8f8f2;
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
   
       }
     }
@@ -145,14 +145,10 @@
   </symbol>
 </svg>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
 
 <a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
@@ -162,8 +158,7 @@
   <header class="mobile-header">
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
       </label>
     </div>
     <div class="header-center">
@@ -171,8 +166,7 @@
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
           <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
           <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -180,8 +174,7 @@
         </button>
       </div>
       <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
   </header>
@@ -202,8 +195,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="notebooks/introduction.html">Introducing IBM Envizi - Emissions API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/getting_started.html">Getting Started</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="samples/index.html">Samples</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Samples</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="samples/scope1/index.html">Scope 1</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Scope 1</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="samples/index.html">Samples</a><input aria-label="Toggle navigation of Samples" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="samples/scope1/index.html">Scope 1</a><input aria-label="Toggle navigation of Scope 1" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/samples/scope1/environmental_impact_of_power_plant/power_plant.html">Calculating the Environmental Impact of Power Plants</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/samples/scope1/refrigeration_leaks_insights/refrigeration_leaks_insights.html">Getting Insights About Refrigeration Leaks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/samples/scope1/sustainable_crew_scheduling/carbon_aware_crew_scheduling.html">Carbon-aware fleet vehicle selection for crews</a></li>
@@ -211,26 +204,29 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="tutorials/index.html">Tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tutorials/general/index.html">General</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of General</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tutorials/index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tutorials/general/index.html">General</a><input aria-label="Toggle navigation of General" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/general/calculation.html">Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/general/factor.html">Factor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/general/search.html">Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/general/type_search.html">Type Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/general/metadata.html">Metadata</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tutorials/scope1/index.html">Scope 1</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Scope 1</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tutorials/scope1/index.html">Scope 1</a><input aria-label="Toggle navigation of Scope 1" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/scope1/fugitive_emission.html">Fugitive</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/scope1/mobile_emission.html">Mobile</a></li>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/scope1/stationary_emission.html">Stationary</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tutorials/scope2/index.html">Scope 2</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Scope 2</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tutorials/scope2/index.html">Scope 2</a><input aria-label="Toggle navigation of Scope 2" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/scope2/location_based_emission.html">Location</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="tutorials/scope3/index.html">Scope 3</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Scope 3</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tutorials/scope3/index.html">Scope 3</a><input aria-label="Toggle navigation of Scope 3" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/scope3/transportation_and_distribution_emission.html">Transportation and Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/scope3/economic_activity_emissions.html">Economic Activity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebooks/tutorials/scope3/real_estate_emissions.html">Real Estate</a></li>
 </ul>
 </li>
 </ul>
@@ -262,8 +258,7 @@
   </a>
 </div>
 <div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
               <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -271,8 +266,7 @@
             </button>
           </div>
           <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
@@ -288,18 +282,67 @@
 <ol class="arabic simple">
 <li><p><a class="reference internal" href="#http-status-codes-summary"><span class="std std-ref">HTTP Status Codes Summary</span></a></p></li>
 <li><p><a class="reference internal" href="#error-response-format"><span class="std std-ref">Error Response Format</span></a></p></li>
-<li><p><a class="reference internal" href="#bad-request-errors-400"><span class="std std-ref">Bad Request Errors (400)</span></a></p></li>
-<li><p><a class="reference internal" href="#forbidden-errors-403"><span class="std std-ref">Forbidden Errors (403)</span></a></p></li>
-<li><p><a class="reference internal" href="#not-found-errors-404"><span class="std std-ref">Not Found Errors (404)</span></a></p></li>
+<li><p><a class="reference internal" href="#bad-request-errors-400"><span class="std std-ref">Bad Request Errors (400)</span></a></p>
+<ul class="simple">
+<li><p>3.1. Invalid JSON Format</p></li>
+<li><p>3.2. Unrecognized Field in Request</p></li>
+<li><p>3.3. Missing Required Parameters</p></li>
+<li><p>3.4. Invalid Date Format</p></li>
+<li><p>3.5. Invalid Location Data</p></li>
+<li><p>3.6. Invalid Unit of Measurement (UOM)</p></li>
+<li><p>3.7. Incompatible Unit for Data Type</p></li>
+<li><p>3.8. Invalid Data Type</p></li>
+<li><p>3.9. Invalid Factor ID</p></li>
+<li><p>3.10. Conflicting Input Parameters</p></li>
+<li><p>3.11. Invalid Value/List</p></li>
+<li><p>3.12. Pagination Errors</p></li>
+<li><p>3.13. Validation Constraint Violations</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#forbidden-errors-403"><span class="std std-ref">Forbidden Errors (403)</span></a></p>
+<ul class="simple">
+<li><p>4.1. Access Denied to Factor</p></li>
+<li><p>4.2. Access Denied to Licensed Content</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#not-found-errors-404"><span class="std std-ref">Not Found Errors (404)</span></a></p>
+<ul class="simple">
+<li><p>5.1. Resource Not Found</p></li>
+<li><p>5.2. Data Not Available</p></li>
+</ul>
+</li>
 <li><p><a class="reference internal" href="#method-not-allowed-errors-405"><span class="std std-ref">Method Not Allowed Errors (405)</span></a></p></li>
-<li><p><a class="reference internal" href="#internal-server-errors-500"><span class="std std-ref">Internal Server Errors (500)</span></a></p></li>
-<li><p><a class="reference internal" href="#common-error-scenarios-by-api"><span class="std std-ref">Common Error Scenarios by API</span></a></p></li>
-<li><p><a class="reference internal" href="#best-practices"><span class="std std-ref">Best Practices</span></a></p></li>
+<li><p><a class="reference internal" href="#internal-server-errors-500"><span class="std std-ref">Internal Server Errors (500)</span></a></p>
+<ul class="simple">
+<li><p>7.1. General Internal Error</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#common-error-scenarios-by-api"><span class="std std-ref">Common Error Scenarios by API</span></a></p>
+<ul class="simple">
+<li><p>8.1. Location API (/carbon/location)</p></li>
+<li><p>8.2. Stationary API (/carbon/stationary)</p></li>
+<li><p>8.3. Mobile API (/carbon/mobile)</p></li>
+<li><p>8.4. Fugitive API (/carbon/fugitive)</p></li>
+<li><p>8.5. Factor API (/carbon/factor)</p></li>
+<li><p>8.6. Search API (/carbon/factor/search)</p></li>
+<li><p>8.7. Calculation API (/carbon/calculation)</p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#best-practices"><span class="std std-ref">Best Practices</span></a></p>
+<ul class="simple">
+<li><p>9.1. Input Validation</p></li>
+<li><p>9.2. Error Handling</p></li>
+<li><p>9.3. API Discovery</p></li>
+<li><p>9.4. Testing</p></li>
+<li><p>9.5. Performance</p></li>
+<li><p>9.6. Security</p></li>
+</ul>
+</li>
 </ol>
 </section>
 <hr class="docutils" />
 <section id="http-status-codes-summary">
-<h2>HTTP Status Codes Summary<a class="headerlink" href="#http-status-codes-summary" title="Link to this heading">¶</a></h2>
+<h2>1. HTTP Status Codes Summary<a class="headerlink" href="#http-status-codes-summary" title="Link to this heading">¶</a></h2>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
@@ -335,7 +378,7 @@
 </section>
 <hr class="docutils" />
 <section id="error-response-format">
-<h2>Error Response Format<a class="headerlink" href="#error-response-format" title="Link to this heading">¶</a></h2>
+<h2>2. Error Response Format<a class="headerlink" href="#error-response-format" title="Link to this heading">¶</a></h2>
 <p>All errors follow a consistent JSON format:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span>
@@ -346,9 +389,9 @@
 </section>
 <hr class="docutils" />
 <section id="bad-request-errors-400">
-<h2>Bad Request Errors (400)<a class="headerlink" href="#bad-request-errors-400" title="Link to this heading">¶</a></h2>
+<h2>3. Bad Request Errors (400)<a class="headerlink" href="#bad-request-errors-400" title="Link to this heading">¶</a></h2>
 <section id="invalid-json-format">
-<h3>1. Invalid JSON Format<a class="headerlink" href="#invalid-json-format" title="Link to this heading">¶</a></h3>
+<h3>3.1 Invalid JSON Format<a class="headerlink" href="#invalid-json-format" title="Link to this heading">¶</a></h3>
 <p><strong>Error Message:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Invalid type for field &#39;&lt;field_name&gt;&#39;: expected a &lt;type&gt; but got &lt;actual_type&gt;&quot;</span>
 </pre></div>
@@ -393,7 +436,7 @@
 </section>
 <hr class="docutils" />
 <section id="unrecognized-field-in-request">
-<h3>2. Unrecognized Field in Request<a class="headerlink" href="#unrecognized-field-in-request" title="Link to this heading">¶</a></h3>
+<h3>3.2 Unrecognized Field in Request<a class="headerlink" href="#unrecognized-field-in-request" title="Link to this heading">¶</a></h3>
 <p><strong>Error Message:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Unrecognized field &#39;&lt;field_name&gt;&#39; found in request payload. Please verify your request.&quot;</span>
 </pre></div>
@@ -431,7 +474,7 @@
 </section>
 <hr class="docutils" />
 <section id="missing-required-parameters">
-<h3>3. Missing Required Parameters<a class="headerlink" href="#missing-required-parameters" title="Link to this heading">¶</a></h3>
+<h3>3.3 Missing Required Parameters<a class="headerlink" href="#missing-required-parameters" title="Link to this heading">¶</a></h3>
 <p><strong>Error Message:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Missing required request parameter: &lt;parameter_name&gt;&quot;</span>
 </pre></div>
@@ -458,7 +501,7 @@
 </section>
 <hr class="docutils" />
 <section id="invalid-date-format">
-<h3>4. Invalid Date Format<a class="headerlink" href="#invalid-date-format" title="Link to this heading">¶</a></h3>
+<h3>3.4 Invalid Date Format<a class="headerlink" href="#invalid-date-format" title="Link to this heading">¶</a></h3>
 <p><strong>Error Message:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Invalid date format. Please provide a valid date in yyyy-MM-dd.&quot;</span>
 <span class="s2">&quot;Date must not be before 1900-01-01&quot;</span>
@@ -496,7 +539,7 @@
 </section>
 <hr class="docutils" />
 <section id="invalid-location-data">
-<h3>5. Invalid Location Data<a class="headerlink" href="#invalid-location-data" title="Link to this heading">¶</a></h3>
+<h3>3.5 Invalid Location Data<a class="headerlink" href="#invalid-location-data" title="Link to this heading">¶</a></h3>
 <p><strong>Error Messages:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;&lt;region&gt; is not valid Country, please provide valid alpha 3 code.&quot;</span>
 <span class="s2">&quot;&lt;region&gt; is not valid StateProvince. Please provide valid state/province&quot;</span>
@@ -551,7 +594,7 @@
 </section>
 <hr class="docutils" />
 <section id="invalid-unit-of-measurement-uom">
-<h3>6. Invalid Unit of Measurement (UOM)<a class="headerlink" href="#invalid-unit-of-measurement-uom" title="Link to this heading">¶</a></h3>
+<h3>3.6 Invalid Unit of Measurement (UOM)<a class="headerlink" href="#invalid-unit-of-measurement-uom" title="Link to this heading">¶</a></h3>
 <p><strong>Error Messages:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;&lt;uom&gt; is not a valid unit. Please provide valid unit.&quot;</span>
 <span class="s2">&quot;&lt;uom&gt; unit is not supported for given type.&quot;</span>
@@ -593,8 +636,71 @@
 </div>
 </section>
 <hr class="docutils" />
+<section id="incompatible-unit-for-data-type">
+<h3>3.7 Incompatible Unit for Data Type<a class="headerlink" href="#incompatible-unit-for-data-type" title="Link to this heading">¶</a></h3>
+<p><strong>Error Message:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Unit &#39;&lt;unit&gt;&#39; is not supported for type &#39;&lt;type&gt;&#39;. Please use a valid unit for this type.&quot;</span>
+</pre></div>
+</div>
+<p><strong>Causes:</strong></p>
+<ul class="simple">
+<li><p>Using a valid unit that is incompatible with the specified data type</p></li>
+<li><p>Wrong combination of unit and type (e.g., using ‘l’ (liter) for electricity, or ‘km’ for petrol)</p></li>
+</ul>
+<p><strong>Troubleshooting Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Query the <code class="docutils literal notranslate"><span class="pre">/carbon/&lt;api&gt;/units</span></code> endpoint to get valid units for each type</p></li>
+<li><p>Ensure the unit is appropriate for the activity type:</p>
+<ul class="simple">
+<li><p><strong>Electricity</strong>: Use units like ‘kwh’, ‘usd’ (not ‘l’, ‘gal’, ‘km’)</p></li>
+<li><p><strong>Petrol/Fuel</strong>: Use units like ‘l’, ‘gal’, ‘usd’ (not ‘kwh’, ‘km’)</p></li>
+<li><p><strong>Distance</strong>: Use units like ‘km’, ‘mi’ (not ‘l’, ‘kwh’)</p></li>
+</ul>
+</li>
+<li><p>Check the API documentation for valid unit-type combinations</p></li>
+</ol>
+<p><strong>Example Fix:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="c1">// ❌ Wrong - Using liter for electricity</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;activity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;l&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Liter is not valid for electricity</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;electricity&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ❌ Wrong - Using km for petrol</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;activity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;km&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1">// Kilometer is not valid for petrol</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;petrol&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ✅ Correct - Using kwh for electricity</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;activity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kwh&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;electricity&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ✅ Correct - Using liter for petrol</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;activity&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;l&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;petrol&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
 <section id="invalid-data-type">
-<h3>7. Invalid Data Type<a class="headerlink" href="#invalid-data-type" title="Link to this heading">¶</a></h3>
+<h3>3.8 Invalid Data Type<a class="headerlink" href="#invalid-data-type" title="Link to this heading">¶</a></h3>
 <p><strong>Error Messages:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Requested data type invalid/not supported for the API being called&quot;</span>
 <span class="s2">&quot;Given dataType and subType is not valid. Please provide valid data&quot;</span>
@@ -635,7 +741,7 @@
 </section>
 <hr class="docutils" />
 <section id="invalid-factor-id">
-<h3>8. Invalid Factor ID<a class="headerlink" href="#invalid-factor-id" title="Link to this heading">¶</a></h3>
+<h3>3.9 Invalid Factor ID<a class="headerlink" href="#invalid-factor-id" title="Link to this heading">¶</a></h3>
 <p><strong>Error Messages:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;&lt;factorId&gt; is not a valid factorId&quot;</span>
 <span class="s2">&quot;&lt;factorId&gt; factorId is unsupported for this API&quot;</span>
@@ -666,7 +772,7 @@
 </section>
 <hr class="docutils" />
 <section id="conflicting-input-parameters">
-<h3>9. Conflicting Input Parameters<a class="headerlink" href="#conflicting-input-parameters" title="Link to this heading">¶</a></h3>
+<h3>3.10 Conflicting Input Parameters<a class="headerlink" href="#conflicting-input-parameters" title="Link to this heading">¶</a></h3>
 <p><strong>Error Messages:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Both factor ID and data type cannot be passed together&quot;</span>
 <span class="s2">&quot;Either &#39;type&#39; or &#39;factorId&#39; must be provided in activity&quot;</span>
@@ -731,7 +837,7 @@
 </section>
 <hr class="docutils" />
 <section id="invalid-value-list">
-<h3>10. Invalid Value/List<a class="headerlink" href="#invalid-value-list" title="Link to this heading">¶</a></h3>
+<h3>3.11 Invalid Value/List<a class="headerlink" href="#invalid-value-list" title="Link to this heading">¶</a></h3>
 <p><strong>Error Messages:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;value List should not have more than 2 entries&quot;</span>
 <span class="s2">&quot;Expected single value for given unit&quot;</span>
@@ -781,7 +887,7 @@
 </section>
 <hr class="docutils" />
 <section id="pagination-errors">
-<h3>11. Pagination Errors<a class="headerlink" href="#pagination-errors" title="Link to this heading">¶</a></h3>
+<h3>3.12 Pagination Errors<a class="headerlink" href="#pagination-errors" title="Link to this heading">¶</a></h3>
 <p><strong>Error Messages:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Page size &lt;size&gt; is exceeding the maximum allowed size of 30&quot;</span>
 <span class="s2">&quot;Either Page Number or Size is below 0&quot;</span>
@@ -818,7 +924,7 @@
 </section>
 <hr class="docutils" />
 <section id="validation-constraint-violations">
-<h3>12. Validation Constraint Violations<a class="headerlink" href="#validation-constraint-violations" title="Link to this heading">¶</a></h3>
+<h3>3.13 Validation Constraint Violations<a class="headerlink" href="#validation-constraint-violations" title="Link to this heading">¶</a></h3>
 <p><strong>Error Message:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;&lt;field_path&gt;: &lt;validation_message&gt;&quot;</span>
 </pre></div>
@@ -839,9 +945,9 @@
 </section>
 <hr class="docutils" />
 <section id="forbidden-errors-403">
-<h2>Forbidden Errors (403)<a class="headerlink" href="#forbidden-errors-403" title="Link to this heading">¶</a></h2>
+<h2>4. Forbidden Errors (403)<a class="headerlink" href="#forbidden-errors-403" title="Link to this heading">¶</a></h2>
 <section id="access-denied-to-factor">
-<h3>Access Denied to Factor<a class="headerlink" href="#access-denied-to-factor" title="Link to this heading">¶</a></h3>
+<h3>4.1. Access Denied to Factor<a class="headerlink" href="#access-denied-to-factor" title="Link to this heading">¶</a></h3>
 <p><strong>Error Message:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Access denied, User does not have permission to access factorId: &lt;factorId&gt;&quot;</span>
 </pre></div>
@@ -857,12 +963,32 @@
 <li><p>Use the <code class="docutils literal notranslate"><span class="pre">/carbon/factor/search</span></code> API to find factors you can access</p></li>
 </ol>
 </section>
+<hr class="docutils" />
+<section id="access-denied-to-licensed-content">
+<h3>4.2. Access Denied to Licensed Content<a class="headerlink" href="#access-denied-to-licensed-content" title="Link to this heading">¶</a></h3>
+<p><strong>Error Message:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Access denied. Type </span><span class="se">\&quot;</span><span class="s2">&lt;type&gt;</span><span class="se">\&quot;</span><span class="s2"> contains Licensed content. A valid license is required to access this data. Please contact your administrator to purchase the appropriate license.&quot;</span>
+</pre></div>
+</div>
+<p><strong>Causes:</strong></p>
+<ul class="simple">
+<li><p>The requested data type contains licensed content</p></li>
+<li><p>User or organization doesn’t have a valid license to access this content</p></li>
+<li><p>License has expired or is not active</p></li>
+</ul>
+<p><strong>Troubleshooting Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Verify the data type you’re trying to access needs a valid license</p></li>
+<li><p>Check with your administrator about available licenses</p></li>
+<li><p>Contact your administrator to purchase the appropriate license</p></li>
+</ol>
+</section>
 </section>
 <hr class="docutils" />
 <section id="not-found-errors-404">
-<h2>Not Found Errors (404)<a class="headerlink" href="#not-found-errors-404" title="Link to this heading">¶</a></h2>
+<h2>5. Not Found Errors (404)<a class="headerlink" href="#not-found-errors-404" title="Link to this heading">¶</a></h2>
 <section id="resource-not-found">
-<h3>1. Resource Not Found<a class="headerlink" href="#resource-not-found" title="Link to this heading">¶</a></h3>
+<h3>5.1. Resource Not Found<a class="headerlink" href="#resource-not-found" title="Link to this heading">¶</a></h3>
 <p><strong>Error Messages:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Emission Record not found&quot;</span>
 <span class="s2">&quot;Factor Records not found&quot;</span>
@@ -900,10 +1026,33 @@
 </pre></div>
 </div>
 </section>
+<hr class="docutils" />
+<section id="data-not-available">
+<h3>5.2. Data Not Available<a class="headerlink" href="#data-not-available" title="Link to this heading">¶</a></h3>
+<p><strong>Error Messages:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Data not available for given type: &lt;type&gt;&quot;</span>
+<span class="s2">&quot;Data not available for given type: &lt;type&gt; and subtype: &lt;subtype&gt;&quot;</span>
+</pre></div>
+</div>
+<p><strong>Causes:</strong></p>
+<ul class="simple">
+<li><p>No emission factor data exists for the specified data type</p></li>
+<li><p>The data type is valid but has no associated factors in the database</p></li>
+<li><p>The combination of data type with other parameters (location, date, factor set) yields no results</p></li>
+</ul>
+<p><strong>Troubleshooting Steps:</strong></p>
+<ol class="arabic simple">
+<li><p>Verify the data type spelling and format</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">/carbon/&lt;api&gt;/types</span></code> endpoint to confirm the data type is valid and available</p></li>
+<li><p>Check if the data type has factors available using the <code class="docutils literal notranslate"><span class="pre">/carbon/factor/search</span></code> API</p></li>
+<li><p>Try different combinations of location, date, or factor set</p></li>
+<li><p>Contact your administrator if you believe data should be available for this type</p></li>
+</ol>
+</section>
 </section>
 <hr class="docutils" />
 <section id="method-not-allowed-errors-405">
-<h2>Method Not Allowed Errors (405)<a class="headerlink" href="#method-not-allowed-errors-405" title="Link to this heading">¶</a></h2>
+<h2>6. Method Not Allowed Errors (405)<a class="headerlink" href="#method-not-allowed-errors-405" title="Link to this heading">¶</a></h2>
 <p><strong>Error Message:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Method &lt;HTTP_METHOD&gt; is not supported for this request. Supported methods are: &lt;methods&gt;&quot;</span>
 </pre></div>
@@ -930,9 +1079,9 @@
 </section>
 <hr class="docutils" />
 <section id="internal-server-errors-500">
-<h2>Internal Server Errors (500)<a class="headerlink" href="#internal-server-errors-500" title="Link to this heading">¶</a></h2>
+<h2>7. Internal Server Errors (500)<a class="headerlink" href="#internal-server-errors-500" title="Link to this heading">¶</a></h2>
 <section id="general-internal-error">
-<h3>General Internal Error<a class="headerlink" href="#general-internal-error" title="Link to this heading">¶</a></h3>
+<h3>7.1. General Internal Error<a class="headerlink" href="#general-internal-error" title="Link to this heading">¶</a></h3>
 <p><strong>Error Message:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Internal Server Error: please Contact Administrator&quot;</span>
 </pre></div>
@@ -970,9 +1119,9 @@
 </section>
 <hr class="docutils" />
 <section id="common-error-scenarios-by-api">
-<h2>Common Error Scenarios by API<a class="headerlink" href="#common-error-scenarios-by-api" title="Link to this heading">¶</a></h2>
+<h2>8. Common Error Scenarios by API<a class="headerlink" href="#common-error-scenarios-by-api" title="Link to this heading">¶</a></h2>
 <section id="location-api-carbon-location">
-<h3>Location API (<code class="docutils literal notranslate"><span class="pre">/carbon/location</span></code>)<a class="headerlink" href="#location-api-carbon-location" title="Link to this heading">¶</a></h3>
+<h3>8.1. Location API (<code class="docutils literal notranslate"><span class="pre">/carbon/location</span></code>)<a class="headerlink" href="#location-api-carbon-location" title="Link to this heading">¶</a></h3>
 <p><strong>Common Errors:</strong></p>
 <ol class="arabic simple">
 <li><p>Invalid country code (must be 3-letter alpha-3)</p></li>
@@ -991,7 +1140,7 @@
 </section>
 <hr class="docutils" />
 <section id="stationary-api-carbon-stationary">
-<h3>Stationary API (<code class="docutils literal notranslate"><span class="pre">/carbon/stationary</span></code>)<a class="headerlink" href="#stationary-api-carbon-stationary" title="Link to this heading">¶</a></h3>
+<h3>8.2. Stationary API (<code class="docutils literal notranslate"><span class="pre">/carbon/stationary</span></code>)<a class="headerlink" href="#stationary-api-carbon-stationary" title="Link to this heading">¶</a></h3>
 <p><strong>Common Errors:</strong></p>
 <ol class="arabic simple">
 <li><p>Invalid fuel type</p></li>
@@ -1001,7 +1150,7 @@
 </section>
 <hr class="docutils" />
 <section id="mobile-api-carbon-mobile">
-<h3>Mobile API (<code class="docutils literal notranslate"><span class="pre">/carbon/mobile</span></code>)<a class="headerlink" href="#mobile-api-carbon-mobile" title="Link to this heading">¶</a></h3>
+<h3>8.3. Mobile API (<code class="docutils literal notranslate"><span class="pre">/carbon/mobile</span></code>)<a class="headerlink" href="#mobile-api-carbon-mobile" title="Link to this heading">¶</a></h3>
 <p><strong>Common Errors:</strong></p>
 <ol class="arabic simple">
 <li><p>Invalid type</p></li>
@@ -1011,7 +1160,7 @@
 </section>
 <hr class="docutils" />
 <section id="fugitive-api-carbon-fugitive">
-<h3>Fugitive API (<code class="docutils literal notranslate"><span class="pre">/carbon/fugitive</span></code>)<a class="headerlink" href="#fugitive-api-carbon-fugitive" title="Link to this heading">¶</a></h3>
+<h3>8.4. Fugitive API (<code class="docutils literal notranslate"><span class="pre">/carbon/fugitive</span></code>)<a class="headerlink" href="#fugitive-api-carbon-fugitive" title="Link to this heading">¶</a></h3>
 <p><strong>Common Errors:</strong></p>
 <ol class="arabic simple">
 <li><p>Invalid refrigerant type</p></li>
@@ -1021,7 +1170,7 @@
 </section>
 <hr class="docutils" />
 <section id="factor-api-carbon-factor">
-<h3>Factor API (<code class="docutils literal notranslate"><span class="pre">/carbon/factor</span></code>)<a class="headerlink" href="#factor-api-carbon-factor" title="Link to this heading">¶</a></h3>
+<h3>8.5. Factor API (<code class="docutils literal notranslate"><span class="pre">/carbon/factor</span></code>)<a class="headerlink" href="#factor-api-carbon-factor" title="Link to this heading">¶</a></h3>
 <p><strong>Common Errors:</strong></p>
 <ol class="arabic simple">
 <li><p>User doesn’t have permission to access factor</p></li>
@@ -1030,7 +1179,7 @@
 </section>
 <hr class="docutils" />
 <section id="search-api-carbon-factor-search">
-<h3>Search API (<code class="docutils literal notranslate"><span class="pre">/carbon/factor/search</span></code>)<a class="headerlink" href="#search-api-carbon-factor-search" title="Link to this heading">¶</a></h3>
+<h3>8.6. Search API (<code class="docutils literal notranslate"><span class="pre">/carbon/factor/search</span></code>)<a class="headerlink" href="#search-api-carbon-factor-search" title="Link to this heading">¶</a></h3>
 <p><strong>Common Errors:</strong></p>
 <ol class="arabic simple">
 <li><p>Invalid search criteria</p></li>
@@ -1040,7 +1189,7 @@
 </section>
 <hr class="docutils" />
 <section id="calculation-api-carbon-calculation">
-<h3>Calculation API (<code class="docutils literal notranslate"><span class="pre">/carbon/calculation</span></code>)<a class="headerlink" href="#calculation-api-carbon-calculation" title="Link to this heading">¶</a></h3>
+<h3>8.7. Calculation API (<code class="docutils literal notranslate"><span class="pre">/carbon/calculation</span></code>)<a class="headerlink" href="#calculation-api-carbon-calculation" title="Link to this heading">¶</a></h3>
 <p><strong>Common Errors:</strong></p>
 <ol class="arabic simple">
 <li><p>Invalid data type for generic calculation</p></li>
@@ -1051,9 +1200,9 @@
 </section>
 <hr class="docutils" />
 <section id="best-practices">
-<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">¶</a></h2>
+<h2>9. Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">¶</a></h2>
 <section id="input-validation">
-<h3>1. Input Validation<a class="headerlink" href="#input-validation" title="Link to this heading">¶</a></h3>
+<h3>9.1. Input Validation<a class="headerlink" href="#input-validation" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Always validate your JSON before sending requests</p></li>
 <li><p>Use the correct data types for each field</p></li>
@@ -1062,7 +1211,7 @@
 </ul>
 </section>
 <section id="error-handling">
-<h3>2. Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading">¶</a></h3>
+<h3>9.2. Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Implement proper error handling in your client code</p></li>
 <li><p>Log error responses for debugging</p></li>
@@ -1071,7 +1220,7 @@
 </ul>
 </section>
 <section id="api-discovery">
-<h3>3. API Discovery<a class="headerlink" href="#api-discovery" title="Link to this heading">¶</a></h3>
+<h3>9.3. API Discovery<a class="headerlink" href="#api-discovery" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Use metadata endpoints to discover valid values:</p>
 <ul>
@@ -1084,7 +1233,7 @@
 </ul>
 </section>
 <section id="testing">
-<h3>4. Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h3>
+<h3>9.4. Testing<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Test with known good data first</p></li>
 <li><p>Validate one field at a time when debugging</p></li>
@@ -1093,7 +1242,7 @@
 </ul>
 </section>
 <section id="performance">
-<h3>5. Performance<a class="headerlink" href="#performance" title="Link to this heading">¶</a></h3>
+<h3>9.5. Performance<a class="headerlink" href="#performance" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Use pagination for large result sets</p></li>
 <li><p>Cache metadata (types, units, locations) in your application</p></li>
@@ -1102,7 +1251,7 @@
 </ul>
 </section>
 <section id="security">
-<h3>6. Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
+<h3>9.6. Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Ensure you have proper permissions for factors</p></li>
 <li><p>Validate user access before making requests</p></li>
@@ -1117,14 +1266,14 @@
         
         <div class="related-pages">
           
-          <a class="prev-page" href="notebooks/tutorials/scope3/transportation_and_distribution_emission.html">
+          <a class="prev-page" href="notebooks/tutorials/scope3/real_estate_emissions.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Transportation and Distribution</div>
+                <div class="title">Real Estate</div>
                 
               </div>
             </a>
@@ -1161,53 +1310,56 @@
 <li><a class="reference internal" href="#">Troubleshooting Guide</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
 <li><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
-<li><a class="reference internal" href="#http-status-codes-summary">HTTP Status Codes Summary</a></li>
-<li><a class="reference internal" href="#error-response-format">Error Response Format</a></li>
-<li><a class="reference internal" href="#bad-request-errors-400">Bad Request Errors (400)</a><ul>
-<li><a class="reference internal" href="#invalid-json-format">1. Invalid JSON Format</a></li>
-<li><a class="reference internal" href="#unrecognized-field-in-request">2. Unrecognized Field in Request</a></li>
-<li><a class="reference internal" href="#missing-required-parameters">3. Missing Required Parameters</a></li>
-<li><a class="reference internal" href="#invalid-date-format">4. Invalid Date Format</a></li>
-<li><a class="reference internal" href="#invalid-location-data">5. Invalid Location Data</a></li>
-<li><a class="reference internal" href="#invalid-unit-of-measurement-uom">6. Invalid Unit of Measurement (UOM)</a></li>
-<li><a class="reference internal" href="#invalid-data-type">7. Invalid Data Type</a></li>
-<li><a class="reference internal" href="#invalid-factor-id">8. Invalid Factor ID</a></li>
-<li><a class="reference internal" href="#conflicting-input-parameters">9. Conflicting Input Parameters</a></li>
-<li><a class="reference internal" href="#invalid-value-list">10. Invalid Value/List</a></li>
-<li><a class="reference internal" href="#pagination-errors">11. Pagination Errors</a></li>
-<li><a class="reference internal" href="#validation-constraint-violations">12. Validation Constraint Violations</a></li>
+<li><a class="reference internal" href="#http-status-codes-summary">1. HTTP Status Codes Summary</a></li>
+<li><a class="reference internal" href="#error-response-format">2. Error Response Format</a></li>
+<li><a class="reference internal" href="#bad-request-errors-400">3. Bad Request Errors (400)</a><ul>
+<li><a class="reference internal" href="#invalid-json-format">3.1 Invalid JSON Format</a></li>
+<li><a class="reference internal" href="#unrecognized-field-in-request">3.2 Unrecognized Field in Request</a></li>
+<li><a class="reference internal" href="#missing-required-parameters">3.3 Missing Required Parameters</a></li>
+<li><a class="reference internal" href="#invalid-date-format">3.4 Invalid Date Format</a></li>
+<li><a class="reference internal" href="#invalid-location-data">3.5 Invalid Location Data</a></li>
+<li><a class="reference internal" href="#invalid-unit-of-measurement-uom">3.6 Invalid Unit of Measurement (UOM)</a></li>
+<li><a class="reference internal" href="#incompatible-unit-for-data-type">3.7 Incompatible Unit for Data Type</a></li>
+<li><a class="reference internal" href="#invalid-data-type">3.8 Invalid Data Type</a></li>
+<li><a class="reference internal" href="#invalid-factor-id">3.9 Invalid Factor ID</a></li>
+<li><a class="reference internal" href="#conflicting-input-parameters">3.10 Conflicting Input Parameters</a></li>
+<li><a class="reference internal" href="#invalid-value-list">3.11 Invalid Value/List</a></li>
+<li><a class="reference internal" href="#pagination-errors">3.12 Pagination Errors</a></li>
+<li><a class="reference internal" href="#validation-constraint-violations">3.13 Validation Constraint Violations</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#forbidden-errors-403">Forbidden Errors (403)</a><ul>
-<li><a class="reference internal" href="#access-denied-to-factor">Access Denied to Factor</a></li>
+<li><a class="reference internal" href="#forbidden-errors-403">4. Forbidden Errors (403)</a><ul>
+<li><a class="reference internal" href="#access-denied-to-factor">4.1. Access Denied to Factor</a></li>
+<li><a class="reference internal" href="#access-denied-to-licensed-content">4.2. Access Denied to Licensed Content</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#not-found-errors-404">Not Found Errors (404)</a><ul>
-<li><a class="reference internal" href="#resource-not-found">1. Resource Not Found</a></li>
+<li><a class="reference internal" href="#not-found-errors-404">5. Not Found Errors (404)</a><ul>
+<li><a class="reference internal" href="#resource-not-found">5.1. Resource Not Found</a></li>
+<li><a class="reference internal" href="#data-not-available">5.2. Data Not Available</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#method-not-allowed-errors-405">Method Not Allowed Errors (405)</a></li>
-<li><a class="reference internal" href="#internal-server-errors-500">Internal Server Errors (500)</a><ul>
-<li><a class="reference internal" href="#general-internal-error">General Internal Error</a></li>
+<li><a class="reference internal" href="#method-not-allowed-errors-405">6. Method Not Allowed Errors (405)</a></li>
+<li><a class="reference internal" href="#internal-server-errors-500">7. Internal Server Errors (500)</a><ul>
+<li><a class="reference internal" href="#general-internal-error">7.1. General Internal Error</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#common-error-scenarios-by-api">Common Error Scenarios by API</a><ul>
-<li><a class="reference internal" href="#location-api-carbon-location">Location API (<code class="docutils literal notranslate"><span class="pre">/carbon/location</span></code>)</a></li>
-<li><a class="reference internal" href="#stationary-api-carbon-stationary">Stationary API (<code class="docutils literal notranslate"><span class="pre">/carbon/stationary</span></code>)</a></li>
-<li><a class="reference internal" href="#mobile-api-carbon-mobile">Mobile API (<code class="docutils literal notranslate"><span class="pre">/carbon/mobile</span></code>)</a></li>
-<li><a class="reference internal" href="#fugitive-api-carbon-fugitive">Fugitive API (<code class="docutils literal notranslate"><span class="pre">/carbon/fugitive</span></code>)</a></li>
-<li><a class="reference internal" href="#factor-api-carbon-factor">Factor API (<code class="docutils literal notranslate"><span class="pre">/carbon/factor</span></code>)</a></li>
-<li><a class="reference internal" href="#search-api-carbon-factor-search">Search API (<code class="docutils literal notranslate"><span class="pre">/carbon/factor/search</span></code>)</a></li>
-<li><a class="reference internal" href="#calculation-api-carbon-calculation">Calculation API (<code class="docutils literal notranslate"><span class="pre">/carbon/calculation</span></code>)</a></li>
+<li><a class="reference internal" href="#common-error-scenarios-by-api">8. Common Error Scenarios by API</a><ul>
+<li><a class="reference internal" href="#location-api-carbon-location">8.1. Location API (<code class="docutils literal notranslate"><span class="pre">/carbon/location</span></code>)</a></li>
+<li><a class="reference internal" href="#stationary-api-carbon-stationary">8.2. Stationary API (<code class="docutils literal notranslate"><span class="pre">/carbon/stationary</span></code>)</a></li>
+<li><a class="reference internal" href="#mobile-api-carbon-mobile">8.3. Mobile API (<code class="docutils literal notranslate"><span class="pre">/carbon/mobile</span></code>)</a></li>
+<li><a class="reference internal" href="#fugitive-api-carbon-fugitive">8.4. Fugitive API (<code class="docutils literal notranslate"><span class="pre">/carbon/fugitive</span></code>)</a></li>
+<li><a class="reference internal" href="#factor-api-carbon-factor">8.5. Factor API (<code class="docutils literal notranslate"><span class="pre">/carbon/factor</span></code>)</a></li>
+<li><a class="reference internal" href="#search-api-carbon-factor-search">8.6. Search API (<code class="docutils literal notranslate"><span class="pre">/carbon/factor/search</span></code>)</a></li>
+<li><a class="reference internal" href="#calculation-api-carbon-calculation">8.7. Calculation API (<code class="docutils literal notranslate"><span class="pre">/carbon/calculation</span></code>)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#best-practices">Best Practices</a><ul>
-<li><a class="reference internal" href="#input-validation">1. Input Validation</a></li>
-<li><a class="reference internal" href="#error-handling">2. Error Handling</a></li>
-<li><a class="reference internal" href="#api-discovery">3. API Discovery</a></li>
-<li><a class="reference internal" href="#testing">4. Testing</a></li>
-<li><a class="reference internal" href="#performance">5. Performance</a></li>
-<li><a class="reference internal" href="#security">6. Security</a></li>
+<li><a class="reference internal" href="#best-practices">9. Best Practices</a><ul>
+<li><a class="reference internal" href="#input-validation">9.1. Input Validation</a></li>
+<li><a class="reference internal" href="#error-handling">9.2. Error Handling</a></li>
+<li><a class="reference internal" href="#api-discovery">9.3. API Discovery</a></li>
+<li><a class="reference internal" href="#testing">9.4. Testing</a></li>
+<li><a class="reference internal" href="#performance">9.5. Performance</a></li>
+<li><a class="reference internal" href="#security">9.6. Security</a></li>
 </ul>
 </li>
 </ul>
@@ -1222,8 +1374,8 @@
     </aside>
   </div>
 </div><script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/scripts/furo.js?v=46bd48cc"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     </body>
