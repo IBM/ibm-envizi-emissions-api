@@ -326,9 +326,8 @@
 “n”,
 “<code class="docutils literal notranslate"><span class="pre">`\n&quot;,</span>
 <span class="pre">&quot;[EAPI]\n&quot;,</span>
-<span class="pre">&quot;api.api_key</span> <span class="pre">=</span> <span class="pre">&lt;Your</span> <span class="pre">Emissions</span> <span class="pre">API</span> <span class="pre">Key&gt;\n&quot;,</span>
+<span class="pre">&quot;api.pat_token</span> <span class="pre">=</span> <span class="pre">&lt;Your</span> <span class="pre">Emissions</span> <span class="pre">API</span> <span class="pre">PAT</span> <span class="pre">token&gt;\n&quot;,</span>
 <span class="pre">&quot;api.tenant_id</span> <span class="pre">=</span> <span class="pre">&lt;Your</span> <span class="pre">Emissions</span> <span class="pre">API</span> <span class="pre">Tenant</span> <span class="pre">Id&gt;\n&quot;,</span>
-<span class="pre">&quot;api.org_id</span> <span class="pre">=</span> <span class="pre">&lt;Your</span> <span class="pre">Emissions</span> <span class="pre">API</span> <span class="pre">Org</span> <span class="pre">Id&gt;\n&quot;,</span>
 <span class="pre">&quot;`</span></code>”</p>
 </div></blockquote>
 <p>]</p>
@@ -351,7 +350,7 @@
 {</p>
 <blockquote>
 <div><p>“cell_type”: “code”,
-“execution_count”: null,
+“execution_count”: 1,
 “metadata”: {},
 “outputs”: [],
 “source”: [</p>
@@ -380,18 +379,31 @@
 {</p>
 <blockquote>
 <div><p>“cell_type”: “code”,
-“execution_count”: null,
+“execution_count”: 2,
 “metadata”: {},
-“outputs”: [],
+“outputs”: [</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><p>“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [</p>
+<blockquote>
+<div><p>“Authentication Successn”</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>],
 “source”: [</p>
 <blockquote>
 <div><p>“config = configparser.RawConfigParser()n”,
 “config.read([‘../../../auth/secrets.ini’,’../../../auth/config.ini’])n”,
 “n”,
-“EAPI_API_KEY        = config.get(‘EAPI’, ‘api.api_key’)n”,
+“EAPI_PAT_TOKEN      = config.get(‘EAPI’, ‘api.pat_token’)n”,
 “EAPI_TENANT_ID      = config.get(‘EAPI’, ‘api.tenant_id’)n”,
 “EAPI_CLIENT_ID      = ‘ghgemissions-’ + EAPI_TENANT_IDn”,
-“EAPI_ORG_ID         = config.get(‘EAPI’, ‘api.org_id’)n”,
 “n”,
 “EAPI_AUTH_CLIENT_ID = ‘saascore-’ + EAPI_TENANT_IDn”,
 “EAPI_AUTH_ENDPOINT  = config.get(‘EAPI’, ‘api.auth_endpoint’)n”,
@@ -400,14 +412,14 @@
 “EAPI_ENDPOINT       = f&quot;{EAPI_BASE_URL}/real-estate&quot;n”,
 “n”,
 “auth_request_headers: dict = {}n”,
-“auth_request_headers[&quot;X-IBM-CLIENT-ID&quot;] = EAPI_AUTH_CLIENT_IDn”,
-“auth_request_headers[&quot;X-API-KEY&quot;] = EAPI_API_KEYn”,
+“auth_request_headers[&quot;X-IBM-Client-Id&quot;] = EAPI_AUTH_CLIENT_IDn”,
+“auth_request_headers[&quot;X-IBM-Envizi-Pat&quot;] = EAPI_PAT_TOKENn”,
 “n”,
 “verify = Truen”,
 “n”,
-“auth_url = f&quot;{EAPI_AUTH_ENDPOINT}?orgId={EAPI_ORG_ID}&quot;n”,
+“auth_url = f&quot;{EAPI_AUTH_ENDPOINT}&quot;n”,
 “n”,
-“response = requests.get(url = auth_url,n”,
+“response = requests.post(url = auth_url,n”,
 “                        headers = auth_request_headers,n”,
 “                        verify  = verifyn”,
 “                       )n”,
@@ -437,7 +449,7 @@
 {</p>
 <blockquote>
 <div><p>“cell_type”: “code”,
-“execution_count”: null,
+“execution_count”: 12,
 “metadata”: {},
 “outputs”: [],
 “source”: [</p>
@@ -463,7 +475,7 @@
 {</p>
 <blockquote>
 <div><p>“cell_type”: “code”,
-“execution_count”: null,
+“execution_count”: 13,
 “metadata”: {},
 “outputs”: [],
 “source”: [</p>
@@ -496,9 +508,85 @@
 {</p>
 <blockquote>
 <div><p>“cell_type”: “code”,
-“execution_count”: null,
+“execution_count”: 14,
 “metadata”: {},
-“outputs”: [],
+“outputs”: [</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><p>“name”: “stdout”,
+“output_type”: “stream”,
+“text”: [</p>
+<blockquote>
+<div><p>“n”,
+“n”,
+“n”</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><dl>
+<dt>“data”: {</dt><dd><dl class="simple">
+<dt>“text/html”: [</dt><dd><p>“&lt;div&gt;n”,
+“&lt;style scoped&gt;n”,
+“    .dataframe tbody tr th:only-of-type {n”,
+“        vertical-align: middle;n”,
+“    }n”,
+“n”,
+“    .dataframe tbody tr th {n”,
+“        vertical-align: top;n”,
+“    }n”,
+“n”,
+“    .dataframe thead th {n”,
+“        text-align: right;n”,
+“    }n”,
+“&lt;/style&gt;n”,
+“&lt;table border=&quot;1&quot; class=&quot;dataframe&quot;&gt;n”,
+“  &lt;thead&gt;n”,
+“    &lt;tr style=&quot;text-align: right;&quot;&gt;n”,
+“      &lt;th&gt;&lt;/th&gt;n”,
+“      &lt;th&gt;transactionId&lt;/th&gt;n”,
+“      &lt;th&gt;totalCO2e&lt;/th&gt;n”,
+“      &lt;th&gt;energy(MWh)&lt;/th&gt;n”,
+“      &lt;th&gt;unit&lt;/th&gt;n”,
+“      &lt;th&gt;description&lt;/th&gt;n”,
+“    &lt;/tr&gt;n”,
+“  &lt;/thead&gt;n”,
+“  &lt;tbody&gt;n”,
+“    &lt;tr&gt;n”,
+“      &lt;th&gt;0&lt;/th&gt;n”,
+“      &lt;td&gt;c174b8d2-428f-41ca-96bb-7bb73bedc61f&lt;/td&gt;n”,
+“      &lt;td&gt;520700.941288&lt;/td&gt;n”,
+“      &lt;td&gt;2750.216841&lt;/td&gt;n”,
+“      &lt;td&gt;kgCO2e&lt;/td&gt;n”,
+“      &lt;td&gt;The Commercial Real Estate emissions factor used to calculate this result was obtained from the CBECS factor set for the United States year 2022 and the region New York.&lt;/td&gt;n”,
+“    &lt;/tr&gt;n”,
+“  &lt;/tbody&gt;n”,
+“&lt;/table&gt;n”,
+“&lt;/div&gt;”</p>
+</dd>
+</dl>
+<p>],
+“text/plain”: [</p>
+<blockquote>
+<div><p>“                          transactionId      totalCO2e  energy(MWh)    unit  \n”,
+“0  c174b8d2-428f-41ca-96bb-7bb73bedc61f  520700.941288  2750.216841  kgCO2e   n”,
+“n”,
+“                                                                                                                                                                 description  n”,
+“0  The Commercial Real Estate emissions factor used to calculate this result was obtained from the CBECS factor set for the United States year 2022 and the region New York.  “</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+“metadata”: {},
+“output_type”: “display_data”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>],
 “source”: [</p>
 <blockquote>
 <div><p>“if response.text != &quot;&quot;:n”,
@@ -532,6 +620,8 @@
 “n”,
 “n”,
 “&lt;b&gt;totalCO2e&lt;/b&gt;     - The total emissions as CO&lt;sub&gt;2&lt;/sub&gt; equivalent (CO&lt;sub&gt;2&lt;/sub&gt;e)n”,
+“n”,
+“&lt;b&gt;energy(MWh)&lt;/b&gt; - Total energy consumption of households, expressed in megawatt-hoursn”,
 “n”,
 “n”,
 “n”,
@@ -600,7 +690,7 @@
 “metadata”: {</p>
 <blockquote>
 <div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3”,
+<dt>“kernelspec”: {</dt><dd><p>“display_name”: “.venv”,
 “language”: “python”,
 “name”: “python3”</p>
 </dd>
@@ -619,7 +709,7 @@
 “name”: “python”,
 “nbconvert_exporter”: “python”,
 “pygments_lexer”: “ipython3”,
-“version”: “3.9.6”</p>
+“version”: “3.12.10”</p>
 </div></blockquote>
 <p>}</p>
 </div></blockquote>
