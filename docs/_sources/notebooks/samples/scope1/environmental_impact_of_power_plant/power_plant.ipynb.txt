@@ -83,9 +83,8 @@
     "\n",
     "```\n",
     "[EAPI]\n",
-    "api.api_key = <Your Emissions API Key>\n",
+    "api.pat_token = <Your Emissions API PAT token>\n",
     "api.tenant_id = <Your Emissions API Tenant Id>\n",
-    "api.org_id = <Your Emissions API Org Id>\n",
     "\n",
     "```"
    ]
@@ -102,7 +101,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -129,7 +128,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [
     {
@@ -144,10 +143,10 @@
     "config = configparser.RawConfigParser()\n",
     "config.read(['../../../../auth/secrets.ini','../../../../auth/config.ini'])\n",
     "\n",
-    "EAPI_API_KEY        = config.get('EAPI', 'api.api_key')\n",
+    "EAPI_PAT_TOKEN      = config.get('EAPI', 'api.pat_token')\n",
     "EAPI_TENANT_ID      = config.get('EAPI', 'api.tenant_id')\n",
     "EAPI_CLIENT_ID      = 'ghgemissions-' + EAPI_TENANT_ID\n",
-    "EAPI_ORG_ID         = config.get('EAPI', 'api.org_id')\n",
+    "\n",
     "\n",
     "EAPI_AUTH_CLIENT_ID = 'saascore-' + EAPI_TENANT_ID\n",
     "EAPI_AUTH_ENDPOINT  = config.get('EAPI', 'api.auth_endpoint')\n",
@@ -156,14 +155,14 @@
     "EAPI_ENDPOINT       = f\"{EAPI_BASE_URL}/stationary\"\n",
     "\n",
     "auth_request_headers: dict = {}\n",
-    "auth_request_headers[\"X-IBM-CLIENT-ID\"] = EAPI_AUTH_CLIENT_ID\n",
-    "auth_request_headers[\"X-API-KEY\"] = EAPI_API_KEY\n",
+    "auth_request_headers[\"X-IBM-Client-Id\"] = EAPI_AUTH_CLIENT_ID\n",
+    "auth_request_headers[\"X-IBM-Envizi-Pat\"] = EAPI_PAT_TOKEN\n",
     "\n",
     "verify = True\n",
     "\n",
-    "auth_url = f\"{EAPI_AUTH_ENDPOINT}?orgId={EAPI_ORG_ID}\"\n",
+    "auth_url = f\"{EAPI_AUTH_ENDPOINT}\"\n",
     "              \n",
-    "response = requests.get(url = auth_url,\n",
+    "response = requests.post(url = auth_url,\n",
     "                        headers = auth_request_headers,\n",
     "                        verify  = verify\n",
     "                       )\n",
@@ -267,7 +266,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": null,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -279,7 +278,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [
     {
@@ -324,13 +323,13 @@
        "  <tbody>\n",
        "    <tr>\n",
        "      <th>0</th>\n",
-       "      <td>77a08ab4-b506-443c-a72f-755a9a6cf41e</td>\n",
+       "      <td>6f79174b-71c4-417c-b760-1fb84c00d835</td>\n",
        "      <td>466.572457</td>\n",
        "      <td>463.103446</td>\n",
        "      <td>1.459638</td>\n",
        "      <td>2.009372</td>\n",
        "      <td>kgCO2e</td>\n",
-       "      <td>The coal - lignite emissions factor used to calculate this result was obtained from the  year 2025 GHG - EPA factor set for the area Earth.</td>\n",
+       "      <td>The Coal - Lignite emissions factor used to calculate this result was obtained from the EPA factor set for the Global region year 2025.</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
@@ -338,13 +337,13 @@
       ],
       "text/plain": [
        "                          transactionId   totalCO2e         CO2       CH4  \\\n",
-       "0  77a08ab4-b506-443c-a72f-755a9a6cf41e  466.572457  463.103446  1.459638   \n",
+       "0  6f79174b-71c4-417c-b760-1fb84c00d835  466.572457  463.103446  1.459638   \n",
        "\n",
        "        N2O    unit  \\\n",
        "0  2.009372  kgCO2e   \n",
        "\n",
-       "                                                                                                                                   description  \n",
-       "0  The coal - lignite emissions factor used to calculate this result was obtained from the  year 2025 GHG - EPA factor set for the area Earth.  "
+       "                                                                                                                               description  \n",
+       "0  The Coal - Lignite emissions factor used to calculate this result was obtained from the EPA factor set for the Global region year 2025.  "
       ]
      },
      "metadata": {},
@@ -973,7 +972,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.12.1"
+   "version": "3.12.10"
   }
  },
  "nbformat": 4,

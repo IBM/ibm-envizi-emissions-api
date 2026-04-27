@@ -416,149 +416,49 @@
 <li><p>If any conversion was necessary, and the conversion ratio used</p></li>
 </ul>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
-  &quot;result&quot;: {
-    &quot;transactionId&quot;: &quot;b8ec6b22-46b5-4107-9597-348079157127&quot;,
-    &quot;totalCO2e&quot;: 2.2284403999999998,
-    &quot;CO2&quot;: 2.2212781,
-    &quot;CH4&quot;: 0.0035562,
-    &quot;N2O&quot;: 0.0036061,
-    &quot;indirectCO2e&quot;: 0.1197581,
+    &quot;transactionId&quot;: &quot;d0731070-12c6-4980-a799-2e3c85ea416c&quot;,
+    &quot;totalCO2e&quot;: 2.1166026,
+    &quot;CO2&quot;: 2.1098214,
+    &quot;CH4&quot;: 0.0031751,
+    &quot;N2O&quot;: 0.0036060999999999997,
+    &quot;indirectCO2e&quot;: 0.0927947,
     &quot;unit&quot;: &quot;kgCO2e&quot;,
-    &quot;description&quot;: &quot;The electricity emissions factor used to calculate this result was obtained from the  year 2022 Managed - eGRID &amp; US Climate Leaders factor set for the area United States and the region New York.&quot;
-  },
-  &quot;data&quot;: {
-    &quot;unit&quot;: [
-      {
-        &quot;name&quot;: &quot;CH4(kgCO2e/unit)&quot;
-      },
-      {
-        &quot;name&quot;: &quot;CO2(kgCO2e/unit)&quot;
-      },
-      {
-        &quot;name&quot;: &quot;Indirect CO2e(kgCO2e/unit)&quot;
-      },
-      {
-        &quot;name&quot;: &quot;N2O(kgCO2e/unit)&quot;
-      },
-      {
-        &quot;name&quot;: &quot;Total CO2e(kgCO2e/unit)&quot;,
-        &quot;description&quot;: &quot;It equals the sum of CO2, CH4 and N2O per unit factors expressed in kg of CO2-equivalents. &quot;
-      }
-    ],
-    &quot;area&quot;: [
-      {
-        &quot;internalName&quot;: &quot;New York&quot;,
-        &quot;standardName&quot;: &quot;New York&quot;,
-        &quot;name&quot;: &quot;New York&quot;,
-        &quot;stdCode&quot;: &quot;ISO 3166-2:US-NY&quot;
-      }
-    ],
-    &quot;areaType&quot;: [
-      {
-        &quot;name&quot;: &quot;State&quot;
-      }
-    ],
-    &quot;factorDataTypeCategories&quot;: [
-      {
-        &quot;name&quot;: &quot;Other Metrics&quot;
-      }
-    ],
-    &quot;factorSet&quot;: [
-      {
-        &quot;type&quot;: &quot;Managed - eGRID &amp; US Climate Leaders&quot;,
-        &quot;description&quot;: &quot;The eGRID &amp; US Climate Leaders factor set combines data from three U.S. EPA sources: eGRID, US Climate Leaders, and USEEIO.\n\neGRID provides emissions, generation, and fuel mix data for nearly all U.S. electricity generation. It supports carbon footprinting, GHG inventories, and avoided emissions analysis.\n\nUS Climate Leaders offers GHG emission factors for fuels, refrigerants, waste, business travel, and distribution, updated every 1–2 years.\n\nUSEEIO includes spend-based emission factors for 394 commodities across 66 categories, supporting supply chain emissions analysis.\n\nTogether, these datasets support robust, standardized emissions modeling across energy use and procurement.&quot;,
-        &quot;provider&quot;: &quot;Federal Government of the United States: Environmental Protection Agency&quot;,
-        &quot;sourceUrl&quot;: &quot;https://www.epa.gov/egrid, https://www.epa.gov/climateleadership/ghg-emission-factors-hub, https://cfpub.epa.gov/si/si_public_record_Report.cfm?dirEntryId=349324&amp;Lab=CESER&quot;,
-        &quot;displayName&quot;: &quot;eGRID &amp; US Climate Leaders&quot;,
-        &quot;license&quot;: &quot;Public&quot;,
-        &quot;publish&quot;: true,
-        &quot;calculationOnly&quot;: false,
-        &quot;descriptionShort&quot;: &quot;The eGRID &amp; US Climate Leaders factor set is a combination of the eGRID, US Climate Leaders and USEEIO data sets from the Federal Government of the United States- Environmental Protection Agency.&quot;,
-        &quot;citation&quot;: &quot;USEEIO\nIngwersen, W. AND M. Li. Supply Chain Greenhouse Gas Emission Factors for US Industries and Commodities. U.S. Environmental Protection Agency, Washington, DC, EPA/600/R-20/001, 2020.&quot;
-      }
-    ],
-    &quot;factorDataTypeCode&quot;: [
-      {
-        &quot;unitOfMeasure&quot;: &quot;kWh&quot;
-      }
-    ],
-    &quot;factorSetVersion&quot;: [
-      {
-        &quot;effectiveFrom&quot;: &quot;2022-01-01&quot;,
-        &quot;publishedFrom&quot;: &quot;2024-01-01&quot;,
-        &quot;reviewOn&quot;: &quot;2025-02-01&quot;,
-        &quot;year&quot;: 2022,
-        &quot;factorSource&quot;: &quot;Year 2022 Data: 1/30/2024.Original file name: eGrid2022_summary_tables.xlsx, tab name: Table 3.GWP source: 2014 IPCC AR5 (N2O GWP = 265, CH4 GWP = 28); Source: https://www.epa.gov/egrid; Grid Gross Loss % taken from US average value in tab name: Table 1.&quot;
-      }
-    ],
-    &quot;factorValue&quot;: [
-      {
-        &quot;country&quot;: &quot;United States&quot;,
-        &quot;region&quot;: &quot;New York&quot;,
-        &quot;unit&quot;: {
-          &quot;name&quot;: &quot;N2O(kgCO2e/unit)&quot;
+    &quot;description&quot;: &quot;The Electricity emissions factor used to calculate this result was obtained from the US EPA/Climate Leaders + eGRID + USEEIO factor set for the United States year 2023 and the region New York.&quot;,
+    &quot;details&quot;: {
+        &quot;factorSet&quot;: {
+            &quot;name&quot;: &quot;US EPA/Climate Leaders + eGRID + USEEIO&quot;,
+            &quot;description&quot;: &quot;The eGRID &amp; US Climate Leaders factor set combines data from three U.S. EPA sources: eGRID, US Climate Leaders, and USEEIO.\n\neGRID provides emissions, generation, and fuel mix data for nearly all U.S. electricity generation. It supports carbon footprinting, GHG inventories, and avoided emissions analysis.\n\nUS Climate Leaders offers GHG emission factors for fuels, refrigerants, waste, business travel, and distribution, updated every 1–2 years.\n\nUSEEIO includes spend-based emission factors for 394 commodities across 66 categories, supporting supply chain emissions analysis.\n\nTogether, these datasets support robust, standardized emissions modeling across energy use and procurement.&quot;,
+            &quot;provider&quot;: &quot;Federal Government of the United States: Environmental Protection Agency&quot;,
+            &quot;sourceUrl&quot;: &quot;https://www.epa.gov/egrid, https://www.epa.gov/climateleadership/ghg-emission-factors-hub, https://cfpub.epa.gov/si/si_public_record_Report.cfm?dirEntryId=349324&amp;Lab=CESER&quot;,
+            &quot;citation&quot;: &quot;USEEIO\nIngwersen, W. AND M. Li. Supply Chain Greenhouse Gas Emission Factors for US Industries and Commodities. U.S. Environmental Protection Agency, Washington, DC, EPA/600/R-20/001, 2020.&quot;
         },
-        &quot;value&quot;: 3.6061E-4,
-        &quot;factorId&quot;: 158989
-      },
-      {
-        &quot;country&quot;: &quot;United States&quot;,
-        &quot;region&quot;: &quot;New York&quot;,
-        &quot;unit&quot;: {
-          &quot;name&quot;: &quot;Total CO2e(kgCO2e/unit)&quot;,
-          &quot;description&quot;: &quot;It equals the sum of CO2, CH4 and N2O per unit factors expressed in kg of CO2-equivalents. &quot;
-        },
-        &quot;value&quot;: 0.22284404,
-        &quot;factorId&quot;: 158989
-      },
-      {
-        &quot;country&quot;: &quot;United States&quot;,
-        &quot;region&quot;: &quot;New York&quot;,
-        &quot;unit&quot;: {
-          &quot;name&quot;: &quot;CO2(kgCO2e/unit)&quot;
-        },
-        &quot;value&quot;: 0.22212781,
-        &quot;factorId&quot;: 158989
-      },
-      {
-        &quot;country&quot;: &quot;United States&quot;,
-        &quot;region&quot;: &quot;New York&quot;,
-        &quot;unit&quot;: {
-          &quot;name&quot;: &quot;CH4(kgCO2e/unit)&quot;
-        },
-        &quot;value&quot;: 3.5562E-4,
-        &quot;factorId&quot;: 158989
-      },
-      {
-        &quot;country&quot;: &quot;United States&quot;,
-        &quot;region&quot;: &quot;New York&quot;,
-        &quot;unit&quot;: {
-          &quot;name&quot;: &quot;Indirect CO2e(kgCO2e/unit)&quot;
-        },
-        &quot;value&quot;: 0.01197581,
-        &quot;factorId&quot;: 158989
-      }
-    ],
-    &quot;factorMetaData&quot;: [
-      {
-        &quot;key&quot;: &quot;description&quot;,
-        &quot;value&quot;: &quot;2022 New York State CO2 output emission rate (489.708 lb/MWh), CH4 output emission rate (0.028 lb/MWh), N2O output emission rate (0.003 lb/MWh) converted to kg CO2e/kWh using 1 lb = 0.45359237 kg; Indirect CO2e is calculated as Total CO2e * Grid Gross Loss % / (1 - Grid Gross Loss %), with factors associated with eGRID regions using eGRID region specific GGL values, and factors associated with US state regions using the US average GGL value.&quot;,
-        &quot;factorId&quot;: 158989
-      },
-      {
-        &quot;key&quot;: &quot;name&quot;,
-        &quot;value&quot;: &quot;eGRID Electricity Year 2022&quot;,
-        &quot;factorId&quot;: 158989
-      }
-    ],
-    &quot;unitConversion&quot;: [
-      {
-        &quot;inputUnit&quot;: &quot;kwh&quot;,
-        &quot;unitFromDb&quot;: &quot;kWh&quot;,
-        &quot;conversionRatio&quot;: &quot;1:1&quot;
-      }
-    ]
-  }
+        &quot;factor&quot;: {
+            &quot;name&quot;: &quot;eGRID Electricity Year 2023&quot;,
+            &quot;description&quot;: &quot;2023 New York State CO2 output emission rate (465.136 lb/MWh), CH4 output emission rate (0.025 lb/MWh), N2O output emission rate (0.003 lb/MWh) converted to kg CO2e/kWh using 1 lb = 0.45359237 kg; Indirect CO2e is calculated as Total CO2e * Grid Gross Loss % / (1 - Grid Gross Loss %), with factors associated with eGRID regions using eGRID region specific GGL values, and factors associated with US state regions using the US average GGL value.&quot;,
+            &quot;totalCO2e&quot;: 0.21166026,
+            &quot;CO2&quot;: 0.21098214,
+            &quot;CH4&quot;: 3.1751E-4,
+            &quot;N2O&quot;: 3.6061E-4,
+            &quot;indirectCO2e&quot;: 0.00927947,
+            &quot;inputUnit&quot;: &quot;kwh&quot;,
+            &quot;unit&quot;: &quot;kWh&quot;,
+            &quot;conversionRatio&quot;: &quot;1:1&quot;,
+            &quot;activityType&quot;: &quot;Electricity&quot;,
+            &quot;activitySubtype&quot;: &quot;Default Factor&quot;,
+            &quot;factorId&quot;: 174027,
+            &quot;methodology&quot;: &quot;activity-based&quot;,
+            &quot;scopes&quot;: [
+                &quot;2&quot;,
+                &quot;3.1&quot;,
+                &quot;3.13&quot;,
+                &quot;3.3&quot;
+            ],
+            &quot;areaName&quot;: &quot;New York&quot;,
+            &quot;areaType&quot;: &quot;State&quot;,
+            &quot;publishedFrom&quot;: &quot;2025-01-01&quot;,
+            &quot;source&quot;: &quot;Year 2023 Data: 1/15/2025.Original file name: summary_tables_rev2.xlsx, tab name: Table 3.GWP source: 2014 IPCC AR5 (N2O GWP = 265, CH4 GWP = 28); Source: https://www.epa.gov/egrid; Grid Gross Loss % taken from US average value in tab name: Table 1.&quot;
+        }
+    }
 }
 </pre></div>
 </div>
