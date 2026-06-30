@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Troubleshooting Guide" href="../../../troubleshooting.html"><link rel="prev" title="Economic Activity" href="economic_activity_emissions.html">
+<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Physical Activity" href="physical_activity_emissions.html"><link rel="prev" title="Economic Activity" href="economic_activity_emissions.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Real Estate - IBM Envizi - Emissions API documentation</title>
@@ -209,9 +209,10 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../tutorials/general/index.html">General</a><input aria-label="Toggle navigation of General" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../general/calculation.html">Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../general/factor.html">Factor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../general/search.html">Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../general/search.html">Factor Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../general/type_search.html">Type Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../general/metadata.html">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../general/admin_audit_log.html">Audit Log Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../tutorials/scope1/index.html">Scope 1</a><input aria-label="Toggle navigation of Scope 1" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -228,6 +229,7 @@
 <li class="toctree-l3"><a class="reference internal" href="transportation_and_distribution_emission.html">Transportation and Distribution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="economic_activity_emissions.html">Economic Activity</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Real Estate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="physical_activity_emissions.html">Physical Activity</a></li>
 </ul>
 </li>
 </ul>
@@ -399,6 +401,57 @@ Authentication Success
 </pre></div>
 </div>
 </div>
+</section>
+<section id="Query-with-Attribution">
+<h2>Query with Attribution<a class="headerlink" href="#Query-with-Attribution" title="Link to this heading">¶</a></h2>
+<p>The example request payload (below) includes attribution for proportional allocation based on property value. This is useful for calculating financed emissions from real estate investments:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">payload_with_attribution</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;activity&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Commercial Real Estate:Office&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mi">123456</span><span class="p">,</span>
+    <span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;m2&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;country&quot;</span><span class="p">:</span> <span class="s2">&quot;USA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stateProvince&quot;</span><span class="p">:</span> <span class="s2">&quot;New York&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2022-01-01&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;attribution&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;outstandingAmount&quot;</span><span class="p">:</span> <span class="mf">1000000.0</span><span class="p">,</span>
+    <span class="s2">&quot;propertyValue&quot;</span><span class="p">:</span> <span class="mf">5000000.0</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Submit the request with attribution</span>
+<span class="n">response_with_attribution</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">EAPI_ENDPOINT</span><span class="p">,</span>
+                         <span class="n">headers</span> <span class="o">=</span> <span class="n">request_headers</span><span class="p">,</span>
+                         <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload_with_attribution</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">response_with_attribution</span><span class="o">.</span><span class="n">text</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+    <span class="n">response_json</span> <span class="o">=</span> <span class="n">response_with_attribution</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">json_str</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">response_json</span><span class="p">)</span>
+    <span class="n">dict_attr</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">json_str</span><span class="p">)</span>
+    <span class="n">dataframe_attr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">dict_attr</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Response with Attribution:&quot;</span><span class="p">)</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">dataframe_attr</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Empty Response&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -416,7 +469,7 @@ Authentication Success
 </pre></div>
 </div>
 </div>
-<p>For more information about allowable parameters for the payload, please see <a href="#id1"><span class="problematic" id="id2">`Emissions API Developer Guide &lt;&gt;`__</span></a>.</p>
+<p>For more information about allowable parameters for the payload, please see <a class="reference external" href="https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Introduction">Emissions API Developer Guide</a>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -520,12 +573,12 @@ Authentication Success
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../../../troubleshooting.html">
+          <a class="next-page" href="physical_activity_emissions.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Troubleshooting Guide</div>
+                <div class="title">Physical Activity</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -576,7 +629,8 @@ Authentication Success
 <li><a class="reference internal" href="#Authentication-Token">Authentication Token</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#Query">Query</a><ul>
+<li><a class="reference internal" href="#Query">Query</a></li>
+<li><a class="reference internal" href="#Query-with-Attribution">Query with Attribution</a><ul>
 <li><a class="reference internal" href="#Output-Explanation">Output Explanation</a></li>
 </ul>
 </li>

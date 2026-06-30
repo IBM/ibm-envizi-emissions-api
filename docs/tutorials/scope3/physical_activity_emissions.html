@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../genindex.html"><link rel="search" title="Search" href="../../search.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Search API Tutorial - IBM Envizi - Emissions API documentation</title>
+        <title>Physical Activity Emissions - IBM Envizi - Emissions API documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
@@ -205,7 +205,7 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../index.html">Tutorials</a><input aria-label="Toggle navigation of Tutorials" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">General</a><input aria-label="Toggle navigation of General" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../general/index.html">General</a><input aria-label="Toggle navigation of General" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/general/calculation.html">Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/general/factor.html">Factor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/general/search.html">Factor Search</a></li>
@@ -224,7 +224,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/scope2/location_based_emission.html">Location</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../scope3/index.html">Scope 3</a><input aria-label="Toggle navigation of Scope 3" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="index.html">Scope 3</a><input aria-label="Toggle navigation of Scope 3" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/scope3/transportation_and_distribution_emission.html">Transportation and Distribution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/scope3/economic_activity_emissions.html">Economic Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/scope3/real_estate_emissions.html">Real Estate</a></li>
@@ -254,7 +254,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/tutorials/general/search.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/tutorials/scope3/physical_activity_emissions.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -272,8 +272,424 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="search-api-tutorial">
-<h1>Search API Tutorial<a class="headerlink" href="#search-api-tutorial" title="Link to this heading">¶</a></h1>
+          <section id="physical-activity-emissions">
+<h1>Physical Activity Emissions<a class="headerlink" href="#physical-activity-emissions" title="Link to this heading">¶</a></h1>
+<dl>
+<dt>{</dt><dd><dl>
+<dt>“cells”: [</dt><dd><dl>
+<dt>{</dt><dd><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“# Physical Activityn”,
+“<strong>Table of contents</strong>n”,
+“n”,
+“- Overviewn”,
+“n”,
+“- Setupn”,
+“n”,
+“  - Authentication Tokenn”,
+“n”,
+“- Queryn”,
+“n”,
+“  - Output Descriptionn”,
+“n”,
+“- Related Links”</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Overviewn”,
+“n”,
+“Use the Physical Activity API to calculate emissions from physical activities and operations. The API supports emissions accounting aligned with Scope 3 Category 15 (Investments) under the GHG Protocol, enabling organizations to estimate financed emissions based on physical activity data such as area-based metrics for commercial real estate and other physical operations.n”,
+“n”,
+“In the API request, you provide the activity type, value, and unit of measurement. The API response provides a breakdown of emissions by gas and an aggregate CO2e value. The API supports attribution for private companies using equity/debt based calculations or EVIC (Enterprise Value Including Cash).”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Setupn”,
+“Ensure that Python 3+ is installed on your system.n”,
+“n”,
+“&lt;b&gt;Note:&lt;/b&gt; To run this notebook, you must first add your credentials to <cite>‘../../../auth/secrets.ini’</cite> in the following format:n”,
+“n”,
+“<code class="docutils literal notranslate"><span class="pre">`\n&quot;,</span>
+<span class="pre">&quot;[EAPI]\n&quot;,</span>
+<span class="pre">&quot;api.pat_token</span> <span class="pre">=</span> <span class="pre">&lt;Your</span> <span class="pre">Emissions</span> <span class="pre">API</span> <span class="pre">PAT</span> <span class="pre">token&gt;\n&quot;,</span>
+<span class="pre">&quot;api.tenant_id</span> <span class="pre">=</span> <span class="pre">&lt;Your</span> <span class="pre">Emissions</span> <span class="pre">API</span> <span class="pre">Tenant</span> <span class="pre">Id&gt;\n&quot;,</span>
+<span class="pre">&quot;`</span></code>”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“# Install the prerequisite Python packages.n”,
+“n”,
+“%pip install pandas configparser IPython requests”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“import pandas as pdn”,
+“import configparsern”,
+“import requestsn”,
+“import jsonn”,
+“from IPython.display import display as display_summary”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Authentication Tokenn”,
+“Run the following code snippet to generate a Bearer Token by using your api_key configured in secrets.ini.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“config = configparser.RawConfigParser()n”,
+“config.read([‘../../../auth/secrets.ini’,’../../../auth/config.ini’])n”,
+“n”,
+“EAPI_PAT_TOKEN      = config.get(‘EAPI’, ‘api.pat_token’)n”,
+“EAPI_TENANT_ID      = config.get(‘EAPI’, ‘api.tenant_id’)n”,
+“EAPI_CLIENT_ID      = ‘ghgemissions-’ + EAPI_TENANT_IDn”,
+“n”,
+“EAPI_AUTH_CLIENT_ID = ‘saascore-’ + EAPI_TENANT_IDn”,
+“EAPI_AUTH_ENDPOINT  = config.get(‘EAPI’, ‘api.auth_endpoint’)n”,
+“n”,
+“EAPI_BASE_URL       = config.get(‘EAPI’, ‘api.base_url’)n”,
+“EAPI_ENDPOINT       = f&quot;{EAPI_BASE_URL}/physical-activity&quot;n”,
+“n”,
+“auth_request_headers: dict = {}n”,
+“auth_request_headers[&quot;X-IBM-Client-Id&quot;] = EAPI_AUTH_CLIENT_IDn”,
+“auth_request_headers[&quot;X-IBM-Envizi-Pat&quot;] = EAPI_PAT_TOKENn”,
+“n”,
+“verify = Truen”,
+“n”,
+“auth_url = f&quot;{EAPI_AUTH_ENDPOINT}&quot;n”,
+“n”,
+“response = requests.post(url = auth_url,n”,
+“                        headers = auth_request_headers,n”,
+“                        verify  = verifyn”,
+“                       )n”,
+“if response.status_code == 200:n”,
+“    jwt_token = response.textn”,
+“    print(&quot;Authentication Success&quot;)n”,
+“else:     n”,
+“    print(&quot;Authentication Failed&quot;)n”,
+“    print(response.text)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Queryn”,
+“n”,
+“The example request payload (below) queries IBM Envizi - Emissions API for the emissions generated from 0.1 square kilometers of commercial real estate in the USA:”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“payload = {n”,
+“  &quot;activity&quot;: {n”,
+“    &quot;type&quot;: &quot;commercial real estate&quot;,n”,
+“    &quot;value&quot;: 0.1,n”,
+“    &quot;unit&quot;: &quot;km2&quot;n”,
+“  },n”,
+“  &quot;location&quot;: {n”,
+“    &quot;country&quot;: &quot;USA&quot;n”,
+“  },n”,
+“  &quot;time&quot;: {n”,
+“    &quot;date&quot;: &quot;2025-01-23&quot;n”,
+“  }n”,
+“}”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Query with Attribution (Equity/Debt Based)n”,
+“n”,
+“The example request payload (below) includes attribution for private companies using equity and debt values. This is useful for calculating financed emissions based on ownership structure:”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“payload_with_equity_debt = {n”,
+“  &quot;activity&quot;: {n”,
+“    &quot;type&quot;: &quot;commercial real estate&quot;,n”,
+“    &quot;value&quot;: 0.1,n”,
+“    &quot;unit&quot;: &quot;km2&quot;n”,
+“  },n”,
+“  &quot;location&quot;: {n”,
+“    &quot;country&quot;: &quot;USA&quot;n”,
+“  },n”,
+“  &quot;time&quot;: {n”,
+“    &quot;date&quot;: &quot;2025-01-23&quot;n”,
+“  },n”,
+“  &quot;attribution&quot;: {n”,
+“    &quot;outstandingAmount&quot;: 1000000,n”,
+“    &quot;totalEquity&quot;: 3000000,n”,
+“    &quot;totalDebt&quot;: 2000000n”,
+“  }n”,
+“}”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Query with Attribution (EVIC Based)n”,
+“n”,
+“The example request payload (below) includes attribution using EVIC (Enterprise Value Including Cash). This method is useful for calculating financed emissions based on enterprise value:”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“payload_with_evic = {n”,
+“  &quot;activity&quot;: {n”,
+“    &quot;type&quot;: &quot;commercial real estate&quot;,n”,
+“    &quot;value&quot;: 0.1,n”,
+“    &quot;unit&quot;: &quot;km2&quot;n”,
+“  },n”,
+“  &quot;location&quot;: {n”,
+“    &quot;country&quot;: &quot;USA&quot;n”,
+“  },n”,
+“  &quot;time&quot;: {n”,
+“    &quot;date&quot;: &quot;2025-01-23&quot;n”,
+“  },n”,
+“  &quot;attribution&quot;: {n”,
+“    &quot;outstandingAmount&quot;: 1000000.0,n”,
+“    &quot;evic&quot;: 10000000.0n”,
+“  }n”,
+“}”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“# Create the query headersn”,
+“request_headers: dict = {}n”,
+“request_headers[&quot;Content-Type&quot;] = &quot;application/json&quot;n”,
+“request_headers[&quot;x-ibm-client-id&quot;] = EAPI_CLIENT_IDn”,
+“request_headers[&quot;Authorization&quot;] = &quot;Bearer &quot; + jwt_tokenn”,
+“n”,
+“# Submit the requestn”,
+“response = requests.post(EAPI_ENDPOINT, n”,
+“                         headers = request_headers,n”,
+“                         data = json.dumps(payload))”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“For more information about allowable parameters for the payload, please see [Emissions API Developer Guide](<a class="reference external" href="https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Introduction">https://developer.ibm.com/apis/catalog/ghgemissions–ibm-envizi-emissions-api/Introduction</a>).”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“if response.text != &quot;&quot;:n”,
+“    # Get the response as jsonn”,
+“    response_json = response.json()n”,
+“    n”,
+“    # Get json and convert to dataframen”,
+“    json_str = json.dumps(response_json)n”,
+“    dict = json.loads(json_str)n”,
+“    dataframe = pd.json_normalize(dict) n”,
+“    n”,
+“    # displayn”,
+“    print(&quot;\n\n&quot;)n”,
+“    pd.set_option(‘display.max_colwidth’, None)n”,
+“    display( dataframe) n”,
+“else:n”,
+“    print(&quot;Empty Response&quot;) “</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“### Output Explanationn”,
+“n”,
+“&lt;b&gt;transactionId&lt;/b&gt; - An Emissions API transaction id.n”,
+“n”,
+“&lt;b&gt;totalCO2e&lt;/b&gt;     - The total emissions as CO&lt;sub&gt;2&lt;/sub&gt; equivalent (CO&lt;sub&gt;2&lt;/sub&gt;e)n”,
+“n”,
+“&lt;b&gt;co2&lt;/b&gt;           - The amount of CO&lt;sub&gt;2&lt;/sub&gt; (Carbon Dioxide) in the CO&lt;sub&gt;2&lt;/sub&gt;e value.n”,
+“n”,
+“&lt;b&gt;ch4&lt;/b&gt;           - The amount of CH&lt;sub&gt;4&lt;/sub&gt; (Methane) in the CO&lt;sub&gt;2&lt;/sub&gt;e value.n”,
+“n”,
+“&lt;b&gt;n2O&lt;/b&gt;           - The amount of N&lt;sub&gt;2&lt;/sub&gt;O (Nitrous Oxide) in the CO&lt;sub&gt;2&lt;/sub&gt;e value.n”,
+“n”,
+“&lt;b&gt;hfc&lt;/b&gt;           - The amount of HFCs (Hydrofluorocarbons) in the CO&lt;sub&gt;2&lt;/sub&gt;e value.n”,
+“n”,
+“&lt;b&gt;pfc&lt;/b&gt;           - The amount of PFCs (Perfluorocarbons) in the CO&lt;sub&gt;2&lt;/sub&gt;e value.n”,
+“n”,
+“&lt;b&gt;sf6&lt;/b&gt;           - The amount of SF&lt;sub&gt;6&lt;/sub&gt; (Sulphur Hexafluoride) in the CO&lt;sub&gt;2&lt;/sub&gt;e value.n”,
+“n”,
+“&lt;b&gt;nf3&lt;/b&gt;           - The amount of NF&lt;sub&gt;3&lt;/sub&gt; (Nitrogen Trifluoride) in the CO&lt;sub&gt;2&lt;/sub&gt;e value.n”,
+“n”,
+“&lt;b&gt;bioCo2&lt;/b&gt;        - The amount of bio CO&lt;sub&gt;2&lt;/sub&gt; in the CO&lt;sub&gt;2&lt;/sub&gt; value.n”,
+“n”,
+“&lt;b&gt;indirectCo2e&lt;/b&gt;  - The amount of CO&lt;sub&gt;2&lt;/sub&gt;e that is indirect in the CO&lt;sub&gt;2&lt;/sub&gt;e value.n”,
+“n”,
+“&lt;b&gt;unit&lt;/b&gt;          - The unit of measure of the values.n”,
+“n”,
+“&lt;b&gt;description&lt;/b&gt;   - A description of the source factor set of the factor used in the calculation.”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Related Linksn”,
+“n”,
+“[Emissions API Developer Guide](<a class="reference external" href="https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Introduction">https://developer.ibm.com/apis/catalog/ghgemissions–ibm-envizi-emissions-api/Introduction</a>)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<p>],
+“metadata”: {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3”,
+“language”: “python”,
+“name”: “python3”</p>
+</dd>
+</dl>
+<p>},
+“language_info”: {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“codemirror_mode”: {</dt><dd><p>“name”: “ipython”,
+“version”: 3</p>
+</dd>
+</dl>
+<p>},
+“file_extension”: “.py”,
+“mimetype”: “text/x-python”,
+“name”: “python”,
+“nbconvert_exporter”: “python”,
+“pygments_lexer”: “ipython3”,
+“version”: “3.8.0”</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+“nbformat”: 4,
+“nbformat_minor”: 4</p>
+</dd>
+</dl>
+<p>}</p>
 </section>
 
         </article>

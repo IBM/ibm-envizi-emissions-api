@@ -3,7 +3,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Metadata" href="metadata.html"><link rel="prev" title="Search" href="search.html">
+<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Metadata" href="metadata.html"><link rel="prev" title="Factor Search" href="search.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>Type Search - IBM Envizi - Emissions API documentation</title>
@@ -209,9 +209,10 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../../../tutorials/general/index.html">General</a><input aria-label="Toggle navigation of General" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="calculation.html">Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="factor.html">Factor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="search.html">Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="search.html">Factor Search</a></li>
 <li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Type Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_audit_log.html">Audit Log Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../tutorials/scope1/index.html">Scope 1</a><input aria-label="Toggle navigation of Scope 1" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -228,6 +229,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../scope3/transportation_and_distribution_emission.html">Transportation and Distribution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../scope3/economic_activity_emissions.html">Economic Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../scope3/real_estate_emissions.html">Real Estate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scope3/physical_activity_emissions.html">Physical Activity</a></li>
 </ul>
 </li>
 </ul>
@@ -385,6 +387,7 @@ Authentication Success
 <section id="Query">
 <h2>Query<a class="headerlink" href="#Query" title="Link to this heading">¶</a></h2>
 <p>The example request payload demonstrates how to search for activity types using IBM Envizi - Emissions API by specifying location (USA), a search term (“electricity”), pagination parameters (page 1, 20 results), and a reference date (January 4, 2025).</p>
+<p>The optional <code class="docutils literal notranslate"><span class="pre">enableReranker</span></code> flag (boolean, default <code class="docutils literal notranslate"><span class="pre">true</span></code>) controls whether a cross-encoder reranking step refines the result ordering. Set it to <code class="docutils literal notranslate"><span class="pre">false</span></code> to rank purely by semantic similarity.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -402,7 +405,8 @@ Authentication Success
   <span class="p">},</span>
   <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2025-01-04&quot;</span>
-  <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;enableReranker&quot;</span><span class="p">:</span> <span class="kc">True</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -646,6 +650,7 @@ Found 20 matching activity types
 <li><p>0.7 - 0.9: Good match (related concepts)</p></li>
 <li><p>0.5 - 0.7: Fair match (somewhat related)</p></li>
 </ul>
+<p>scope - List of distinct GHG Protocol scope(s) associated with the activity type (e.g., [“2”] for Scope 2, [“1”, “2”] when multiple scopes apply, “3.1”-“3.15” for Scope 3 categories). Omitted from the response when no scope information is available.</p>
 <p>Results are automatically sorted by confidence score in descending order, with the most relevant matches appearing first.</p>
 </section>
 </section>
@@ -676,7 +681,7 @@ Found 20 matching activity types
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Search</div>
+                <div class="title">Factor Search</div>
                 
               </div>
             </a>

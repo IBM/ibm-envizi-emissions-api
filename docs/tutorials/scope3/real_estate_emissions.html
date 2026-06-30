@@ -208,9 +208,10 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="../general/index.html">General</a><input aria-label="Toggle navigation of General" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/general/calculation.html">Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/general/factor.html">Factor</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/general/search.html">Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/general/search.html">Factor Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/general/type_search.html">Type Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/general/metadata.html">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/general/admin_audit_log.html">Audit Log Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../scope1/index.html">Scope 1</a><input aria-label="Toggle navigation of Scope 1" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -227,6 +228,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/scope3/transportation_and_distribution_emission.html">Transportation and Distribution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/scope3/economic_activity_emissions.html">Economic Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/scope3/real_estate_emissions.html">Real Estate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../notebooks/tutorials/scope3/physical_activity_emissions.html">Physical Activity</a></li>
 </ul>
 </li>
 </ul>
@@ -474,6 +476,76 @@
 <p>},
 {</p>
 <blockquote>
+<div><p>“cell_type”: “markdown”,
+“metadata”: {},
+“source”: [</p>
+<blockquote>
+<div><p>“## Query with Attributionn”,
+“n”,
+“The example request payload (below) includes attribution for proportional allocation based on property value. This is useful for calculating financed emissions from real estate investments:”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“payload_with_attribution = {n”,
+“  &quot;activity&quot;: {n”,
+“    &quot;type&quot;: &quot;Commercial Real Estate:Office&quot;,n”,
+“    &quot;value&quot;: 123456,n”,
+“    &quot;unit&quot;: &quot;m2&quot;n”,
+“  },n”,
+“  &quot;location&quot;: {n”,
+“    &quot;country&quot;: &quot;USA&quot;,n”,
+“    &quot;stateProvince&quot;: &quot;New York&quot;n”,
+“  },n”,
+“  &quot;time&quot;: {n”,
+“    &quot;date&quot;: &quot;2022-01-01&quot;n”,
+“  },n”,
+“  &quot;attribution&quot;: {n”,
+“    &quot;outstandingAmount&quot;: 1000000.0,n”,
+“    &quot;propertyValue&quot;: 5000000.0n”,
+“  }n”,
+“}”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cell_type”: “code”,
+“execution_count”: null,
+“metadata”: {},
+“outputs”: [],
+“source”: [</p>
+<blockquote>
+<div><p>“# Submit the request with attributionn”,
+“response_with_attribution = requests.post(EAPI_ENDPOINT, n”,
+“                         headers = request_headers, n”,
+“                         data = json.dumps(payload_with_attribution))n”,
+“n”,
+“if response_with_attribution.text != &quot;&quot;:n”,
+“    response_json = response_with_attribution.json()n”,
+“    json_str = json.dumps(response_json)n”,
+“    dict_attr = json.loads(json_str)n”,
+“    dataframe_attr = pd.json_normalize(dict_attr)n”,
+“    print(&quot;\n\nResponse with Attribution:&quot;)n”,
+“    pd.set_option(‘display.max_colwidth’, None)n”,
+“    display(dataframe_attr)n”,
+“else:n”,
+“    print(&quot;Empty Response&quot;)”</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
 <div><p>“cell_type”: “code”,
 “execution_count”: 13,
 “metadata”: {},
@@ -500,7 +572,7 @@
 “metadata”: {},
 “source”: [</p>
 <blockquote>
-<div><p>“For more information about allowable parameters for the payload, please see [Emissions API Developer Guide]().”</p>
+<div><p>“For more information about allowable parameters for the payload, please see [Emissions API Developer Guide](<a class="reference external" href="https://developer.ibm.com/apis/catalog/ghgemissions--ibm-envizi-emissions-api/Introduction">https://developer.ibm.com/apis/catalog/ghgemissions–ibm-envizi-emissions-api/Introduction</a>).”</p>
 </div></blockquote>
 <p>]</p>
 </div></blockquote>
@@ -690,7 +762,7 @@
 “metadata”: {</p>
 <blockquote>
 <div><dl class="simple">
-<dt>“kernelspec”: {</dt><dd><p>“display_name”: “.venv”,
+<dt>“kernelspec”: {</dt><dd><p>“display_name”: “Python 3”,
 “language”: “python”,
 “name”: “python3”</p>
 </dd>
@@ -709,7 +781,7 @@
 “name”: “python”,
 “nbconvert_exporter”: “python”,
 “pygments_lexer”: “ipython3”,
-“version”: “3.12.10”</p>
+“version”: “3.9.6”</p>
 </div></blockquote>
 <p>}</p>
 </div></blockquote>

@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Type Search" href="type_search.html"><link rel="prev" title="Factor" href="factor.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Search - IBM Envizi - Emissions API documentation</title>
+        <title>Factor Search - IBM Envizi - Emissions API documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -209,9 +209,10 @@
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../../../tutorials/general/index.html">General</a><input aria-label="Toggle navigation of General" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="calculation.html">Calculation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="factor.html">Factor</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Search</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Factor Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="type_search.html">Type Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metadata.html">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_audit_log.html">Audit Log Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../tutorials/scope1/index.html">Scope 1</a><input aria-label="Toggle navigation of Scope 1" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -228,6 +229,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../scope3/transportation_and_distribution_emission.html">Transportation and Distribution</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../scope3/economic_activity_emissions.html">Economic Activity</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../scope3/real_estate_emissions.html">Real Estate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../scope3/physical_activity_emissions.html">Physical Activity</a></li>
 </ul>
 </li>
 </ul>
@@ -271,8 +273,8 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="Search">
-<h1>Search<a class="headerlink" href="#Search" title="Link to this heading">¶</a></h1>
+          <section id="Factor-Search">
+<h1>Factor Search<a class="headerlink" href="#Factor-Search" title="Link to this heading">¶</a></h1>
 <p><strong>Table of contents</strong></p>
 <ul class="simple">
 <li><p>Overview</p></li>
@@ -384,6 +386,7 @@ Authentication Success
 <section id="Query">
 <h2>Query<a class="headerlink" href="#Query" title="Link to this heading">¶</a></h2>
 <p>The example request payload demonstrates how to search for emission factors using IBM Envizi - Emissions API by specifying location (India), a keyword (“gas”), pagination parameters (page 1, 30 results), and a reference date (January 4, 2024).</p>
+<p>The optional <code class="docutils literal notranslate"><span class="pre">enableReranker</span></code> flag (boolean, default <code class="docutils literal notranslate"><span class="pre">true</span></code>) controls whether a cross-encoder reranking step refines the result ordering. Set it to <code class="docutils literal notranslate"><span class="pre">false</span></code> to rank purely by semantic similarity.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -401,7 +404,8 @@ Authentication Success
   <span class="p">},</span>
   <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-04&quot;</span>
-  <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;enableReranker&quot;</span><span class="p">:</span> <span class="kc">True</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -963,7 +967,7 @@ Found 30 matching factors
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Search</a><ul>
+<li><a class="reference internal" href="#">Factor Search</a><ul>
 <li><a class="reference internal" href="#Overview">Overview</a></li>
 <li><a class="reference internal" href="#Setup">Setup</a><ul>
 <li><a class="reference internal" href="#Authentication-Token">Authentication Token</a></li>
