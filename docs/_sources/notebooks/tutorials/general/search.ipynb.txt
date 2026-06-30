@@ -162,7 +162,9 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "The example request payload demonstrates how to search for emission factors using IBM Envizi - Emissions API by specifying location (India), a keyword (\"gas\"), pagination parameters (page 1, 30 results), and a reference date (January 4, 2024)."
+    "The example request payload demonstrates how to search for emission factors using IBM Envizi - Emissions API by specifying location (India), a keyword (\"gas\"), pagination parameters (page 1, 30 results), and a reference date (January 4, 2024).\n",
+    "\n",
+    "The optional `enableReranker` flag (boolean, default `true`) controls whether a cross-encoder reranking step refines the result ordering. Set it to `false` to rank purely by semantic similarity."
    ]
   },
   {
@@ -184,7 +186,8 @@
     "  },\n",
     "  \"time\": {\n",
     "    \"date\": \"2024-01-04\"\n",
-    "  }\n",
+    "  },\n",
+    "  \"enableReranker\": True\n",
     "}"
    ]
   },
