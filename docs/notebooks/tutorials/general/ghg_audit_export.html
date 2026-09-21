@@ -3,10 +3,10 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="GHG Audit Export" href="ghg_audit_export.html"><link rel="prev" title="Metadata" href="metadata.html">
+<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Scope 1" href="../../../tutorials/scope1/index.html"><link rel="prev" title="Audit Log Configuration" href="admin_audit_log.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Audit Log Configuration - IBM Envizi - Emissions API documentation</title>
+        <title>GHG Audit Export - IBM Envizi - Emissions API documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -212,8 +212,8 @@
 <li class="toctree-l3"><a class="reference internal" href="search.html">Factor Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="type_search.html">Type Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="metadata.html">Metadata</a></li>
-<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">Audit Log Configuration</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ghg_audit_export.html">GHG Audit Export</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_audit_log.html">Audit Log Configuration</a></li>
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">GHG Audit Export</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../../tutorials/scope1/index.html">Scope 1</a><input aria-label="Toggle navigation of Scope 1" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -256,7 +256,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/notebooks/tutorials/general/admin_audit_log.ipynb.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/notebooks/tutorials/general/ghg_audit_export.ipynb.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -274,8 +274,8 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="Audit-Log-Configuration">
-<h1>Audit Log Configuration<a class="headerlink" href="#Audit-Log-Configuration" title="Link to this heading">¶</a></h1>
+          <section id="GHG-Audit-Export">
+<h1>GHG Audit Export<a class="headerlink" href="#GHG-Audit-Export" title="Link to this heading">¶</a></h1>
 <p><strong>Table of contents</strong></p>
 <ul class="simple">
 <li><p>Overview</p></li>
@@ -284,27 +284,29 @@
 <li><p>Authentication Token</p></li>
 </ul>
 </li>
-<li><p>Create Audit Log Configuration</p>
+<li><p>Trigger Audit Export</p>
 <ul>
 <li><p>Output Description</p></li>
 </ul>
 </li>
-<li><p>Get Audit Log Configuration</p>
+<li><p>Get Audit Export Status</p>
 <ul>
 <li><p>Output Description</p></li>
 </ul>
 </li>
+<li><p>Download Audit Export</p></li>
 <li><p>Related Links</p></li>
 </ul>
 <section id="Overview">
 <h2>Overview<a class="headerlink" href="#Overview" title="Link to this heading">¶</a></h2>
-<p>This notebook demonstrates how to use the admin audit log configuration APIs to update and retrieve audit logging preferences for your organization.</p>
-<p>These endpoints are intended for administrative users and allow you to:</p>
-<ul class="simple">
-<li><p>Update request and response logging configuration</p></li>
-<li><p>View the configuration set</p></li>
-</ul>
-<p>The APIs require an admin token. If the authenticated user is not an admin, the service returns <code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code>.</p>
+<p>This notebook demonstrates how to use the GHG Audit Export APIs to retrieve a full audit record of API activity for your organization for a given date range.</p>
+<p>The export is generated asynchronously. The workflow is:</p>
+<ol class="arabic simple">
+<li><p><strong>Trigger</strong> — submit an export request with a date range using <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/audit</span></code>.</p></li>
+<li><p><strong>Poll</strong> — check the status of the request using <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/audit/status</span></code> until the status is <code class="docutils literal notranslate"><span class="pre">COMPLETED</span></code> or <code class="docutils literal notranslate"><span class="pre">FAILED</span></code>.</p></li>
+<li><p><strong>Download</strong> — retrieve the ZIP archive using <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/audit/download</span></code> once the status is <code class="docutils literal notranslate"><span class="pre">COMPLETED</span></code>.</p></li>
+</ol>
+<p>All endpoints require an admin bearer token. If the authenticated user is not an admin, the service returns <code class="docutils literal notranslate"><span class="pre">403</span> <span class="pre">Forbidden</span></code>.</p>
 </section>
 <section id="Setup">
 <h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading">¶</a></h2>
@@ -326,13 +328,14 @@ api.tenant_id = &lt;Your Emissions API Tenant Id&gt;
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">configparser</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span> <span class="k">as</span> <span class="n">display_summary</span>
 </pre></div>
 </div>
@@ -387,23 +390,31 @@ Authentication Success
 </div>
 </section>
 </section>
-<section id="Create-Audit-Log-Configuration">
-<h2>Create Audit Log Configuration<a class="headerlink" href="#Create-Audit-Log-Configuration" title="Link to this heading">¶</a></h2>
-<p>Use <code class="docutils literal notranslate"><span class="pre">PUT</span> <span class="pre">/admin/audit-log</span></code> to update the audit logging preferences for the authenticated user’s organization.</p>
-<p>The request body accepts two boolean values:</p>
+<section id="Trigger-Audit-Export">
+<h2>Trigger Audit Export<a class="headerlink" href="#Trigger-Audit-Export" title="Link to this heading">¶</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/audit</span></code> to queue an audit export job for a given date range.</p>
+<p>The request body accepts the following parameters:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">logRequest</span></code>: Boolean value that enables or disables request payload logging.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">logResponse</span></code>: Boolean value that enables or disables response payload logging.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fromDate</span></code> (required): Start date of the audit period (inclusive), in <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code> format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">toDate</span></code> (required): End date of the audit period (inclusive), in <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code> format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apiName</span></code> (optional): Filter the export to a specific API endpoint — partial match on endpoint path.</p></li>
+</ul>
+<p>The endpoint returns:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">202</span> <span class="pre">Accepted</span></code> for a fresh request, or a retry after a previous failure.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">409</span> <span class="pre">Conflict</span></code> if an identical request is already in progress or has already completed.</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PUT_AUDIT_LOG_ENDPOINT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_BASE_URL</span><span class="si">}</span><span class="s2">/admin/audit-log&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AUDIT_ENDPOINT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_BASE_URL</span><span class="si">}</span><span class="s2">/audit&quot;</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;logRequest&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="s1">&#39;logResponse&#39;</span><span class="p">:</span> <span class="kc">False</span>
+    <span class="s1">&#39;fromDate&#39;</span><span class="p">:</span> <span class="s1">&#39;2025-01-01&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;toDate&#39;</span><span class="p">:</span>   <span class="s1">&#39;2025-03-31&#39;</span>
+    <span class="c1"># Optional: uncomment to filter by a specific API endpoint</span>
+    <span class="c1"># &#39;apiName&#39;: &#39;/location&#39;</span>
 <span class="p">}</span>
 
 <span class="n">request_headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -411,173 +422,204 @@ Authentication Success
 <span class="n">request_headers</span><span class="p">[</span><span class="s1">&#39;x-ibm-client-id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EAPI_CLIENT_ID</span>
 <span class="n">request_headers</span><span class="p">[</span><span class="s1">&#39;Authorization&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="n">jwt_token</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
-    <span class="n">PUT_AUDIT_LOG_ENDPOINT</span><span class="p">,</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="n">AUDIT_ENDPOINT</span><span class="p">,</span>
     <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">,</span>
     <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Status Code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span><span class="p">:</span>
     <span class="n">response_json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">request_id</span> <span class="o">=</span> <span class="n">response_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;requestId&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;requestId: </span><span class="si">{</span><span class="n">request_id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">display_summary</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">response_json</span><span class="p">))</span>
+<span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">409</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Conflict: an identical request is already in progress or completed.&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Empty Response&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Status Code: 200
-</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>logRequest</th>
-      <th>logResponse</th>
-      <th>message</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>True</td>
-      <td>False</td>
-      <td>Audit log configuration created successfully</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Status Code: 202
+requestId: tenant-uuid/20250101/20250331
+</pre></div></div>
 </div>
 <section id="Output-Description">
 <h3>Output Description<a class="headerlink" href="#Output-Description" title="Link to this heading">¶</a></h3>
-<p>logRequest - Boolean flag indicating whether request payload logging is enabled.</p>
-<p>logResponse - Boolean flag indicating whether response payload logging is enabled.</p>
-<p>message - Response message. On success, the API returns: <code class="docutils literal notranslate"><span class="pre">Audit</span> <span class="pre">log</span> <span class="pre">configuration</span> <span class="pre">created</span> <span class="pre">successfully</span></code> or <code class="docutils literal notranslate"><span class="pre">Audit</span> <span class="pre">log</span> <span class="pre">configuration</span> <span class="pre">updated</span> <span class="pre">successfully</span></code>. If no changes were made, returns: <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">change</span> <span class="pre">in</span> <span class="pre">audit</span> <span class="pre">log</span> <span class="pre">configuration</span></code>.</p>
+<p>requestId - Unique identifier for the export request. Pass this to the status and download endpoints.</p>
+<p>status - Current processing status. On acceptance this will be <code class="docutils literal notranslate"><span class="pre">QUEUED</span></code>.</p>
+<p>message - Human-readable result message.</p>
+<p>submittedAt - ISO-8601 timestamp indicating when the request was submitted.</p>
+<p>links - Hypermedia links for the status check and download endpoints.</p>
 <p>Possible HTTP status codes:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">200</span></code> - Configuration updated successfully</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">400</span></code> - Invalid request parameters</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">403</span></code> - User is not authorized to access the admin endpoint</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">409</span></code> - No change in audit log configuration (conflict)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">202</span></code> - Request accepted — fresh request or retry after a previous failure</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">400</span></code> - Bad request — missing or invalid parameters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">403</span></code> - Forbidden — admin token required</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">409</span></code> - Conflict — request is already in progress or already completed</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">500</span></code> - Internal server error</p></li>
 </ul>
 </section>
 </section>
-<section id="Get-Audit-Log-Configuration">
-<h2>Get Audit Log Configuration<a class="headerlink" href="#Get-Audit-Log-Configuration" title="Link to this heading">¶</a></h2>
-<p>Use <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/admin/audit-log</span></code> to retrieve the current audit logging configuration for the authenticated user’s organization.</p>
-<p>The response returns two boolean flags:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">logRequest</span></code>: whether request payload logging is enabled</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">logResponse</span></code>: whether response payload logging is enabled</p></li>
-</ul>
+<section id="Get-Audit-Export-Status">
+<h2>Get Audit Export Status<a class="headerlink" href="#Get-Audit-Export-Status" title="Link to this heading">¶</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/audit/status</span></code> to check the current processing status of an audit export request.</p>
+<p>Pass the <code class="docutils literal notranslate"><span class="pre">requestId</span></code> returned by <code class="docutils literal notranslate"><span class="pre">POST</span> <span class="pre">/audit</span></code> as a query parameter. The endpoint always returns <code class="docutils literal notranslate"><span class="pre">HTTP</span> <span class="pre">200</span></code> for a valid <code class="docutils literal notranslate"><span class="pre">requestId</span></code>; the <code class="docutils literal notranslate"><span class="pre">status</span></code> field in the response body indicates the actual job outcome.</p>
+<p>The tenant extracted from the token must match the tenant embedded in the <code class="docutils literal notranslate"><span class="pre">requestId</span></code>.</p>
+<p>Possible <code class="docutils literal notranslate"><span class="pre">status</span></code> values:</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Status</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">QUEUED</span></code></p></td>
+<td><p>Request accepted and waiting to be processed</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">IN_PROGRESS</span></code></p></td>
+<td><p>Report is currently being generated</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">COMPLETED</span></code></p></td>
+<td><p>Report is ready for download</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">FAILED</span></code></p></td>
+<td><p>Report generation failed — see <code class="docutils literal notranslate"><span class="pre">message</span></code> for details</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GET_AUDIT_LOG_ENDPOINT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_BASE_URL</span><span class="si">}</span><span class="s2">/admin/audit-log&quot;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AUDIT_STATUS_ENDPOINT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_BASE_URL</span><span class="si">}</span><span class="s2">/audit/status&quot;</span>
 
 <span class="n">request_headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="n">request_headers</span><span class="p">[</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;application/json&#39;</span>
 <span class="n">request_headers</span><span class="p">[</span><span class="s1">&#39;x-ibm-client-id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EAPI_CLIENT_ID</span>
 <span class="n">request_headers</span><span class="p">[</span><span class="s1">&#39;Authorization&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="n">jwt_token</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Polling status...&#39;</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="n">AUDIT_STATUS_ENDPOINT</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">,</span>
+        <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;requestId&#39;</span><span class="p">:</span> <span class="n">request_id</span><span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unexpected status code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        <span class="k">break</span>
+
+    <span class="n">status_json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">current_status</span> <span class="o">=</span> <span class="n">status_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Status: </span><span class="si">{</span><span class="n">current_status</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">current_status</span> <span class="o">==</span> <span class="s1">&#39;COMPLETED&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Export is ready for download.&#39;</span><span class="p">)</span>
+        <span class="n">display_summary</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">status_json</span><span class="p">))</span>
+        <span class="k">break</span>
+    <span class="k">elif</span> <span class="n">current_status</span> <span class="o">==</span> <span class="s1">&#39;FAILED&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Export failed: </span><span class="si">{</span><span class="n">status_json</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># QUEUED or IN_PROGRESS — wait before polling again</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Polling status...
+Status: QUEUED
+Status: IN_PROGRESS
+Status: COMPLETED
+Export is ready for download.
+</pre></div></div>
+</div>
+<section id="id1">
+<h3>Output Description<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>requestId - The unique identifier of the export request.</p>
+<p>status - Current job status: <code class="docutils literal notranslate"><span class="pre">QUEUED</span></code>, <code class="docutils literal notranslate"><span class="pre">IN_PROGRESS</span></code>, <code class="docutils literal notranslate"><span class="pre">COMPLETED</span></code>, or <code class="docutils literal notranslate"><span class="pre">FAILED</span></code>.</p>
+<p>submittedAt - ISO-8601 timestamp when the request was submitted. Present for <code class="docutils literal notranslate"><span class="pre">QUEUED</span></code>, <code class="docutils literal notranslate"><span class="pre">IN_PROGRESS</span></code>, and <code class="docutils literal notranslate"><span class="pre">FAILED</span></code> states.</p>
+<p>completedAt - ISO-8601 timestamp when the export completed. Present only when <code class="docutils literal notranslate"><span class="pre">status</span></code> is <code class="docutils literal notranslate"><span class="pre">COMPLETED</span></code>.</p>
+<p>message - Human-readable detail. Present when <code class="docutils literal notranslate"><span class="pre">status</span></code> is <code class="docutils literal notranslate"><span class="pre">FAILED</span></code> — describes why the export could not be generated.</p>
+<p>links.download - Download URL. Present only when <code class="docutils literal notranslate"><span class="pre">status</span></code> is <code class="docutils literal notranslate"><span class="pre">COMPLETED</span></code>.</p>
+<p>Possible HTTP status codes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">200</span></code> - Status returned — always HTTP 200 for a valid <code class="docutils literal notranslate"><span class="pre">requestId</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">400</span></code> - Invalid or missing <code class="docutils literal notranslate"><span class="pre">requestId</span></code>, or <code class="docutils literal notranslate"><span class="pre">requestId</span></code> belongs to a different tenant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">403</span></code> - Forbidden — admin token required</p></li>
+</ul>
+</section>
+</section>
+<section id="Download-Audit-Export">
+<h2>Download Audit Export<a class="headerlink" href="#Download-Audit-Export" title="Link to this heading">¶</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/audit/download</span></code> to download the completed audit export. This endpoint is only available when the export status is <code class="docutils literal notranslate"><span class="pre">COMPLETED</span></code>.</p>
+<p>The response is a ZIP archive (<code class="docutils literal notranslate"><span class="pre">application/octet-stream</span></code>) containing a single CSV file named <code class="docutils literal notranslate"><span class="pre">audit-export.csv</span></code>.</p>
+<p>The tenant extracted from the token must match the tenant embedded in the <code class="docutils literal notranslate"><span class="pre">requestId</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AUDIT_DOWNLOAD_ENDPOINT</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">EAPI_BASE_URL</span><span class="si">}</span><span class="s2">/audit/download&quot;</span>
+
+<span class="n">request_headers</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">request_headers</span><span class="p">[</span><span class="s1">&#39;x-ibm-client-id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">EAPI_CLIENT_ID</span>
+<span class="n">request_headers</span><span class="p">[</span><span class="s1">&#39;Authorization&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Bearer &#39;</span> <span class="o">+</span> <span class="n">jwt_token</span>
+
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
-    <span class="n">GET_AUDIT_LOG_ENDPOINT</span><span class="p">,</span>
-    <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span>
+    <span class="n">AUDIT_DOWNLOAD_ENDPOINT</span><span class="p">,</span>
+    <span class="n">headers</span><span class="o">=</span><span class="n">request_headers</span><span class="p">,</span>
+    <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;requestId&#39;</span><span class="p">:</span> <span class="n">request_id</span><span class="p">}</span>
 <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Status Code: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
-    <span class="n">response_json</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-    <span class="n">display_summary</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">response_json</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="s1">&#39;audit-export.zip&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Export saved to: </span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">409</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Report is still processing or generation failed. Check status before downloading.&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Empty Response&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Status Code: 200
+Export saved to: audit-export.zip
 </pre></div></div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>logRequest</th>
-      <th>logResponse</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-<section id="id1">
-<h3>Output Description<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
-<p>logRequest - Boolean flag indicating whether incoming request bodies are logged for audit purposes.</p>
-<p>logResponse - Boolean flag indicating whether outgoing response bodies are logged for audit purposes.</p>
-<p>Possible error responses:</p>
+<p>The downloaded ZIP archive contains a single file: <code class="docutils literal notranslate"><span class="pre">audit-export.csv</span></code>.</p>
+<p>Possible HTTP status codes:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">403</span></code> - User is not authorized to access the admin endpoint</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">404</span></code> - Audit log configuration was not found for the organization</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">400</span></code> - Bad request</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">500</span></code> - Internal server error</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">200</span></code> - ZIP file returned successfully</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">400</span></code> - Invalid <code class="docutils literal notranslate"><span class="pre">requestId</span></code> for this tenant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">403</span></code> - Forbidden — admin token required</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">409</span></code> - Report still processing, or generation failed</p></li>
 </ul>
-</section>
 </section>
 <section id="Related-Links">
 <h2>Related Links<a class="headerlink" href="#Related-Links" title="Link to this heading">¶</a></h2>
@@ -590,23 +632,23 @@ Status Code: 200
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="ghg_audit_export.html">
+          <a class="next-page" href="../../../tutorials/scope1/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">GHG Audit Export</div>
+                <div class="title">Scope 1</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="metadata.html">
+          <a class="prev-page" href="admin_audit_log.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Metadata</div>
+                <div class="title">Audit Log Configuration</div>
                 
               </div>
             </a>
@@ -640,20 +682,21 @@ Status Code: 200
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Audit Log Configuration</a><ul>
+<li><a class="reference internal" href="#">GHG Audit Export</a><ul>
 <li><a class="reference internal" href="#Overview">Overview</a></li>
 <li><a class="reference internal" href="#Setup">Setup</a><ul>
 <li><a class="reference internal" href="#Authentication-Token">Authentication Token</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#Create-Audit-Log-Configuration">Create Audit Log Configuration</a><ul>
+<li><a class="reference internal" href="#Trigger-Audit-Export">Trigger Audit Export</a><ul>
 <li><a class="reference internal" href="#Output-Description">Output Description</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#Get-Audit-Log-Configuration">Get Audit Log Configuration</a><ul>
+<li><a class="reference internal" href="#Get-Audit-Export-Status">Get Audit Export Status</a><ul>
 <li><a class="reference internal" href="#id1">Output Description</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#Download-Audit-Export">Download Audit Export</a></li>
 <li><a class="reference internal" href="#Related-Links">Related Links</a></li>
 </ul>
 </li>

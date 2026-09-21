@@ -13,3 +13,4 @@ This section contains general tutorials for the IBM Envizi Emissions API.
    ../../notebooks/tutorials/general/type_search
    ../../notebooks/tutorials/general/metadata
    ../../notebooks/tutorials/general/admin_audit_log
+   ../../notebooks/tutorials/general/ghg_audit_export
